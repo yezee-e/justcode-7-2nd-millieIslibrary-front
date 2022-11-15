@@ -1,9 +1,40 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 import './Login.scss';
 
 function Login() {
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
+  const [data, setData] = useState();
+
+  const emailHandler = e => {
+    setEmail(e.currentTarget.value);
+  };
+
+  const passwordHandler = e => {
+    setPassword(e.currentTarget.value);
+  };
+
+  const POSTloginInfo = () => {
+    fetch('http://localhost:8000/user/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        email: email,
+        password: password,
+      }),
+    })
+      .then(res => res.json())
+      .then(res => {
+        if (res.token) {
+          localStorage.setItem('token', res.token);
+        }
+      });
+  };
+
   return (
     <div className="mainLoginContainer">
       <div className="loginBoxMainPhoto" />
@@ -15,11 +46,13 @@ function Login() {
         <label className="labelIdBox">
           <div className="inner">
             <div className="input">
-              <span className="inputIdSpan">휴대폰 번호</span>
+              <span className="inputIdSpan">이메일</span>
               <input
+                maxLength="25"
                 type="text"
                 className="inputId"
-                placeholder="01012345678"
+                placeholder="ex)libraryIsPush@gmail.com"
+                onChange={emailHandler}
               />
             </div>
           </div>
@@ -33,13 +66,14 @@ function Login() {
                 type="password"
                 className="inputPw"
                 placeholder="비밀번호 입력"
+                onChange={passwordHandler}
               />
             </div>
           </div>
         </label>
 
         <div className="buttonBox">
-          <button disabled className="loginButton">
+          <button onClick={POSTloginInfo} className="loginButton">
             로그인
           </button>
         </div>

@@ -12,8 +12,8 @@ function Findpw() {
         <label className="labelNameBox">
           <div className="inner">
             <div className="input">
-              <span className="inputNameSpan">이름</span>
-              <input className="inputName" placeholder="이름 입력" />
+              <span className="inputNameSpan">이메일</span>
+              <input className="inputName" placeholder="이메일 입력" />
             </div>
           </div>
         </label>
@@ -21,11 +21,29 @@ function Findpw() {
         <label className="labelDateBox">
           <div className="inner">
             <div className="input">
-              <span className="inputDateSpan">생년월일,성별</span>
-              <input className="inputDateFront" placeholder="생년월일" />
-              <span className="minusLine">-</span>
-              <input className="inputDateBack" placeholder="0" />
-              <span className="dot">● ● ● ● ● ●</span>
+              <span className="inputDateSpan">비밀번호</span>
+              <input
+                minLength="8"
+                maxLength="16"
+                className="inputDateFront"
+                placeholder="비밀번호 입력"
+                type="password"
+              />
+            </div>
+          </div>
+        </label>
+
+        <label className="labelDateBox">
+          <div className="inner">
+            <div className="input">
+              <span className="inputDateSpan">비밀번호 확인</span>
+              <input
+                minLength="8"
+                maxLength="16"
+                type="password"
+                className="inputDateFront"
+                placeholder="비밀번호 확인"
+              />
             </div>
           </div>
         </label>
@@ -33,67 +51,15 @@ function Findpw() {
         <label className="labelCdBox">
           <div className="inner">
             <div className="input">
-              {/* <input className="inputCd" placeholder="비밀번호 입력" /> */}
-              <div class="dropdown">
-                <span className="inputCdSpan">통신사</span>
-                <button
-                  class="inputCd btn btn-secondary dropdown-toggle"
-                  type="button"
-                  id="dropdownMenuButton1"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  통신사 선택
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                  <li>
-                    <a class="dropdown-item" href="null">
-                      SKT
-                    </a>
-                  </li>
-                  <li>
-                    <a class="dropdown-item" href="null">
-                      KT
-                    </a>
-                  </li>
-                  <li>
-                    <a class="dropdown-item" href="null">
-                      LG U+
-                    </a>
-                  </li>
-                  <li>
-                    <a class="dropdown-item" href="null">
-                      SKT 알뜰폰
-                    </a>
-                  </li>
-                  <li>
-                    <a class="dropdown-item" href="null">
-                      KT 알뜰폰
-                    </a>
-                  </li>
-                  <li>
-                    <a class="dropdown-item" href="null">
-                      LG U+ 알뜰폰
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </label>
-
-        <label className="labelPhoneNumBox">
-          <div className="inner">
-            <div className="input">
-              <span className="inputPhoneNumSpan">휴대폰 번호</span>
-              <input className="inputPhoneNum" placeholder="01012345678" />
+              <span className="inputCdSpan">별명</span>
+              <input className="inputCd" placeholder="별명 입력" />
             </div>
           </div>
         </label>
 
         <div className="buttonBox">
           <button disabled className="loginButton">
-            로그인
+            비밀번호 찾기
           </button>
         </div>
       </div>

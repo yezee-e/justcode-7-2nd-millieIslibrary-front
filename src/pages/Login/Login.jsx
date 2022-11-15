@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
 import './Login.scss';
@@ -6,7 +7,8 @@ import './Login.scss';
 function Login() {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
-  const [data, setData] = useState();
+
+  const navigate = useNavigate();
 
   const emailHandler = e => {
     setEmail(e.currentTarget.value);
@@ -31,6 +33,7 @@ function Login() {
       .then(res => {
         if (res.token) {
           localStorage.setItem('token', res.token);
+          navigate(`/Today`);
         }
       });
   };

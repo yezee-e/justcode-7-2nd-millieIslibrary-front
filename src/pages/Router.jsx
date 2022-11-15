@@ -5,6 +5,7 @@ import Findpw from './Findpw/Findpw';
 import Home from './Home/Home';
 import Login from './Login/Login';
 import Signup from './Signup/Signup';
+import BookDetail from './BookDetail/BookDetail';
 
 function Router() {
   return (
@@ -14,6 +15,7 @@ function Router() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/findpw" element={<Findpw />} />
+        <Route path="/bookDetail" element={<BookDetail />} />
       </Routes>
     </BrowserRouter>
   );

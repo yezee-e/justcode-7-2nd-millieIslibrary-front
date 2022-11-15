@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import './Login.scss';
 
@@ -15,7 +16,11 @@ function Login() {
           <div className="inner">
             <div className="input">
               <span className="inputIdSpan">휴대폰 번호</span>
-              <input className="inputId" placeholder="01012345678" />
+              <input
+                type="text"
+                className="inputId"
+                placeholder="01012345678"
+              />
             </div>
           </div>
         </label>
@@ -24,7 +29,11 @@ function Login() {
           <div className="inner">
             <div className="input">
               <span className="inputPwSpan">비밀번호</span>
-              <input className="inputPw" placeholder="비밀번호 입력" />
+              <input
+                type="password"
+                className="inputPw"
+                placeholder="비밀번호 입력"
+              />
             </div>
           </div>
         </label>
@@ -37,15 +46,15 @@ function Login() {
 
         <ul className="loginSubMenu">
           <li>
-            <a>회원가입</a>
+            <Link to="/signup">회원가입</Link>
           </li>
           <div className="verticalBox" />
           <li>
-            <a>비밀번호 찾기</a>
+            <Link to="/findpw">비밀번호 찾기</Link>
           </li>
           <div className="verticalBox" />
           <li>
-            <a>기업회원 로그인</a>
+            <a href="null">기업회원 로그인</a>
           </li>
         </ul>
 

@@ -39,7 +39,7 @@
       display: block;
     }
 
-    .labelIdBox {
+    .labelNameBox {
       display: block;
       border: 1px solid #dfdfdf;
       height: 56px;
@@ -57,14 +57,14 @@
         flex: 1;
       }
 
-      .inputIdSpan {
+      .inputNameSpan {
         display: block;
         font-size: 10px;
         margin-bottom: 4px;
         color: #8b8b8b;
       }
 
-      .inputId {
+      .inputName {
         width: 100%;
         height: 24px;
         font-size: 16px;
@@ -75,7 +75,7 @@
       }
     }
 
-    .labelPwBox {
+    .labelDateBox {
       display: block;
       border: 1px solid #dfdfdf;
       height: 56px;
@@ -94,14 +94,114 @@
         flex: 1;
       }
 
-      .inputPwSpan {
+      .inputDateSpan {
         display: block;
         font-size: 10px;
         margin-bottom: 4px;
         color: #8b8b8b;
       }
 
-      .inputPw {
+      .inputDateFront {
+        width: 45%;
+        height: 24px;
+        font-size: 16px;
+        text-align: left;
+        color: #242424;
+        border: none;
+        outline: none;
+      }
+
+      .inputDateBack {
+        width: 4%;
+        height: 24px;
+        font-size: 16px;
+        text-align: left;
+        color: #242424;
+        border: none;
+        outline: none;
+        margin-left: 10px;
+      }
+
+      .minusLine {
+        font-size: 16px;
+        color: #242424;
+        padding: 8px 0;
+        margin-top: 16px;
+      }
+
+      .dot {
+        font-size: 16px;
+        color: #242424;
+        padding: 8px 0;
+        margin-top: 16px;
+      }
+    }
+
+    .labelCdBox {
+      display: block;
+      border: 1px solid #dfdfdf;
+      height: 56px;
+      padding: 2px 12px;
+      border-radius: 4px;
+      background-color: inherit;
+      margin-top: 6px;
+
+      .inner {
+        display: flex;
+        align-items: center;
+        height: 100%;
+      }
+
+      .input {
+        flex: 1;
+      }
+
+      .inputCdSpan {
+        display: block;
+        font-size: 10px;
+        margin-bottom: 4px;
+        color: #8b8b8b;
+      }
+
+      .inputCd {
+        width: 100%;
+        padding: 0;
+        height: 24px;
+        font-size: 16px;
+        text-align: left;
+        color: #757575;
+        border: none;
+        outline: none;
+        background-color: inherit;
+      }
+    }
+    .labelPhoneNumBox {
+      display: block;
+      border: 1px solid #dfdfdf;
+      height: 56px;
+      padding: 2px 12px;
+      border-radius: 4px;
+      background-color: inherit;
+      margin-top: 6px;
+
+      .inner {
+        display: flex;
+        align-items: center;
+        height: 100%;
+      }
+
+      .input {
+        flex: 1;
+      }
+
+      .inputPhoneNumSpan {
+        display: block;
+        font-size: 10px;
+        margin-bottom: 4px;
+        color: #8b8b8b;
+      }
+
+      .inputPhoneNum {
         width: 100%;
         height: 24px;
         font-size: 16px;
@@ -161,65 +261,22 @@
       }
     }
 
-    .or {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-bottom: 16px;
-      color: #a5a5a5;
-      font-size: 10px;
-
-      .orSpan {
-        padding: 0 24px;
-        position: absolute;
-
-        background-color: #fff;
-        padding: 0 24px;
-      }
-    }
-    .or::after {
-      content: '';
-      display: block;
-      height: 1px;
+    .foreignGuide {
       width: 100%;
-      background-color: #a5a5a5;
-    }
+      height: 20px;
+      margin-top: 25px;
+      margin-bottom: 10px;
 
-    .snsList {
-      width: 400px;
       display: flex;
-      align-items: center;
       justify-content: center;
-      margin-top: 20px;
-
-      button {
-        margin-right: 25px;
-      }
-      .kakaoTalkLogo {
-        width: 40px;
-        height: 40px;
-        background: url(../../img/카톡.png);
-        background-size: cover;
-        border-radius: 50%;
-        margin-left: 65px;
-      }
-      .naverLogo {
-        width: 40px;
-        height: 40px;
-        background: url(../../img/네이버.png);
-        background-size: cover;
-      }
-      .facebookLogo {
-        width: 40px;
-        height: 40px;
-        background: url(../../img/페이스북.png);
-        background-size: cover;
-      }
-      .appleLogo {
-        width: 40px;
-        height: 40px;
-        background: url(../../img/애플.png);
-        background-size: cover;
+      span {
+        color: #8b8b8b;
+        text-align: center;
+        button {
+          text-decoration: underline;
+          font-weight: bold;
+          margin-left: 3px;
+        }
       }
     }
   }

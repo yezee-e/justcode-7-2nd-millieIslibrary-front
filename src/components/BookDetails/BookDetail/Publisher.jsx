@@ -5,7 +5,7 @@ function Publisher({ publisher, publisher_url }) {
   return (
     <div className={css.PublisherWrap}>
       <h4>
-        <img src="/images/book.svg" alt="책 이미지" />
+        <img src="/img/book.svg" alt="책 이미지" />
         {publisher}
       </h4>
       <button

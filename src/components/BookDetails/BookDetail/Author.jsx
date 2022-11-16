@@ -14,11 +14,11 @@ function Accordion({ authorInfo }) {
         <h3>저자 소개</h3>
         {visible ? (
           <button>
-            <img src="/images/chevron-up.svg" alt="올리기 이미지" />
+            <img src="/img/chevron-up.svg" alt="올리기 이미지" />
           </button>
         ) : (
           <button>
-            <img src="/images/chevron-down.svg" alt="내리기 이미지" />
+            <img src="/img/chevron-down.svg" alt="내리기 이미지" />
           </button>
         )}
       </div>

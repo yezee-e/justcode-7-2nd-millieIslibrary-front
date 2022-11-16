@@ -1,0 +1,30 @@
+.nav-area {
+  border-bottom: 1px solid #dfdfdf;
+  height: 43px;
+  position: fixed;
+  width: 100%;
+  top: 60px;
+  z-index: 80;
+  background-color: white;
+  cursor: pointer;
+}
+.nav-bar {
+  display: flex;
+  margin-left: 170px;
+  gap: 40px;
+  padding: 15px 0;
+  font-weight: 400;
+  // #under-line {
+  //   height: 2px;
+  //   background-color: black;
+  //   position: absolute;
+  //   width: 41px;
+  //   left: 170px;
+  //   top: 41px;
+  //   padding: 0px;
+  // }
+}
+
+#dark .nav-area {
+  background-color: black;
+}

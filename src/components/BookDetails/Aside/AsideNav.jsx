@@ -6,15 +6,15 @@ function AsideNav() {
     <div className={css.asideContainer}>
       <div className={css.asideContent}>
         <button>
-          <img className={css.starFill} src="/images/bookshelf.svg" />
+          <img className={css.starFill} src="/img/bookshelf.svg" />
           내서재에 담기
         </button>
         <button>
-          <img className={css.starFill} src="/images/star.svg" />
+          <img className={css.starFill} src="/img/star.svg" />
           My Favorite
         </button>
         <button>
-          <img className={css.share} src="/images/share.svg" /> 공유하기
+          <img className={css.share} src="/img/share.svg" /> 공유하기
         </button>
         <button className={css.immediatelyBtn}>바로 담기</button>
       </div>

@@ -1,7 +1,7 @@
 .BookContainer {
   display: flex;
   position: relative;
-  height: 28vh;
+  height: 32vh;
   width: 850px;
   border-bottom: 12px solid #f7f7f7;
   padding: 20px;
@@ -47,13 +47,11 @@
       align-items: center;
       background-color: #f8f8f3;
       width: 100px;
-      margin-top: 28px;
+      margin-top: 65px;
       height: auto;
       font-size: 10px;
       color: #8b8b8b;
       font-weight: 300;
-      top: 63%;
-      left: 24.5%;
       text-align: center;
       border-radius: 12px;
       cursor: pointer;

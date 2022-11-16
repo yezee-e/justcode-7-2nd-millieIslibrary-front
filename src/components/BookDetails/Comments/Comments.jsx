@@ -1,10 +1,9 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import css from './Comments.module.scss';
 
 function Comments() {
   const [id, setId] = useState(1);
   const [text, setText] = useState('');
-  // const [comment, setComments] = useState([]);
   const [commentArray, setCommentArray] = useState([]);
   const value = useRef();
 
@@ -33,16 +32,6 @@ function Comments() {
       setText('');
     }
   };
-
-  // useEffect(() => {
-  //   fetch('/data/comments.json')
-  //     .then(res => res.json())
-  //     .then(data => {
-  //       setComments(data.comment);
-  //     });
-  // }, []);
-
-  console.log(text);
 
   return (
     <div className={css.commentsContainer}>

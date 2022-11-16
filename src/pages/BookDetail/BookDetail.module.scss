@@ -2,11 +2,13 @@
   display: flex;
   width: 100vw;
   justify-content: center;
+  position: relative;
 
   .container {
     display: grid;
     justify-content: space-between;
     width: 1100px;
+    margin-top: 63px;
     grid-template-columns: auto 250px;
     border-left: 1px solid #d5d5d5;
 

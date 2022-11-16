@@ -1,12 +1,23 @@
 .commentsContainer {
   padding: 24px;
-  display: flex;
-  h3 {
-    font-size: 14px;
-    font-weight: 500;
+
+  .commentTitle {
+    display: flex;
+    margin-bottom: 15px;
+    h3 {
+      font-size: 14px;
+      font-weight: 500;
+    }
+    .totalReview {
+      margin-left: 3px;
+      color: #ffb904;
+    }
   }
-  .totalReview {
-    margin-left: 3px;
-    color: #ffb904;
+  .commentSection {
+    img {
+      object-fit: cover;
+      border: 1px solid #000;
+      border-radius: 50%;
+    }
   }
 }

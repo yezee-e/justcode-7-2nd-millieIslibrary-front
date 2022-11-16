@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
-import { Button, Form, Nav } from 'react-bootstrap';
+import { Button, Nav } from 'react-bootstrap';
 import { FaRegBell } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import DarkMode from '../DarkMode/DarkMode.jsx';
 import './Header.scss';
 
-function Header({ toggleTheme }) {
+function Header() {
   const [tab, setTab] = useState(0);
+
   return (
     <Nav className="head">
       <div className="head-left">
@@ -45,14 +47,9 @@ function Header({ toggleTheme }) {
       </div>
 
       <div className="head-right">
+        <DarkMode />
         <FaRegBell className="head-right__icon" />
         <Button variant="dark">로그아웃</Button>
-        <Form.Check
-          onChange={toggleTheme}
-          type="switch"
-          id="custom-switch"
-          className="darkmode-btn"
-        />
       </div>
     </Nav>
   );

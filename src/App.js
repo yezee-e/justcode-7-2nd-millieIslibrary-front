@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import NavBar from './components/NavBar/NavBar';
 import Footer from './components/Footer/Footer';
 import Today from './pages/Home/Today';
-import './App.scss';
+import TopButton from './components/TopButton/TopButton';
 
 export const ThemeContext = createContext('light');
 
@@ -15,9 +15,10 @@ function App() {
   };
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
-      <div className="App" id={theme}>
+      <div id={theme}>
         <Header toggleTheme={toggleTheme} />
         <NavBar />
+        <TopButton />
         <Today />
         <Footer />
       </div>

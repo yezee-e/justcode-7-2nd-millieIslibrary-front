@@ -67,16 +67,6 @@
       font-weight: 500;
     }
   }
-  .darkmode-btn {
-    border-color: #dfdfdf;
-
-    :checked {
-      color: #000000;
-      background-color: #000000;
-      border-color: #dfdfdf;
-      outline: none;
-    }
-  }
 }
 #dark .head {
   background-color: black;

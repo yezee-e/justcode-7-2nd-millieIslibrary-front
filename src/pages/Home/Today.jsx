@@ -52,7 +52,7 @@ function Today() {
         <div>지금! 서점 베스트</div>
         <div>서점 3사 100위 내, 71권을 밀리에서 만나보세요</div>
         <div className="dragCard">
-          <div className="dragCard-title">한달이내 출간된 책</div>
+          <div className="dragCard-title">한 달이내 출간된 책</div>
           <DragCarousel />
         </div>
         <div className="dragCard">

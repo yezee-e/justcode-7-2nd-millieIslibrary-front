@@ -45,6 +45,7 @@ function DragCarousel() {
     }
   };
 
+  //쓰로틀 구현
   const throttle = (func, ms) => {
     let throttled = false;
     return (...args) => {
@@ -58,7 +59,7 @@ function DragCarousel() {
     };
   };
 
-  const delay = 100;
+  const delay = 50; //속도 50ms만큼 느려짐
   const onThrottleDragMove = throttle(onDragMove, delay);
 
   return (

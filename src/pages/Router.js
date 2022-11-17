@@ -4,7 +4,7 @@ import App from '../App';
 import Login from './Login/Login';
 import Signup from './Signup/Signup';
 import BookDetail from './BookDetail/BookDetail';
-import MyShelf from './Myshelf/Myshelf';
+import MyShelf from './MyShelf/MyShelf';
 import Home from './Home/Home';
 import Findpw from './Findpw/Findpw';
 

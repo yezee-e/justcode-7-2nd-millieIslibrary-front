@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 import css from './Comments.module.scss';
 import CommentList from './CommentList';
 
-function Comments() {
+function Comments({ setReviewCount }) {
   const [id, setId] = useState(1);
   const [text, setText] = useState('');
   const [commentArray, setCommentArray] = useState([]);
@@ -16,6 +16,7 @@ function Comments() {
       createdAt: new Date().toLocaleString(),
     };
     setCommentArray([...commentArray, newComment]);
+    setReviewCount(commentArray.length + 1);
   };
 
   const commentInput = event => {

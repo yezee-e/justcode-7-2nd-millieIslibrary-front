@@ -6,14 +6,16 @@ import Signup from './Signup/Signup';
 import BookDetail from './BookDetail/BookDetail';
 import Home from './Home/Home';
 import Findpw from './Findpw/Findpw';
+import Search from './Search/Search';
 
 function Router() {
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/login" element={<Login />} />
+      <Route path="/" element={<Login />} />
+      <Route path="/home" element={<Home />} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/findpw" element={<Findpw />} />
+      <Route path="/search" element={<Search />} />
       <Route path="/bookDetail" element={<BookDetail />} />
     </Routes>
   );

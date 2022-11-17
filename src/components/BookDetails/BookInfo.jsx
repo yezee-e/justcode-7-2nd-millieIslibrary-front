@@ -57,6 +57,7 @@ function BookInfo() {
         )
       )}
       <Comments />
+      <div className={css.ad}></div>
     </>
   );
 }

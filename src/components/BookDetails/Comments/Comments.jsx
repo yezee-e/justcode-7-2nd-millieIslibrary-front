@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react';
 import css from './Comments.module.scss';
+import CommentList from './CommentList';
 
 function Comments() {
   const [id, setId] = useState(1);
@@ -33,6 +34,10 @@ function Comments() {
     }
   };
 
+  const onRemove = id => {
+    setCommentArray(commentArray.filter(props => props.id !== id));
+  };
+
   return (
     <div className={css.commentsContainer}>
       <div className={css.commentTitle}>
@@ -40,33 +45,17 @@ function Comments() {
         <h3 className={css.totalReview}>{commentArray.length}</h3>
       </div>
       <ul>
-        {commentArray.map(({ id, plusComment, createdAt }) => (
-          <li className={css.commentSection} key={id}>
-            <div className={css.imgBox}>
-              <img
-                src="http://t1.daumcdn.net/friends/prod/editor/dc8b3d02-a15a-4afa-a88b-989cf2a50476.jpg"
-                alt="유저 이미지"
-              />
-            </div>
-            <div className={css.textBox}>
-              <div className={css.nickName}>
-                <p>hi_Ryan</p>
-                <button className={css.more}>
-                  <img src="/img/more.svg" alt="" />
-                </button>
-              </div>
-              <span className={css.date}>{createdAt}</span>
-              <span>{plusComment}</span>
-              <div className={css.reviewLike}>
-                <p>이 리뷰가 마음에 드시나요?</p>
-                <button type="button" className={css.likeBtn}>
-                  <img src="img/heart.svg" />
-                  <span>1</span>
-                </button>
-              </div>
-            </div>
-          </li>
-        ))}
+        {commentArray.map(props => {
+          return (
+            <CommentList
+              key={props.id}
+              id={props.id}
+              createdAt={props.createdAt}
+              plusComment={props.plusComment}
+              onRemove={onRemove}
+            />
+          );
+        })}
         <div className={css.commentBox}>
           <div className={css.commentImg}>
             <img

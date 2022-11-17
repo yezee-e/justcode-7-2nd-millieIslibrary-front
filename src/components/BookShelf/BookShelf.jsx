@@ -27,6 +27,7 @@ function BookShelf() {
         </div>
         <section>
           <Shelf />
+          <Shelf />
           <div className={css.footer}>
             <img
               src="https://images.unsplash.com/photo-1586075010923-2dd4570fb338?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1287&q=80"

@@ -1,7 +1,7 @@
 .asideContainer {
   display: flex;
   position: fixed;
-  width: 260px;
+  width: 280px;
   height: 100vh;
   border-left: 1px solid #d5d5d5;
   border-right: 1px solid #d5d5d5;
@@ -14,7 +14,7 @@
     button {
       display: flex;
       padding: 15px 15px 15px 20px;
-      font-size: 13px;
+      font-size: 14px;
       font-weight: 500;
       border-bottom: 1px solid #d5d5d5;
       cursor: pointer;
@@ -33,7 +33,7 @@
       justify-content: center;
     }
     img {
-      margin-right: 7px;
+      margin-right: 10px;
       width: 15px;
     }
 

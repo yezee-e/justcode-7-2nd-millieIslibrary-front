@@ -2,7 +2,7 @@ import React from 'react';
 import BookShelf from '../../components/BookShelf/BookShelf';
 import Header from '../../components/Header/Header';
 
-function MyShelf() {
+function Myshelf() {
   return (
     <>
       <Header />
@@ -11,4 +11,4 @@ function MyShelf() {
   );
 }
 
-export default MyShelf;
+export default Myshelf;

@@ -1,0 +1,44 @@
+.asideContainer {
+  display: flex;
+  position: fixed;
+  width: 260px;
+  height: 100vh;
+  border-left: 1px solid #d5d5d5;
+  border-right: 1px solid #d5d5d5;
+
+  .asideContent {
+    display: grid;
+    width: 100%;
+    height: 100px;
+
+    button {
+      display: flex;
+      padding: 15px 15px 15px 20px;
+      font-size: 13px;
+      font-weight: 500;
+      border-bottom: 1px solid #d5d5d5;
+      cursor: pointer;
+    }
+
+    .immediatelyBtn {
+      display: flex;
+      position: absolute;
+      top: 92%;
+      left: 5.5%;
+      background-color: #333333;
+      color: white;
+      font-weight: 300;
+      width: 75%;
+      border-radius: 5px;
+      justify-content: center;
+    }
+    img {
+      margin-right: 7px;
+      width: 15px;
+    }
+
+    svg {
+      fill: #ff0; /*노란색으로 변경*/
+    }
+  }
+}

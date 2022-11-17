@@ -1,0 +1,22 @@
+.foot-area {
+  height: 200px;
+  border-top: 1px solid #dfdfdf;
+  .foot-container {
+    padding-top: 26px;
+  }
+  .foot-title {
+    font-weight: 700;
+  }
+  .foot-info {
+    padding: 28px 0;
+    font-size: 5px;
+    color: #d3d3d4;
+  }
+
+  .footer-notice {
+    display: flex;
+
+    color: #6f6f6f;
+    font-size: 13px;
+  }
+}

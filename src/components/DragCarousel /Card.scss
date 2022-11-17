@@ -1,0 +1,17 @@
+.card-area {
+  margin-right: 12px;
+  cursor: pointer;
+  img {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  }
+
+  .title {
+    font-weight: 600;
+    font-size: 17px;
+    margin: 10px 0;
+  }
+  .author {
+    color: #6f6f6f;
+    font-weight: 300;
+  }
+}

@@ -1,0 +1,10 @@
+.card-wrap {
+  display: flex;
+  position: relative;
+  align-items: center;
+  overflow-x: scroll;
+}
+
+.card-wrap::-webkit-scrollbar {
+  display: none;
+}

@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import Login from './Login/Login';
 import Signup from './Signup/Signup';
 import BookDetail from './BookDetail/BookDetail';
+import Myshelf from './Myshelf/Myshelf';
 import Home from './Home/Home';
 import Findpw from './Findpw/Findpw';
 
@@ -23,6 +24,7 @@ function Router() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/findpw" element={<Findpw />} />
           <Route path="/bookDetail" element={<BookDetail />} />
+          <Route path="/myshelf" element={<Myshelf />} />
         </Routes>
       </div>
     </ThemeContext.Provider>

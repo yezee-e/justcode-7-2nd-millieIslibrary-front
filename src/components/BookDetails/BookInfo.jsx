@@ -8,6 +8,7 @@ import Comments from './Comments/Comments';
 
 function BookInfo() {
   const [item, setItem] = useState([]);
+  const [reviewCount, setReviewCount] = useState(0);
 
   useEffect(() => {
     fetch('/data/book.json')
@@ -39,9 +40,9 @@ function BookInfo() {
                 <p className={css.title}>{title}</p>
                 <p className={css.author}>{author}</p>
                 <div className={css.commentBox}>
-                  <img src="/images/comment.png" alt="" />
+                  <img src="/img/comment.png" alt="" />
                   <p>한 줄 리뷰</p>
-                  <p className={css.total}>1개</p>
+                  <p className={css.total}>{reviewCount}개</p>
                 </div>
               </div>
             </div>
@@ -56,7 +57,8 @@ function BookInfo() {
           </div>
         )
       )}
-      <Comments />
+      <Comments setReviewCount={setReviewCount} />
+      <div className={css.ad}></div>
     </>
   );
 }

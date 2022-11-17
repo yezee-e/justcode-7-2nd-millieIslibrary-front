@@ -37,7 +37,11 @@ function Header() {
           </Link>
         </Nav.Item>
         <Nav.Item className="head-tab">
-          <Link to="/" className="head-tab__link" onClick={() => setTab(2)}>
+          <Link
+            to="/myshelf"
+            className="head-tab__link"
+            onClick={() => setTab(2)}
+          >
             {tab == 2 ? (
               <div style={{ fontWeight: 800 }}>내서재</div>
             ) : (

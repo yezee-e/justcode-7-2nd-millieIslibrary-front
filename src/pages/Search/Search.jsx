@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './Search.scss';
 import Header from '../../components/Header/Header';
 import SearchBar from '../../components/SearchTapComponets/SearchBar';
@@ -8,8 +8,19 @@ import Audio from '../../components/SearchTapComponets/Audio';
 import Shotcutbox from '../../components/SearchTapComponets/Shotcutbox';
 import Category from '../../components/SearchTapComponets/Category';
 import Wordrecommend from '../../components/SearchTapComponets/Wordrecommend';
+import Rank from '../../components/SearchTapComponets/Rank';
 
 function Search() {
+  const [rank, setRank] = useState([]);
+
+  useEffect(() => {
+    fetch('./data/ranking.json')
+      .then(res => res.json())
+      .then(data => setRank(data.rank));
+  }, []);
+
+  console.log(rank[rank.length - 1]);
+
   return (
     <div>
       <Header />
@@ -19,9 +30,9 @@ function Search() {
           <section className="sectionArea">
             <div className="searchBodyWrap">
               <div className="rankingBox">
-                <ul className="rankingArea">
-                  <li>예시</li>
-                </ul>
+                {rank.map((list, idx) => {
+                  return <Rank key={list.id} title={list.title} idx={idx} />;
+                })}
               </div>
 
               <div className="searchWordRecommendArea">

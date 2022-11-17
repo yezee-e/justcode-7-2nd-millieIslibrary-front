@@ -78,20 +78,19 @@
       .rankingBox {
         position: relative;
         width: 100%;
-        height: 100px;
+        height: 40px;
         padding: 16px 0 16px 0;
-
+        overflow: hidden;
         align-items: center;
-        // background-color: aquamarine;
+        margin: 15px 0 15px 0;
 
         .rankingArea {
-          position: absolute;
           width: 100%;
+          height: 100%;
           top: 40px;
           left: 0;
           padding: 0;
           margin: 0;
-          // background-color: beige;
         }
       }
       .searchWordRecommendArea {

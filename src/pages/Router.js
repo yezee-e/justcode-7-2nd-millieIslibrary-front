@@ -4,6 +4,7 @@ import App from '../App';
 import Login from './Login/Login';
 import Signup from './Signup/Signup';
 import BookDetail from './BookDetail/BookDetail';
+import MyShelf from './Myshelf/Myshelf';
 import Home from './Home/Home';
 import Findpw from './Findpw/Findpw';
 import Search from './Search/Search';
@@ -17,6 +18,7 @@ function Router() {
       <Route path="/findpw" element={<Findpw />} />
       <Route path="/search" element={<Search />} />
       <Route path="/bookDetail" element={<BookDetail />} />
+      <Route path="/myshelf" element={<MyShelf />} />
     </Routes>
   );
 }

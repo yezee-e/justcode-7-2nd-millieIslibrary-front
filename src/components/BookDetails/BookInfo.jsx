@@ -39,7 +39,7 @@ function BookInfo() {
                 <p className={css.title}>{title}</p>
                 <p className={css.author}>{author}</p>
                 <div className={css.commentBox}>
-                  <img src="/images/comment.png" alt="" />
+                  <img src="/img/comment.png" alt="" />
                   <p>한 줄 리뷰</p>
                   <p className={css.total}>1개</p>
                 </div>
@@ -57,6 +57,7 @@ function BookInfo() {
         )
       )}
       <Comments />
+      <div className={css.ad}></div>
     </>
   );
 }

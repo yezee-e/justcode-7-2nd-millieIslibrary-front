@@ -164,17 +164,15 @@
     .or {
       display: flex;
       justify-content: center;
-      align-items: center;
       margin-bottom: 16px;
       color: #a5a5a5;
       font-size: 10px;
+      line-height: 4px;
 
       .orSpan {
         padding: 0 24px;
         position: absolute;
-
         background-color: #fff;
-        padding: 0 24px;
       }
     }
     .or::after {

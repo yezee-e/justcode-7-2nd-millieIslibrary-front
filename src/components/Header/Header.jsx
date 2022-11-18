@@ -19,7 +19,7 @@ function Header() {
       <div className="head-left">
         <img src="./logo2.png" alt="logo" width={50} />
         <Nav.Item className="head-tab">
-          <Link to="/" className="head-tab__link" onClick={() => setTab(0)}>
+          <Link to="/home" className="head-tab__link" onClick={() => setTab(0)}>
             {tab == 0 ? (
               <div style={{ fontWeight: 800 }}>투데이</div>
             ) : (
@@ -28,7 +28,11 @@ function Header() {
           </Link>
         </Nav.Item>
         <Nav.Item className="head-tab">
-          <Link to="/" className="head-tab__link" onClick={() => setTab(1)}>
+          <Link
+            to="/search"
+            className="head-tab__link"
+            onClick={() => setTab(1)}
+          >
             {tab == 1 ? (
               <div style={{ fontWeight: 800 }}>검색</div>
             ) : (
@@ -61,7 +65,7 @@ function Header() {
           {theme === 'light' ? <BsFillSunFill /> : <FaRegMoon />}
         </div>
         <FaRegBell className="head-right__icon" />
-        <Link to="/login">
+        <Link to="/">
           <Button variant="dark">로그아웃</Button>
         </Link>
       </div>

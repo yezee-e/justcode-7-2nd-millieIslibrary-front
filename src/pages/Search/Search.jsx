@@ -12,14 +12,21 @@ import Rank from '../../components/SearchTapComponets/Rank';
 
 function Search() {
   const [rank, setRank] = useState([]);
+  const [category, setCategory] = useState([]);
 
   useEffect(() => {
     fetch('./data/ranking.json')
       .then(res => res.json())
       .then(data => setRank(data.rank));
-  }, []);
+  }, [setRank]);
 
-  console.log(rank[rank.length - 1]);
+  useEffect(() => {
+    fetch('./data/category.json')
+      .then(res => res.json())
+      .then(data => setCategory(data.cate));
+  }, [setCategory]);
+
+  console.log(category);
 
   return (
     <div>
@@ -56,7 +63,17 @@ function Search() {
                 <li className="collection">컬렉션</li>
               </ul>
               <h2 className="Title">카테고리</h2>
-              <Category />
+              <ul className="caterogyList">
+                {category.map(list => {
+                  return (
+                    <Category
+                      key={list.id}
+                      category={list.category}
+                      id={list.id}
+                    />
+                  );
+                })}
+              </ul>
 
               <h2 className="Title">오디오</h2>
 

@@ -75,6 +75,7 @@
 
     .searchBodyWrap {
       width: 65%;
+
       .rankingBox {
         position: relative;
         width: 100%;
@@ -186,13 +187,16 @@
 
     .caterogyList {
       padding: 0;
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 10px;
+      grid-auto-rows: minmax(100px, auto);
+      // flex-direction: column;
+      // flex-wrap: wrap;
       width: 100%;
 
       .categorys {
-        width: calc(50% - 8px);
+        width: 600px;
         min-height: 128px;
         border-radius: 8px;
         border: 1px solid rgba(176, 179, 188, 0.3);

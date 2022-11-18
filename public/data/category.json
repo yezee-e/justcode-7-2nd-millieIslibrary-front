@@ -1,0 +1,44 @@
+{
+  "cate": [
+    {
+      "id": 1,
+      "category": "오리지널"
+    },
+    {
+      "id": 2,
+      "category": "오디오북"
+    },
+    {
+      "id": 3,
+      "category": "챗북"
+    },
+    {
+      "id": 4,
+      "category": "매거진"
+    },
+    {
+      "id": 5,
+      "category": "디즈니"
+    },
+    {
+      "id": 6,
+      "category": "소설"
+    },
+    {
+      "id": 7,
+      "category": "에세이"
+    },
+    {
+      "id": 8,
+      "category": "세계문학전직"
+    },
+    {
+      "id": 9,
+      "category": "경제경영"
+    },
+    {
+      "id": 10,
+      "category": "외국어"
+    }
+  ]
+}

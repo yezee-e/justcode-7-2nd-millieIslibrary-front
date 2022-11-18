@@ -7,6 +7,7 @@ import Myshelf from './Myshelf/Myshelf';
 import Home from './Home/Home';
 import Findpw from './Findpw/Findpw';
 import Search from './Search/Search';
+import Categorydetails from '../components/Categorydetails/Categorydetails';
 
 export const ThemeContext = createContext('light');
 
@@ -27,6 +28,7 @@ function Router() {
           <Route path="/bookDetail" element={<BookDetail />} />
           <Route path="/myshelf" element={<Myshelf />} />
           <Route path="/search" element={<Search />} />
+          <Route path="/categorys" element={<Categorydetails />} />
         </Routes>
       </div>
     </ThemeContext.Provider>

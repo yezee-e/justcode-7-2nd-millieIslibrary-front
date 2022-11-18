@@ -1,0 +1,284 @@
+.searchTapWrap {
+  width: 100vw;
+  height: 100vh;
+  // background-color: beige;
+  display: flex;
+  flex-direction: column;
+
+  .blankBox {
+    width: 100%;
+    height: 100px;
+  }
+
+  .Title {
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 28px;
+    color: #242424;
+  }
+
+  .searchBox {
+    position: fixed;
+    width: 100%;
+    height: 150px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    border: 1px solid #ececec;
+    z-index: 1;
+
+    .searchArea {
+      width: 65%;
+      height: 100%;
+      position: relative;
+      display: flex;
+      align-items: center;
+      max-height: 85px;
+      min-height: 150px;
+
+      .inputSearch {
+        position: absolute;
+        width: 70%;
+        bottom: 30px;
+        left: 25px;
+        font-size: 20px;
+        font-weight: 700;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        word-wrap: break-word;
+        background-color: transparent;
+        border: none;
+        outline: none;
+      }
+
+      .magnifierIcon {
+        position: absolute;
+        width: 25px;
+        height: 25px;
+        bottom: 30px;
+        background: url(../../img/magnifier.png);
+        background-size: cover;
+      }
+    }
+  }
+
+  .sectionArea {
+    position: absolute;
+    top: 150px;
+    width: 100vw;
+    height: 100vh;
+
+    // background-color: beige;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    .searchBodyWrap {
+      width: 65%;
+      .rankingBox {
+        position: relative;
+        width: 100%;
+        height: 40px;
+        padding: 16px 0 16px 0;
+        overflow: hidden;
+        align-items: center;
+        margin: 15px 0 15px 0;
+
+        .rankingArea {
+          width: 100%;
+          height: 100%;
+          top: 40px;
+          left: 0;
+          padding: 0;
+          margin: 0;
+        }
+      }
+      .searchWordRecommendArea {
+        width: 100%;
+        height: 170px;
+        min-height: 170px;
+
+        cursor: grab;
+
+        .wordRecommendContentBox {
+          width: 100%;
+          height: 140px;
+          cursor: grab;
+          // background-color: burlywood;
+          overflow: hidden;
+        }
+
+        .wordRecommendContent {
+          display: flex;
+          flex-direction: row;
+          min-width: 1280px;
+          height: 100%;
+          // padding: 0;
+          padding: 12px 14px 24px;
+          margin: 0;
+          flex-wrap: wrap;
+          text-align: left;
+
+          li {
+            cursor: pointer;
+            margin: 5px 16px 5px 0;
+            height: 42px;
+            p {
+              border-radius: 36px;
+              display: block;
+              padding: 8px 12px;
+              font-weight: 400;
+              font-size: 16px;
+              line-height: 24px;
+              background-color: var(--ui-up);
+              border: 1px solid #ececec;
+              color: #6f6f6f;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .shotCut {
+    width: 65%;
+    height: 100px;
+    letter-spacing: -1px;
+
+    .shotCutBox {
+      display: flex;
+
+      .nonDeco {
+        text-decoration: none;
+        color: #4e514e;
+      }
+
+      .shotCutContent {
+        margin-top: 15px;
+        margin-right: 200px;
+      }
+    }
+  }
+
+  .grayLine {
+    width: 67%;
+    height: 15px;
+    background-color: #f7f7f7;
+    padding: 6px;
+    border-radius: 10px;
+    margin: 10px 0 15px;
+  }
+  .categoryListWrap {
+    width: 65%;
+    height: 100%;
+    padding: 6px 12px 0;
+    // background-color: beige;
+
+    .categoryTap {
+      display: flex;
+      padding: 0;
+      margin-bottom: 35px;
+
+      li {
+        margin: 15px 20px 0 0;
+      }
+    }
+
+    .caterogyList {
+      padding: 0;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      width: 100%;
+
+      .categorys {
+        width: calc(50% - 8px);
+        min-height: 128px;
+        border-radius: 8px;
+        border: 1px solid rgba(176, 179, 188, 0.3);
+        margin-top: 12px;
+        margin-right: 8px;
+        position: relative;
+        overflow: hidden;
+        max-height: 74px;
+        height: 74px;
+        background-color: #fff;
+
+        .categoryContent {
+          display: block;
+          height: 100%;
+          padding: 24px;
+          cursor: pointer;
+          background-color: transparent;
+          text-decoration: none;
+          color: inherit;
+          letter-spacing: -0.6px;
+          p {
+            font-size: 14px;
+            margin-top: 20px;
+            color: #8b8b8b;
+          }
+        }
+      }
+    }
+    .makeBy {
+      padding: 0;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      width: 100%;
+      .producers {
+        width: 13%;
+        border-radius: 8px;
+        border: 1px solid rgba(176, 179, 188, 0.3);
+        margin-top: 12px;
+        // margin-right: 70px;
+        padding: 14px;
+        position: relative;
+        overflow: hidden;
+        height: 160px;
+        background-color: #fff;
+
+        .producersBox {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+      }
+    }
+
+    .collectionList {
+      padding: 0;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      width: 100%;
+
+      .collections {
+        width: calc(50% - 8px);
+        border-radius: 8px;
+        border: 1px solid rgba(176, 179, 188, 0.3);
+        margin-top: 12px;
+        // margin-right: 70px;
+        padding: 14px;
+        position: relative;
+        overflow: hidden;
+        height: 60px;
+        background-color: #fff;
+        .collectionContent {
+          display: block;
+          height: 100%;
+          cursor: pointer;
+
+          line-height: 30px;
+          background-color: transparent;
+          text-decoration: none;
+          color: inherit;
+          letter-spacing: -0.6px;
+        }
+      }
+    }
+  }
+}

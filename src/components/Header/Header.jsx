@@ -1,12 +1,18 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Button, Nav } from 'react-bootstrap';
 import { FaRegBell } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import DarkMode from '../DarkMode/DarkMode.jsx';
 import './Header.scss';
+
+import { BsFillSunFill } from 'react-icons/bs';
+import { FaRegMoon } from 'react-icons/fa';
+import { ThemeContext } from '../../pages/Router.js';
 
 function Header() {
   const [tab, setTab] = useState(0);
+
+  const { theme } = useContext(ThemeContext);
+  const { toggleTheme } = useContext(ThemeContext);
 
   return (
     <Nav className="head">
@@ -31,7 +37,11 @@ function Header() {
           </Link>
         </Nav.Item>
         <Nav.Item className="head-tab">
-          <Link to="/" className="head-tab__link" onClick={() => setTab(2)}>
+          <Link
+            to="/myshelf"
+            className="head-tab__link"
+            onClick={() => setTab(2)}
+          >
             {tab == 2 ? (
               <div style={{ fontWeight: 800 }}>내서재</div>
             ) : (
@@ -47,9 +57,13 @@ function Header() {
       </div>
 
       <div className="head-right">
-        <DarkMode />
+        <div onClick={toggleTheme}>
+          {theme === 'light' ? <BsFillSunFill /> : <FaRegMoon />}
+        </div>
         <FaRegBell className="head-right__icon" />
-        <Button variant="dark">로그아웃</Button>
+        <Link to="/login">
+          <Button variant="dark">로그아웃</Button>
+        </Link>
       </div>
     </Nav>
   );

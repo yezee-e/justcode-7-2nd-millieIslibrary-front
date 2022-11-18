@@ -8,7 +8,7 @@ function Rank({ title, idx }) {
   useEffect(() => {
     const timer = setInterval(() => {
       setSlide(slide => slide + 1);
-    }, 1000);
+    }, 2000);
 
     return () => clearInterval(timer);
   }, []);

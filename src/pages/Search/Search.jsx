@@ -36,7 +36,7 @@ function Search() {
               </div>
 
               <div className="searchWordRecommendArea">
-                <h2 className="Title">밀리 추천 검색어</h2>
+                <h2 className="Title">밀리 추천 책</h2>
                 <div className="wordRecommendContentBox">
                   <Wordrecommend />
                 </div>

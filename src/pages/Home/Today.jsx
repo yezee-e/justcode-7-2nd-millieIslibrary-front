@@ -1,9 +1,11 @@
 import React from 'react';
-import { Carousel, Col, Row } from 'react-bootstrap';
+import { Carousel, Col, Container, Row } from 'react-bootstrap';
 import DragCarousel from '../../components/DragCarousel /DragCarousel';
 import './Today.scss';
 
 function Today() {
+  const bookCategory = ['트렌드', '라이프', '힐링', '지적교양', '소설'];
+
   return (
     <div className="today-area">
       <Carousel>
@@ -43,9 +45,9 @@ function Today() {
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
-      <div>
+      {/* <div>
         <img src="img/book2.png" alt="book" className="book" />
-      </div>
+      </div> */}
 
       <div className="today-area__id">똑똑한 생활인 _ {}님</div>
       <div>
@@ -58,6 +60,21 @@ function Today() {
         <div className="dragCard">
           <div className="dragCard-title">지금 새로 들어온 책</div>
           <DragCarousel />
+        </div>
+        <div className="dragCard">
+          <div className="dragCard-title">이번주 취향별 추천책</div>
+          <div>
+            {bookCategory.map(
+              category =>
+                category == { category } && (
+                  <Container>
+                    <Row>
+                      <Col></Col>
+                    </Row>
+                  </Container>
+                )
+            )}
+          </div>
         </div>
       </div>
     </div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import css from './AsideNav.module.scss';
+import { StarFill, Star, Bookshelf, Share } from 'react-bootstrap-icons';
 
 function AsideNav() {
   const copyUrl = () => {
@@ -17,12 +18,26 @@ function AsideNav() {
   return (
     <div className={css.asideContainer}>
       <div className={css.asideContent}>
-        <button>
-          <img className={css.starFill} src="/img/bookshelf.svg" />
+        <button
+          onClick={() => {
+            if (window.confirm('내 책장에 담았습니다.')) {
+            }
+          }}
+        >
+          <a>
+            <Bookshelf />
+          </a>
           내서재에 담기
         </button>
-        <button>
-          <img className={css.starFill} src="/img/star.svg" />
+        <button
+          onClick={() => {
+            if (window.confirm('My Favorite 책장에 담았습니다.')) {
+            }
+          }}
+        >
+          <a className={css.star}>
+            <Star />
+          </a>
           My Favorite
         </button>
         <button
@@ -30,9 +45,12 @@ function AsideNav() {
             copyUrl();
           }}
         >
-          <img className={css.share} src="/img/share.svg" /> 링크 복사
+          <a>
+            <Share />
+          </a>{' '}
+          링크 복사
         </button>
-        <button className={css.immediatelyBtn}>바로 담기</button>
+        <button className={css.immediatelyBtn}>바로 읽기</button>
       </div>
     </div>
   );

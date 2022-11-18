@@ -1,11 +1,14 @@
 import React from 'react';
 import css from './Publisher.module.scss';
+import { Book } from 'react-bootstrap-icons';
 
 function Publisher({ publisher, publisher_url }) {
   return (
     <div className={css.PublisherWrap}>
       <h4>
-        <img src="/img/book.svg" alt="책 이미지" />
+        <a>
+          <Book />
+        </a>
         {publisher}
       </h4>
       <button

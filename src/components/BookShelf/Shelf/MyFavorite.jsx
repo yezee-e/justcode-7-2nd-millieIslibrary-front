@@ -1,16 +1,16 @@
 import React from 'react';
-import css from './Shelf.module.scss';
-import { BookmarkHeart } from 'react-bootstrap-icons';
+import css from './MyFavorite.module.scss';
+import { StarFill } from 'react-bootstrap-icons';
 
-function Shelf() {
+function MyFavorite() {
   return (
     <div className={css.shelfContainer}>
       <div className={css.shelfNameBox}>
         <p>
-          <a className={css.bookMark}>
-            <BookmarkHeart />
+          <a className={css.star}>
+            <StarFill />
           </a>
-          <span>내 책장</span>
+          <span>My Favorite</span>
         </p>
       </div>
       <div className={css.bookContainer}>
@@ -32,4 +32,4 @@ function Shelf() {
   );
 }
 
-export default Shelf;
+export default MyFavorite;

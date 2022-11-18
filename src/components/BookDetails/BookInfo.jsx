@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import css from './BookInfo.module.scss';
 import Introduction from './BookDetail/Introduction';
 import Author from './BookDetail/Author';
-import Publish from './BookDetail/Publish';
+import Index from './BookDetail/Index';
 import Publisher from './BookDetail/Publisher';
 import Comments from './Comments/Comments';
 
@@ -28,7 +28,7 @@ function BookInfo() {
           author,
           authorInfo,
           introduction,
-          publish,
+          index,
           publisher,
           publisher_url,
         }) => (
@@ -47,8 +47,8 @@ function BookInfo() {
               </div>
             </div>
             <Introduction key={introduction.id} introduction={introduction} />
+            <Index key={index.id} index={index} />
             <Author key={authorInfo.id} authorInfo={authorInfo} />
-            <Publish key={publish.id} publish={publish} />
             <Publisher
               key={publisher.id}
               publisher={publisher}
@@ -58,7 +58,12 @@ function BookInfo() {
         )
       )}
       <Comments setReviewCount={setReviewCount} />
-      <div className={css.ad}></div>
+      <div className={css.ad}>
+        <img
+          src="https://d2j6uvfek9vas1.cloudfront.net/millie_logo/63733688ee90f.png"
+          alt=""
+        />
+      </div>
     </>
   );
 }

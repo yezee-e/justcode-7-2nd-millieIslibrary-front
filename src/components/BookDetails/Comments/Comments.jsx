@@ -60,7 +60,7 @@ function Comments({ setReviewCount }) {
         <div className={css.commentBox}>
           <div className={css.commentImg}>
             <img
-              src="http://t1.daumcdn.net/friends/prod/editor/dc8b3d02-a15a-4afa-a88b-989cf2a50476.jpg"
+              src="https://cdn.pixabay.com/photo/2022/06/27/14/38/cat-7287671_1280.jpg"
               alt="유저 이미지"
             />
           </div>

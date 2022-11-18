@@ -18,6 +18,14 @@
       font-weight: 500;
       border-bottom: 1px solid #d5d5d5;
       cursor: pointer;
+
+      a {
+        margin-right: 10px;
+        width: 15px;
+      }
+      .star {
+        color: #ffd000;
+      }
     }
 
     .immediatelyBtn {
@@ -31,14 +39,6 @@
       width: 75%;
       border-radius: 5px;
       justify-content: center;
-    }
-    img {
-      margin-right: 10px;
-      width: 15px;
-    }
-
-    svg {
-      fill: #ff0; /*노란색으로 변경*/
     }
   }
 }

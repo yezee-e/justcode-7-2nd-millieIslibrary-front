@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import css from './Publish.module.scss';
+import css from './Index.module.scss';
+import { ChevronDown, ChevronUp } from 'react-bootstrap-icons';
 
-function Accordion({ publish }) {
+function Index({ index }) {
   const [visible, setVisible] = useState(false);
   return (
     <div className={css.accordionWrap}>
@@ -11,20 +12,20 @@ function Accordion({ publish }) {
           setVisible(!visible);
         }}
       >
-        <h3>출판사 서평</h3>
+        <h3>목차</h3>
         {visible ? (
           <button>
-            <img src="/img/chevron-up.svg" alt="올리기 이미지" />
+            <ChevronUp />
           </button>
         ) : (
           <button>
-            <img src="/img/chevron-down.svg" alt="내리기 이미지" />
+            <ChevronDown />
           </button>
         )}
       </div>
-      {visible && <p className={css.textArea}>{publish}</p>}
+      {visible && <p className={css.textArea}>{index}</p>}
     </div>
   );
 }
 
-export default Accordion;
+export default Index;

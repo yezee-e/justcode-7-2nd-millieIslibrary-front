@@ -1,3 +1,13 @@
+@mixin bigText($fw) {
+  font-weight: $fw;
+}
+
+@mixin lightText($fw) {
+  font-weight: $fw;
+  color: #7d7d7d;
+  font-size: 15px;
+}
+
 .today-area {
   height: 400vh;
   margin: 0 95px;
@@ -7,19 +17,32 @@
 
   .carousel {
     margin: 0 -95px;
+    button {
+      display: none;
+    }
   }
   .inner {
-    img {
+    .car-img {
       width: 100%;
       height: 387px;
+    }
+    .inner-img {
+      display: block;
+      position: relative;
+      width: 300px;
+      height: 200px;
+      float: left;
+      left: 600px;
+      bottom: 30px;
     }
     .inner-text {
       width: 100%;
       height: 100%;
       display: flex;
+
       flex-direction: column;
       align-items: flex-start;
-      padding-top: 70px;
+      padding-top: 90px;
       gap: 10px;
     }
     div {
@@ -50,12 +73,88 @@
     right: 350px;
   }
 
+  @mixin baner($bg) {
+    height: 148px;
+    background-color: $bg;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 10px;
+    align-items: center;
+    position: relative;
+    div {
+      color: white;
+      font-weight: 800;
+    }
+    p {
+      font-weight: 300;
+      font-size: 12px;
+      margin-top: 10px;
+    }
+    img {
+      width: 9rem;
+      height: 9rem;
+      margin-left: 40px;
+    }
+  }
+
+  .ad1 {
+    @include baner(#3783cf);
+  }
+  .ad2 {
+    @include baner(#7c80f1);
+  }
+
   .dragCard {
     margin-top: 63px;
+
+    img {
+      width: 148px;
+      height: 225px;
+    }
 
     .dragCard-title {
       font-weight: 500;
       font-size: 20px;
+      margin-bottom: 15px;
+    }
+    button {
+      color: #333333;
+      font-size: 12px;
+      margin: 16px 5px;
+      padding: 10px 15px;
+      border: 1px solid black;
+      border-radius: 50%;
+      :active {
+        background-color: lightblue;
+      }
+    }
+    .cardImg {
+      background-color: #f6f4ee;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 394px;
+      height: 175px;
+      border-radius: 10px;
+      img {
+        width: 110px;
+        height: 150px;
+      }
+    }
+    .cardWrap {
+      display: grid;
+
+      // justify-content: ;
+    }
+
+    .title {
+      @include bigText(500);
+      margin-top: 10px;
+    }
+    .author {
+      @include lightText(300);
+      margin: 10px 0;
     }
   }
 }

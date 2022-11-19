@@ -21,18 +21,24 @@ function Search() {
   }, [setRank]);
 
   useEffect(() => {
-    fetch('./data/category.json')
+    fetch('http://localhost:8000/category/info')
       .then(res => res.json())
-      .then(data => setCategory(data.cate));
+      .then(data => setCategory(data.data));
   }, [setCategory]);
 
-  console.log(category);
+  //카테고리 목 데이터
+  // useEffect(() => {
+  //   fetch('./data/category.json')
+  //     .then(res => res.json())
+  //     .then(data => setCategory(data.cate));
+  // }, [setCategory]);
 
   return (
     <div>
       <Header />
       <div className="searchTapWrap">
         <SearchBar />
+
         <div>
           <section className="sectionArea">
             <div className="searchBodyWrap">
@@ -65,13 +71,8 @@ function Search() {
               <h2 className="Title">카테고리</h2>
               <ul className="caterogyList">
                 {category.map(list => {
-                  return (
-                    <Category
-                      key={list.id}
-                      category={list.category}
-                      id={list.id}
-                    />
-                  );
+                  const { id, content } = list;
+                  return <Category key={id} content={content} idNum={id} />;
                 })}
               </ul>
 
@@ -79,7 +80,7 @@ function Search() {
 
               <Audio />
 
-              <h2 className="Title">만든 사람들</h2>
+              <h2 className="Title">추천 작가</h2>
               <Makers />
 
               <h2 style={{ marginTop: '40px' }} className="Title">

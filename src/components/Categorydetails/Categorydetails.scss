@@ -1,6 +1,6 @@
 .categoryDetailWrap {
-  width: 100vw;
-  height: 100vh;
+  // width: 100vw;
+  // height: 100vh;
   display: flex;
   flex-direction: column;
 
@@ -11,6 +11,7 @@
     position: fixed;
     z-index: 100;
     background-color: white;
+
     h2 {
       overflow: hidden;
       padding: 0 45px;
@@ -25,16 +26,18 @@
   }
 
   .categoryName {
-    width: 100%;
+    width: 100vw;
     height: 110px;
     position: relative;
     background-color: #fafaf6;
+    margin-bottom: 10px;
+
     strong {
       position: absolute;
       display: block;
       text-align: center;
-      bottom: 15px;
-      left: 480px;
+      bottom: 20px;
+      left: 475px;
       font-size: 20px;
     }
   }
@@ -67,9 +70,11 @@
         display: grid;
         grid-template-columns: repeat(6, 1fr);
         grid-gap: 10px;
+
         .flexBox {
           display: flex;
           flex-direction: column;
+          cursor: pointer;
 
           .books {
             width: 200px;

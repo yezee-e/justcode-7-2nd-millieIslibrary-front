@@ -1,7 +1,19 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import './Categorydetails.scss';
+import CategoryList from './CategoryList';
 
 function Categorydetails() {
+  const [bookList, setBookList] = useState([]);
+  const { id } = useParams();
+
+  useEffect(() => {
+    fetch(`http://localhost:8000/category/${id}`)
+      .then(res => res.json())
+      .then(data => setBookList(data.data));
+  }, [setBookList]);
+
+  console.log(bookList);
   return (
     <div>
       <div className="categoryDetailWrap">
@@ -15,35 +27,18 @@ function Categorydetails() {
           <div className="bookListName">밀리 (카테고리) 인기 도서</div>
           <div className="bookListWraper">
             <ul className="booksWraper">
-              <li className="books">
-                <div className="flexBox">
-                  <img
-                    style={{ width: '140px' }}
-                    alt=""
-                    src="https://cover.millie.co.kr/service/cover/179544336/993c760a07314817872211e74221c01c.jpg?w=220&f=webp&q=80"
+              {bookList.map((book, idx) => {
+                const { title, cover_img, author_name, id } = book;
+                return (
+                  <CategoryList
+                    key={id}
+                    title={title}
+                    cover_img={cover_img}
+                    author_name={author_name}
+                    idx={idx}
                   />
-                  <strong
-                    style={{
-                      margin: '10px 0 10px 0',
-                      wordWrap: 'break-word',
-                      width: '140px',
-                      lineHeight: '20px',
-                    }}
-                  >
-                    안녕하세요 저스트코드 화이팅입니다
-                  </strong>
-                  <p
-                    style={{
-                      width: '140px',
-                      fontSize: '14px',
-                      color: '#7D7F7D',
-                      overflow: 'hidden',
-                    }}
-                  >
-                    정동현
-                  </p>
-                </div>
-              </li>
+                );
+              })}
             </ul>
           </div>
         </div>

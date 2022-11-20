@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import css from './Index.module.scss';
 import { ChevronDown, ChevronUp } from 'react-bootstrap-icons';
-import ReactMarkdown from 'react-markdown';
-import remarkGfm from 'remark-gfm';
 
 function Index({ toc }) {
   const [visible, setVisible] = useState(false);
@@ -27,11 +25,7 @@ function Index({ toc }) {
         )}
       </div>
       {visible && (
-        <ReactMarkdown
-          remarkPlugins={[remarkGfm]}
-          children={toc}
-          className={css.textarea}
-        />
+        <p className={css.textArea} dangerouslySetInnerHTML={{ __html: toc }} />
       )}
     </div>
   );

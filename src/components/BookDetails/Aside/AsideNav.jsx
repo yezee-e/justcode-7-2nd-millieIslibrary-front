@@ -47,9 +47,18 @@ function AsideNav() {
       }),
     })
       .then(res => res.json())
-      .then(data => {
-        console.log(data);
-        setLikeCheck('TRUE');
+      .then(res => {
+        fetch(`http://localhost:8000/book-detail/${params.id}/check-list`, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            authorization: localStorage.getItem('token'),
+          },
+        })
+          .then(res => res.json())
+          .then(data => {
+            setLikeCheck(data[0]);
+          });
       });
   };
 
@@ -66,9 +75,17 @@ function AsideNav() {
       }),
     })
       .then(res => res.json())
-      .then(data => {
-        console.log(data);
-        setLikeCheck('FALSE');
+      .then(res => {
+        fetch(`http://localhost:8000/book-detail/${params.id}/check-list`, {
+          headers: {
+            'Content-Type': 'application/json',
+            authorization: localStorage.getItem('token'),
+          },
+        })
+          .then(res => res.json())
+          .then(data => {
+            setLikeCheck(data[0]);
+          });
       });
   };
 
@@ -102,7 +119,7 @@ function AsideNav() {
       <div className={css.asideContent}>
         <button
           onClick={() => {
-            if (window.confirm('내 책장에 담았습니다.')) {
+            if (window.confirm('내서재에 담았습니다.')) {
             }
           }}
         >

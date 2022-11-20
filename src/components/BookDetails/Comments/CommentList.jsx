@@ -3,7 +3,7 @@ import css from './CommentList.module.scss';
 import { ThreeDotsVertical, Heart, HeartFill } from 'react-bootstrap-icons';
 
 function CommentList(props) {
-  const { id, createdAt, plusComment, onRemove } = props;
+  const { review_id, onRemove, nickname, content, created_at } = props;
   const [visible, setVisible] = useState(false);
   const [like, setLike] = useState(0);
 
@@ -16,7 +16,7 @@ function CommentList(props) {
   };
 
   return (
-    <li className={css.commentSection} key={id}>
+    <li className={css.commentSection} key={review_id}>
       <div className={css.imgBox}>
         <img
           src="https://cdn.pixabay.com/photo/2022/06/27/14/38/cat-7287671_1280.jpg"
@@ -28,19 +28,14 @@ function CommentList(props) {
           {visible && (
             <button
               className={css.moreArea}
-              onClick={() => {
-                if (window.confirm('정말 삭제할까요?')) {
-                  alert('성공적으로 삭제되었습니다!');
-                  onRemove(id);
-                }
-              }}
+              onClick={() => onRemove(review_id)}
             >
               삭제하기
             </button>
           )}
         </div>
         <div className={css.nickName}>
-          <p>hi_Ryan</p>
+          <p>{nickname}</p>
           <button
             className={css.more}
             onClick={() => {
@@ -52,8 +47,8 @@ function CommentList(props) {
             </a>
           </button>
         </div>
-        <span className={css.date}>{createdAt}</span>
-        <span>{plusComment}</span>
+        <span className={css.date}>{created_at}</span>
+        <span>{content}</span>
         <div className={css.reviewLike}>
           <p>이 리뷰가 마음에 드시나요?</p>
           <button type="button" className={css.likeBtn} onClick={onLike}>

@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import css from './Index.module.scss';
 import { ChevronDown, ChevronUp } from 'react-bootstrap-icons';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 
-function Index({ index }) {
+function Index({ toc }) {
   const [visible, setVisible] = useState(false);
+
   return (
     <div className={css.accordionWrap}>
       <div
@@ -23,7 +26,13 @@ function Index({ index }) {
           </button>
         )}
       </div>
-      {visible && <p className={css.textArea}>{index}</p>}
+      {visible && (
+        <ReactMarkdown
+          remarkPlugins={[remarkGfm]}
+          children={toc}
+          className={css.textarea}
+        />
+      )}
     </div>
   );
 }

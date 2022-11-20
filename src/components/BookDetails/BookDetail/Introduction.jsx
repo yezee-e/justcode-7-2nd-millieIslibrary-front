@@ -1,7 +1,14 @@
 import React, { useState } from 'react';
 import css from './Introduction.module.scss';
 
-function Introduction({ introduction }) {
+function Introduction({
+  introduction,
+  page,
+  categories_name,
+  publish_time,
+  rating_score,
+  publisher,
+}) {
   const [close, setClose] = useState(false);
   const moreBtn = () => {
     setClose(!close);
@@ -23,25 +30,31 @@ function Introduction({ introduction }) {
           <li className={css.slideItem}>
             <p>카테고리</p>
             <strong>
-              <a>소설</a>
+              <a>{categories_name}</a>
             </strong>
           </li>
           <li className={css.slideItem}>
             <p>페이지</p>
             <strong>
-              <a>364P</a>
+              <a>{page}P</a>
             </strong>
           </li>
           <li className={css.slideItem}>
             <p>출판사</p>
             <strong>
-              <a>밀리의서재</a>
+              <a>{publisher}</a>
             </strong>
           </li>
           <li className={css.slideItem}>
             <p>출간일</p>
             <strong>
-              <a>2022.01.17</a>
+              <a>{publish_time}</a>
+            </strong>
+          </li>
+          <li className={css.slideItem}>
+            <p>평점</p>
+            <strong>
+              <a>{rating_score}</a>
             </strong>
           </li>
         </ul>

@@ -25,6 +25,7 @@ function Router() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/findpw" element={<Findpw />} />
           <Route path="/bookDetail" element={<BookDetail />} />
+          <Route path="/bookDetail/:id" element={<BookDetail />} />
           <Route path="/myshelf" element={<Myshelf />} />
           <Route path="/search" element={<Search />} />
         </Routes>

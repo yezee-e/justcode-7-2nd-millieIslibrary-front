@@ -1,0 +1,65 @@
+.modalWrap {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1000;
+
+  .modalBox {
+    width: 350px;
+    height: 480px;
+    margin: 250px auto;
+    background-color: white;
+    border-radius: 10px;
+    position: relative;
+
+    .modalContent {
+      margin-top: 6px;
+      width: 100%;
+      text-align: center;
+      padding: 24px;
+      .nameCategory {
+        font-size: 20px;
+        font-weight: bold;
+      }
+
+      .categoryBox {
+        margin-top: 35px;
+        height: 300px;
+        // border: 1px solid black;
+      }
+
+      .btnClose {
+        width: 50%;
+        border: 1px solid black;
+      }
+      .btnEnter {
+        width: 50%;
+        border: 1px solid black;
+      }
+    }
+    .btnBox {
+      padding: 0;
+      width: 350px;
+      position: absolute;
+      bottom: 0;
+      height: 55px;
+      // background-color: azure;
+
+      .btnClose {
+        width: 50%;
+        height: 100%;
+        text-align: center;
+        background-color: #c1c1c1;
+        border-bottom-left-radius: 10px;
+      }
+      .btnEnter {
+        width: 50%;
+        height: 100%;
+        text-align: center;
+        background-color: #ffeb60;
+        border-bottom-right-radius: 10px;
+      }
+    }
+  }
+}

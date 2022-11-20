@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-function CategoryList({ author_name, cover_img, title, id, idx }) {
+function CategoryList({ author_name, cover_img, title, idx }) {
   const navi = useNavigate();
   const goToDetails = () => {
     navi(`/bookDetail/${idx}`);

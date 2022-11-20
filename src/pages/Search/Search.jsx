@@ -4,7 +4,7 @@ import Header from '../../components/Header/Header';
 import SearchBar from '../../components/SearchTapComponets/SearchBar';
 import Collections from '../../components/SearchTapComponets/Collections';
 import Makers from '../../components/SearchTapComponets/Makers';
-import Audio from '../../components/SearchTapComponets/Audio';
+// import Audio from '../../components/SearchTapComponets/Audio';
 import Shotcutbox from '../../components/SearchTapComponets/Shotcutbox';
 import Category from '../../components/SearchTapComponets/Category';
 import Wordrecommend from '../../components/SearchTapComponets/Wordrecommend';
@@ -13,6 +13,7 @@ import Rank from '../../components/SearchTapComponets/Rank';
 function Search() {
   const [rank, setRank] = useState([]);
   const [category, setCategory] = useState([]);
+  const [refresh, setRefresh] = useState([]);
 
   useEffect(() => {
     fetch('./data/ranking.json')
@@ -25,6 +26,14 @@ function Search() {
       .then(res => res.json())
       .then(data => setCategory(data.data));
   }, [setCategory]);
+
+  // const refreshBookList = () => {
+  //   useEffect(() => {
+  //     fetch('북리스트')
+  //       .then(res => res.json())
+  //       .then(data => setRefresh(data));
+  //   });
+  // };
 
   //카테고리 목 데이터
   // useEffect(() => {
@@ -49,7 +58,11 @@ function Search() {
               </div>
 
               <div className="searchWordRecommendArea">
-                <h2 className="Title">밀리 추천 책</h2>
+                <div style={{ display: 'flex' }}>
+                  <h2 className="Title">밀리 추천 책</h2>
+                  <button className="refreshBtn" />
+                </div>
+
                 <div className="wordRecommendContentBox">
                   <Wordrecommend />
                 </div>
@@ -63,11 +76,11 @@ function Search() {
             <div className="grayLine" />
 
             <div className="categoryListWrap">
-              <ul className="categoryTap">
+              {/* <ul className="categoryTap">
                 <li className="category">카테고리</li>
                 <li className="audio">오디오</li>
                 <li className="collection">컬렉션</li>
-              </ul>
+              </ul> */}
               <h2 className="Title">카테고리</h2>
               <ul className="caterogyList">
                 {category.map(list => {
@@ -76,9 +89,9 @@ function Search() {
                 })}
               </ul>
 
-              <h2 className="Title">오디오</h2>
+              {/* <h2 className="Title">오디오</h2>
 
-              <Audio />
+              <Audio /> */}
 
               <h2 className="Title">추천 작가</h2>
               <Makers />
@@ -87,7 +100,7 @@ function Search() {
                 컬렉션
               </h2>
               <p style={{ fontSize: '14px', color: '#6f6f6f' }}>
-                밀리가 만드는 다양한 아티클을 확인해보세요!
+                다양한 아이콘을 확인하세요 !
               </p>
 
               <Collections />

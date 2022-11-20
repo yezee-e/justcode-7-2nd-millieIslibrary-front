@@ -180,12 +180,21 @@
         height: 170px;
         min-height: 170px;
 
-        cursor: grab;
+        cursor: pointer;
+
+        .refreshBtn {
+          width: 25px;
+          height: 25px;
+          margin-top: 2px;
+          margin-left: 10px;
+          background: url('../../img/refresh.png');
+          background-size: cover;
+        }
 
         .wordRecommendContentBox {
           width: 100%;
           height: 140px;
-          cursor: grab;
+          // cursor: grab;
           // background-color: burlywood;
           overflow: hidden;
         }
@@ -329,6 +338,9 @@
           display: flex;
           flex-direction: column;
           align-items: center;
+          strong {
+            margin-top: 15px;
+          }
         }
       }
     }

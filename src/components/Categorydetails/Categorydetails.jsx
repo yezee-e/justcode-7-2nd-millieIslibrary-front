@@ -10,25 +10,26 @@ function Categorydetails() {
   useEffect(() => {
     fetch(`http://localhost:8000/category/${id}`)
       .then(res => res.json())
-      .then(data => setBookList(data.data));
+      .then(data => setBookList(data.data[0].books));
   }, [setBookList]);
 
-  console.log(bookList);
+  // let books = bookList[0].books;
+  // console.log(books);
   return (
     <div>
       <div className="categoryDetailWrap">
         <div className="categoryTapHead">
-          <h2>카테고리</h2>
+          <h2>밀리 오리지널</h2>
         </div>
         <article className="categoryName">
-          <strong>카테고리이름(전체보기)</strong>
+          <strong>밀리 오리지널 전체보기</strong>
         </article>
         <div className="bookList">
-          <div className="bookListName">밀리 (카테고리) 인기 도서</div>
+          <div className="bookListName">밀리 오리지널 인기 도서</div>
           <div className="bookListWraper">
             <ul className="booksWraper">
               {bookList.map((book, idx) => {
-                const { title, cover_img, author_name, id } = book;
+                const { title, cover_img, author_name } = book;
                 return (
                   <CategoryList
                     key={id}

@@ -1,22 +1,61 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import css from './Comments.module.scss';
 import CommentList from './CommentList';
+import { useParams } from 'react-router-dom';
 
-function Comments({ setReviewCount }) {
-  const [id, setId] = useState(1);
+function Comments() {
   const [text, setText] = useState('');
-  const [commentArray, setCommentArray] = useState([]);
+  const [comments, setComment] = useState([]);
   const value = useRef();
+  const params = useParams();
 
   const addComment = event => {
-    setId(id + 1);
-    const newComment = {
-      id: id,
-      plusComment: value.current.value,
-      createdAt: new Date().toLocaleString(),
-    };
-    setCommentArray([...commentArray, newComment]);
-    setReviewCount(commentArray.length + 1);
+    fetch(`http://localhost:8000/review`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        authorization: localStorage.getItem('token'),
+      },
+      body: JSON.stringify({
+        books_id: params.id,
+        content: value.current.value,
+      }),
+    })
+      .then(res => res.json())
+      .then(res => {
+        fetch(`http://localhost:8000/book-detail/${params.id}`)
+          .then(res => res.json())
+          .then(data => {
+            setComment(data.reviewInfo.reviewArray);
+          });
+      });
+  };
+
+  useEffect(() => {
+    fetch(`http://localhost:8000/book-detail/${params.id}`)
+      .then(res => res.json())
+      .then(data => {
+        setComment(data.reviewInfo.reviewArray);
+      });
+  }, []);
+
+  const onRemove = review_id => {
+    if (window.confirm('삭제 하시겠습니까?')) {
+      fetch(`http://localhost:8000/review`, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+          authorization: localStorage.getItem('token'),
+        },
+        body: JSON.stringify({
+          review_id: review_id,
+        }),
+      })
+        .then(res => res.json())
+        .then(result => {
+          setComment(comments.filter(props => props.review_id !== review_id));
+        });
+    }
   };
 
   const commentInput = event => {
@@ -35,32 +74,29 @@ function Comments({ setReviewCount }) {
     }
   };
 
-  const onRemove = id => {
-    setCommentArray(commentArray.filter(props => props.id !== id));
-  };
-
   return (
     <div className={css.commentsContainer}>
       <div className={css.commentTitle}>
         <h3>한 줄 리뷰</h3>
-        <h3 className={css.totalReview}>{commentArray.length}</h3>
+        <h3 className={css.totalReview}>{comments.length}</h3>
       </div>
       <ul>
-        {commentArray.map(props => {
+        {comments.map(props => {
           return (
             <CommentList
               key={props.id}
-              id={props.id}
-              createdAt={props.createdAt}
-              plusComment={props.plusComment}
+              review_id={props.review_id}
               onRemove={onRemove}
+              nickname={props.nickname}
+              content={props.content}
+              created_at={props.created_at}
             />
           );
         })}
         <div className={css.commentBox}>
           <div className={css.commentImg}>
             <img
-              src="http://t1.daumcdn.net/friends/prod/editor/dc8b3d02-a15a-4afa-a88b-989cf2a50476.jpg"
+              src="https://cdn.pixabay.com/photo/2022/06/27/14/38/cat-7287671_1280.jpg"
               alt="유저 이미지"
             />
           </div>

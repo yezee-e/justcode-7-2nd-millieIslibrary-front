@@ -2,6 +2,7 @@ import React from 'react';
 import css from './BookShelf.module.scss';
 import { useNavigate } from 'react-router-dom';
 import Shelf from './Shelf/Shelf';
+import MyFavorite from './Shelf/MyFavorite';
 
 function BookShelf() {
   const navigate = useNavigate();
@@ -26,7 +27,7 @@ function BookShelf() {
           </p>
         </div>
         <section>
-          <Shelf />
+          <MyFavorite />
           <Shelf />
           <div className={css.footer}>
             <img

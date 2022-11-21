@@ -2,19 +2,30 @@ import React, { useState, useEffect } from 'react';
 import css from './BookInfo.module.scss';
 import Introduction from './BookDetail/Introduction';
 import Author from './BookDetail/Author';
-import Publish from './BookDetail/Publish';
+import AuthorName from './BookDetail/AuthorName';
+import Index from './BookDetail/Index';
 import Publisher from './BookDetail/Publisher';
+import { useParams } from 'react-router-dom';
 import Comments from './Comments/Comments';
 
 function BookInfo() {
   const [item, setItem] = useState([]);
-  const [reviewCount, setReviewCount] = useState(0);
+  const [count, setCount] = useState(0);
+  const params = useParams();
 
   useEffect(() => {
-    fetch('/data/book.json')
+    fetch(`http://localhost:8000/book-detail/${params.id}`)
       .then(res => res.json())
       .then(data => {
-        setItem(data.book);
+        setItem(data.bookResult);
+      });
+  }, []);
+
+  useEffect(() => {
+    fetch(`http://localhost:8000/book-detail/${params.id}`)
+      .then(res => res.json())
+      .then(data => {
+        setCount(data.reviewInfo.reviewArray);
       });
   }, []);
 
@@ -23,42 +34,57 @@ function BookInfo() {
       {item.map(
         ({
           id,
-          image,
           title,
-          author,
-          authorInfo,
+          cover_img,
+          toc,
           introduction,
-          publish,
+          categories_name,
+          publish_time,
           publisher,
-          publisher_url,
+          page,
+          rating_score,
+          books_authors,
         }) => (
           <div className="wrapper" key={id}>
             <div className={css.BookContainer}>
-              <img src={image} alt="책 이미지" />
+              <img src={cover_img} alt="책 이미지" />
               <div className={css.BookInfo}>
                 <p className={css.book}>전자책</p>
                 <p className={css.title}>{title}</p>
-                <p className={css.author}>{author}</p>
+                {books_authors.map(author => {
+                  return <AuthorName key={author.id} {...author} />;
+                })}
                 <div className={css.commentBox}>
                   <img src="/img/comment.png" alt="" />
                   <p>한 줄 리뷰</p>
-                  <p className={css.total}>{reviewCount}개</p>
+                  <p className={css.total}>{count.length}개</p>
                 </div>
               </div>
             </div>
-            <Introduction key={introduction.id} introduction={introduction} />
-            <Author key={authorInfo.id} authorInfo={authorInfo} />
-            <Publish key={publish.id} publish={publish} />
-            <Publisher
-              key={publisher.id}
+            <Introduction
+              key={introduction.id}
+              introduction={introduction}
+              page={page}
+              categories_name={categories_name}
+              publish_time={publish_time}
+              rating_score={rating_score}
               publisher={publisher}
-              publisher_url={publisher_url}
             />
+            <Index key={toc.id} toc={toc} />
+            {books_authors.map(author => {
+              return <Author key={author.id} {...author} />;
+            })}
+            <Publisher key={publisher.id} publisher={publisher} />
+            <Comments />
           </div>
         )
       )}
-      <Comments setReviewCount={setReviewCount} />
-      <div className={css.ad}></div>
+      <div className={css.ad}>
+        <img
+          src="https://d2j6uvfek9vas1.cloudfront.net/millie_logo/63733688ee90f.png"
+          alt=""
+        />
+      </div>
     </>
   );
 }

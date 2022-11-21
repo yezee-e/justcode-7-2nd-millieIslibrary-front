@@ -35,11 +35,6 @@
       font-size: 17px;
       margin-bottom: 15px;
     }
-    .author {
-      font-size: 11px;
-      color: #8b8b8b;
-      font-weight: 300;
-    }
 
     .commentBox {
       display: grid;
@@ -78,5 +73,7 @@
   display: flex;
   width: 100%;
   background-color: #f8deeb;
-  height: 120px;
+  img {
+    width: 100%;
+  }
 }

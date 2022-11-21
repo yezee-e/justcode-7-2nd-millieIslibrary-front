@@ -104,6 +104,7 @@ function Search() {
               </p>
 
               <Collections />
+
               <div className="blankBox" />
             </div>
           </section>

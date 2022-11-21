@@ -18,8 +18,8 @@ function Router() {
   }, [setTheme]);
 
   return (
-    <ThemeContext.Provider value={{ toggleTheme }}>
-      <div id={theme}>
+    <div id={theme}>
+      <ThemeContext.Provider value={{ toggleTheme, theme }}>
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/Home" element={<Home />} />
@@ -31,8 +31,8 @@ function Router() {
           <Route path="/category/:id" element={<Categorydetails />} />
           {/* <Route path="/categorys/:id" element={<Categorydetails />} /> */}
         </Routes>
-      </div>
-    </ThemeContext.Provider>
+      </ThemeContext.Provider>
+    </div>
   );
 }
 

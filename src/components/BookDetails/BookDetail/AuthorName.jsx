@@ -1,8 +1,8 @@
 import React from 'react';
 import css from './AuthorName.module.scss';
 
-function Author(author) {
-  const { author_name } = author;
+function Author(prop) {
+  const { author_name } = prop;
 
   return (
     <>

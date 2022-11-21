@@ -19,7 +19,10 @@ function Introduction({
       <div className={css.contentWrap}>
         <h3>책 소개</h3>
         <div>
-          <p className={close ? '' : css.close}>{introduction}</p>
+          <p
+            className={close ? '' : css.close}
+            dangerouslySetInnerHTML={{ __html: introduction }}
+          ></p>
         </div>
         <button onClick={moreBtn} className={css.moreBtn}>
           {close ? '접어 두기' : '더보기'}

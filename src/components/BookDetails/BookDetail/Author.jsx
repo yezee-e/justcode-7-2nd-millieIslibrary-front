@@ -3,7 +3,7 @@ import css from './Author.module.scss';
 import { ChevronDown, ChevronUp } from 'react-bootstrap-icons';
 
 function Author(author) {
-  const { author_intro, author_name } = author;
+  const { author_intro } = author;
   const [visible, setVisible] = useState(false);
 
   return (

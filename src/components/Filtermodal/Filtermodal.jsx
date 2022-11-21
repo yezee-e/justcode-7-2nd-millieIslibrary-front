@@ -17,7 +17,9 @@ function Filtermodal({ popup, setPopup }) {
           <div className="modalContent">
             <span className="nameCategory">카테고리</span>
             <div className="categoryBox">
-              <ul style={{ padding: '0', lineHeight: '35px' }}>
+              <ul
+                style={{ padding: '0', lineHeight: '35px', color: '#959595' }}
+              >
                 <li>
                   <span>로맨스</span>
                 </li>

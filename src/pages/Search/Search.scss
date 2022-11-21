@@ -23,18 +23,54 @@
     height: 150px;
     background-color: white;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     border: 1px solid #ececec;
-    z-index: 1;
+    z-index: 50;
 
     .searchArea {
-      width: 65%;
+      width: 100%;
       height: 100%;
       position: relative;
-      display: flex;
-      align-items: center;
       max-height: 85px;
       min-height: 150px;
+
+      .categoryFilter {
+        width: 50px;
+        height: 30px;
+        position: absolute;
+        font-size: 12px;
+        color: #947f7d;
+        top: 30px;
+        left: 340px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        border: 1px solid #dfdfdf;
+        border-radius: 5px;
+        a {
+          margin-left: 6px;
+        }
+      }
+
+      .buttonClose {
+        width: 30px;
+        height: 10px;
+        position: absolute;
+        top: 30px;
+        right: 320px;
+        font-weight: bold;
+      }
+
+      .searchBoxClick {
+        width: 65%;
+        height: 90px;
+        position: absolute;
+        bottom: 0;
+        left: 330px;
+        display: flex;
+        align-items: center;
+      }
 
       .inputSearch {
         position: absolute;
@@ -49,6 +85,8 @@
         background-color: transparent;
         border: none;
         outline: none;
+        padding-left: 10px;
+        content: '';
       }
 
       .magnifierIcon {
@@ -58,6 +96,49 @@
         bottom: 30px;
         background: url(../../img/magnifier.png);
         background-size: cover;
+      }
+    }
+  }
+
+  .searchClick {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    z-index: 45;
+    // background-color: beige;
+
+    .inSearchwrap {
+      width: 100%;
+      height: 100%;
+      z-index: 46;
+      margin: 0 auto 0 auto;
+      background-color: white;
+      padding: 30px;
+
+      .notFoundWord {
+        width: 100%;
+        height: 100%;
+        margin: 400px auto;
+        // background-color: white;
+        text-align: center;
+        line-height: 3px;
+        color: #826f6f;
+        font-size: 14px;
+        display: block;
+        z-index: 15;
+      }
+      .booksUL {
+        width: 71%;
+        height: 100%;
+        // background-color: beige;
+        margin: 120px auto;
+        z-index: 20;
+
+        .booksList {
+          width: 100%;
+          height: 20px;
+          margin-top: 150px;
+        }
       }
     }
   }
@@ -98,12 +179,21 @@
         height: 170px;
         min-height: 170px;
 
-        cursor: grab;
+        cursor: pointer;
+
+        .refreshBtn {
+          width: 25px;
+          height: 25px;
+          margin-top: 2px;
+          margin-left: 10px;
+          background: url('../../img/refresh.png');
+          background-size: cover;
+        }
 
         .wordRecommendContentBox {
           width: 100%;
           height: 140px;
-          cursor: grab;
+          // cursor: grab;
           // background-color: burlywood;
           overflow: hidden;
         }
@@ -186,13 +276,16 @@
 
     .caterogyList {
       padding: 0;
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 10px;
+      grid-auto-rows: minmax(100px, auto);
+      // flex-direction: column;
+      // flex-wrap: wrap;
       width: 100%;
 
       .categorys {
-        width: calc(50% - 8px);
+        width: 600px;
         min-height: 128px;
         border-radius: 8px;
         border: 1px solid rgba(176, 179, 188, 0.3);
@@ -244,6 +337,9 @@
           display: flex;
           flex-direction: column;
           align-items: center;
+          strong {
+            margin-top: 15px;
+          }
         }
       }
     }

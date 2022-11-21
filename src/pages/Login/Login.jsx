@@ -32,8 +32,8 @@ function Login() {
       .then(res => res.json())
       .then(res => {
         if (res.token) {
-          localStorage.setItem('token', res.token);
-          navigate(`/`);
+          localStorage.setItem('authorization', res.token);
+          navigate(`/home`);
         }
       });
   };

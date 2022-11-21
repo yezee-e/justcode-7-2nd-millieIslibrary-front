@@ -9,15 +9,14 @@ function Makers() {
             <img
               className="makersPhoto"
               alt="#"
-              src="/img/정동현.png"
+              src="/img/person1.png"
               style={{
                 width: '100px',
                 height: '100px',
                 borderRadius: '50%',
               }}
             />
-            <strong>정동현</strong>
-            <p>Front</p>
+            <strong>William A. Keller</strong>
           </div>
         </li>
         <li className="producers">
@@ -25,15 +24,14 @@ function Makers() {
             <img
               className="makersPhoto"
               alt="#"
-              src="/img/정동현.png"
+              src="/img/person2.png"
               style={{
                 width: '100px',
                 height: '100px',
                 borderRadius: '50%',
               }}
             />
-            <strong>정동현</strong>
-            <p>Front</p>
+            <strong>Dorothy R. Hunt</strong>
           </div>
         </li>
         <li className="producers">
@@ -41,15 +39,14 @@ function Makers() {
             <img
               className="makersPhoto"
               alt="#"
-              src="/img/정동현.png"
+              src="/img/person3.png"
               style={{
                 width: '100px',
                 height: '100px',
                 borderRadius: '50%',
               }}
             />
-            <strong>정동현</strong>
-            <p>Front</p>
+            <strong>Elena M. Haden</strong>
           </div>
         </li>
         <li className="producers">
@@ -57,15 +54,14 @@ function Makers() {
             <img
               className="makersPhoto"
               alt="#"
-              src="/img/정동현.png"
+              src="/img/person4.png"
               style={{
                 width: '100px',
                 height: '100px',
                 borderRadius: '50%',
               }}
             />
-            <strong>정동현</strong>
-            <p>Front</p>
+            <strong>Billie M. Lacy</strong>
           </div>
         </li>
         <li className="producers">
@@ -73,15 +69,14 @@ function Makers() {
             <img
               className="makersPhoto"
               alt="#"
-              src="/img/정동현.png"
+              src="/img/person5.png"
               style={{
                 width: '100px',
                 height: '100px',
                 borderRadius: '50%',
               }}
             />
-            <strong>정동현</strong>
-            <p>Front</p>
+            <strong>Lillian R. Hoover</strong>
           </div>
         </li>
         <li className="producers">
@@ -89,15 +84,14 @@ function Makers() {
             <img
               className="makersPhoto"
               alt="#"
-              src="/img/정동현.png"
+              src="/img/person6.png"
               style={{
                 width: '100px',
                 height: '100px',
                 borderRadius: '50%',
               }}
             />
-            <strong>정동현</strong>
-            <p>Front</p>
+            <strong>Michael B. White</strong>
           </div>
         </li>
       </ul>

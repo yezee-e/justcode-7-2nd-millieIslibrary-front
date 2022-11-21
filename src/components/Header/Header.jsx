@@ -71,7 +71,12 @@ function Header() {
           </div>
           <FaRegBell className="head-right__icon" />
           <Link to="/">
-            <Button variant="dark">로그아웃</Button>
+            <Button
+              onClick={() => window.localStorage.setItem('authorization', '')}
+              variant="dark"
+            >
+              로그아웃
+            </Button>
           </Link>
         </div>
       </div>

@@ -114,12 +114,27 @@ function AsideNav() {
     }
   };
 
+  //내 서재에 데이터 보내기
+  const onMyShelf = () => {
+    fetch(`http://localhost:8000/add-list/bookshelf`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        authorization: localStorage.getItem('token'),
+      },
+      body: JSON.stringify({
+        books_id: bookData[0].id,
+      }),
+    });
+  };
+
   return (
     <div className={css.asideContainer}>
       <div className={css.asideContent}>
         <button
           onClick={() => {
             if (window.confirm('내서재에 담았습니다.')) {
+              onMyShelf();
             }
           }}
         >

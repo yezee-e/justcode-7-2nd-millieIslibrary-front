@@ -1,11 +1,11 @@
 import React, { useState, useRef, useEffect } from 'react';
 import css from './Comments.module.scss';
-import CommentList from './CommentList';
+import Comment from './Comment';
 import { useParams } from 'react-router-dom';
 
-function Comments() {
+function Comments({ setBookInfoComments }) {
   const [text, setText] = useState('');
-  const [comments, setComment] = useState([]);
+  const [comments, setComments] = useState([]);
   const value = useRef();
   const params = useParams();
 
@@ -26,7 +26,8 @@ function Comments() {
         fetch(`http://localhost:8000/book-detail/${params.id}`)
           .then(res => res.json())
           .then(data => {
-            setComment(data.reviewInfo.reviewArray);
+            setComments(data.reviewInfo.reviewArray);
+            setBookInfoComments(data.reviewInfo.reviewArray);
           });
       });
   };
@@ -35,7 +36,8 @@ function Comments() {
     fetch(`http://localhost:8000/book-detail/${params.id}`)
       .then(res => res.json())
       .then(data => {
-        setComment(data.reviewInfo.reviewArray);
+        setComments(data.reviewInfo.reviewArray);
+        setBookInfoComments(data.reviewInfo.reviewArray);
       });
   }, []);
 
@@ -53,7 +55,7 @@ function Comments() {
       })
         .then(res => res.json())
         .then(result => {
-          setComment(comments.filter(props => props.review_id !== review_id));
+          setComments(comments.filter(props => props.review_id !== review_id));
         });
     }
   };
@@ -81,15 +83,15 @@ function Comments() {
         <h3 className={css.totalReview}>{comments.length}</h3>
       </div>
       <ul>
-        {comments.map(props => {
+        {comments.map((comment, idx) => {
           return (
-            <CommentList
-              key={props.id}
-              review_id={props.review_id}
+            <Comment
+              key={idx}
+              review_id={comment.review_id}
               onRemove={onRemove}
-              nickname={props.nickname}
-              content={props.content}
-              created_at={props.created_at}
+              nickname={comment.nickname}
+              content={comment.content}
+              created_at={comment.created_at}
             />
           );
         })}

@@ -10,7 +10,7 @@ import Comments from './Comments/Comments';
 
 function BookInfo() {
   const [item, setItem] = useState([]);
-  const [count, setCount] = useState(0);
+  const [commentArray, setCommentArray] = useState(0);
   const params = useParams();
 
   useEffect(() => {
@@ -25,7 +25,7 @@ function BookInfo() {
     fetch(`http://localhost:8000/book-detail/${params.id}`)
       .then(res => res.json())
       .then(data => {
-        setCount(data.reviewInfo.reviewArray);
+        setCommentArray(data.reviewInfo.reviewArray);
       });
   }, []);
 
@@ -51,13 +51,13 @@ function BookInfo() {
               <div className={css.BookInfo}>
                 <p className={css.book}>전자책</p>
                 <p className={css.title}>{title}</p>
-                {books_authors.map(author => {
-                  return <AuthorName key={author.id} {...author} />;
+                {books_authors.map((prop, idx) => {
+                  return <AuthorName key={idx} {...prop} />;
                 })}
                 <div className={css.commentBox}>
                   <img src="/img/comment.png" alt="" />
                   <p>한 줄 리뷰</p>
-                  <p className={css.total}>{count.length}개</p>
+                  <p className={css.total}>{commentArray.length}개</p>
                 </div>
               </div>
             </div>
@@ -72,10 +72,10 @@ function BookInfo() {
             />
             <Index key={toc.id} toc={toc} />
             {books_authors.map(author => {
-              return <Author key={author.id} {...author} />;
+              return <Author key={author.author_id} {...author} />;
             })}
             <Publisher key={publisher.id} publisher={publisher} />
-            <Comments />
+            <Comments setBookInfoComments={setCommentArray} />
           </div>
         )
       )}

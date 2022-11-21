@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import css from './CommentList.module.scss';
+import css from './Comment.module.scss';
 import { ThreeDotsVertical, Heart, HeartFill } from 'react-bootstrap-icons';
 
 function CommentList(props) {

@@ -30,15 +30,14 @@
     .bookBox {
       display: grid;
       width: 100%;
+      height: 200px;
       grid-template-rows: 185px 20px;
 
       .imgBox {
         display: flex;
         align-items: flex-end;
-        width: 100%;
-        height: 200px;
         img {
-          height: 200px;
+          height: 180px;
           width: auto;
           margin-right: 30px;
         }

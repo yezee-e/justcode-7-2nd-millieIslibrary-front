@@ -18,7 +18,7 @@ function Header() {
     <Nav>
       <div className="head">
         <div className="head-left">
-          <img src="./logo2.png" alt="logo" width={50} />
+          <img src="/logo2.png" alt="logo" width={50} />
           <Nav.Item className="head-tab">
             <Link
               to="/home"

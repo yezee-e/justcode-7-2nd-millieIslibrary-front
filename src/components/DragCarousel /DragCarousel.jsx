@@ -1,6 +1,4 @@
 import React, { useRef, useState } from 'react';
-import { useEffect } from 'react';
-import axios from 'axios';
 import Card from './Card.jsx';
 import './DragCarousel.scss';
 

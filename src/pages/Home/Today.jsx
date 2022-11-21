@@ -27,6 +27,7 @@ function Today() {
     getCategory(bookCategory[0]);
   }, []);
 
+  let [user, setUser] = useState('');
   let [data1, setData1] = useState([]);
   let [data2, setData2] = useState([]);
   let [data3, setData3] = useState([]);
@@ -35,6 +36,7 @@ function Today() {
   useEffect(() => {
     axios
       .all([
+        axios.post('http://localhost:8000/user/info'),
         axios.get('http://localhost:8000/books', {
           params: { limit: '10', order: '-rating' },
         }),
@@ -49,11 +51,13 @@ function Today() {
         }),
       ])
       .then(
-        axios.spread((res1, res2, res3, res4) => {
+        axios.spread((res, res1, res2, res3, res4) => {
+          const data = res.data;
           const data1 = res1.data;
           const data2 = res2.data;
           const data3 = res3.data;
           const data4 = res4.data;
+          setUser(data);
           setData1(data1);
           setData2(data2);
           setData3(data3);
@@ -160,7 +164,7 @@ function Today() {
         <div className="mainDeco">
           <img src="/img/boo.png" alt="mianbookImg" width={200} />
           <div>
-            <div>똑똑한 생활인 _{}님</div>
+            <div>똑똑한 생활인 _{user ? user.nickName : ' '}님</div>
             <div>서점 3사 100위 내, 71권을 밀리에서 만나보세요</div>
           </div>
         </div>

@@ -26,7 +26,22 @@
       .categoryBox {
         margin-top: 35px;
         height: 300px;
+        overflow-y: scroll;
         // border: 1px solid black;
+      }
+      .categoryBox::-webkit-scrollbar {
+        width: 8px; /* 스크롤바의 너비 */
+      }
+
+      .categoryBox::-webkit-scrollbar-thumb {
+        height: 30%; /* 스크롤바의 길이 */
+        background: rgba(0, 0, 0, 0.6); /* 스크롤바의 색상 */
+
+        border-radius: 10px;
+      }
+
+      .categoryBox::-webkit-scrollbar-track {
+        background: rgba(33, 122, 244, 0.1); /*스크롤바 뒷 배경 색상*/
       }
 
       .btnClose {

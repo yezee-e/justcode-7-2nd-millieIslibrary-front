@@ -1,15 +1,13 @@
 import React, { useState, useRef, useEffect } from 'react';
 import Searchbarlist from './Searchbarlist';
-import Filtermodal from '../Filtermodal/Filtermodal';
 
 function SearchBar() {
   const [searchClick, setSearchClick] = useState(false);
   const [searchBarContent, setSearchBarContent] = useState('');
   const [searchDisplay, setSearchDisplay] = useState(true);
   const [book, setBook] = useState([]);
-  const [popup, setPopup] = useState(false);
+  // const [popup, setPopup] = useState(false);
   const refSearchBar = useRef(null);
-  // const refContent = useRef(null);
 
   //목 데이터
   // useEffect(() => {
@@ -19,30 +17,23 @@ function SearchBar() {
   // }, []);
 
   useEffect(() => {
-    fetch('http://localhost:8000/category/search', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        text: searchBarContent,
-      }),
-    })
-      .then(res => res.json())
-      .then(json => setBook(json.data));
+    if (searchBarContent !== '')
+      fetch('http://localhost:8000/category/search', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          text: searchBarContent,
+        }),
+      })
+        .then(res => res.json())
+        .then(json => setBook(json.data));
   }, [searchBarContent]);
 
-  // console.log(filterTitle);
-  // const filterTitle = book.filter(item =>
-  //   item.title
-  //     .replace(' ', '')
-  //     .toLocaleLowerCase()
-  //     .includes(searchBarContent.toLocaleLowerCase().replace(' ', ''))
-  // );
-
-  useEffect(() => {
-    setPopup(false);
-  }, [setPopup]);
+  // useEffect(() => {
+  //   setPopup(false);
+  // }, [setPopup]);
 
   const searchBarOpen = () => {
     setSearchClick(true);
@@ -71,12 +62,12 @@ function SearchBar() {
     <div>
       <article ref={refSearchBar} className="searchBox">
         <div className="searchArea">
-          <button onClick={() => setPopup(true)} className="categoryFilter">
+          <button className="categoryFilter">
             <span style={{ marginLeft: '8px' }}>전체 ↓</span>
           </button>
-          {popup === true ? (
+          {/* {popup === true ? (
             <Filtermodal setPopup={setPopup} popup={popup} />
-          ) : null}
+          ) : null} */}
           <button onClick={searchBarClose} className="buttonClose">
             닫기
           </button>
@@ -120,7 +111,7 @@ function SearchBar() {
             <div className="booksList">
               {book.map(list => {
                 const { title, id } = list;
-                return <Searchbarlist title={title} key={id} />;
+                return <Searchbarlist title={title} key={id} id={id} />;
               })}
             </div>
           </ul>

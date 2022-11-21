@@ -1,37 +1,66 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { Carousel, Col, Container, Row } from 'react-bootstrap';
-import { useNavigate, useSearchParams } from 'react-router-dom';
+import { Carousel, Col, Row } from 'react-bootstrap';
+
 import DragCarousel from '../../components/DragCarousel /DragCarousel';
 import './Today.scss';
 
 function Today() {
   const [recommend, setRecommend] = useState([]);
-  const [query, setQuery] = useSearchParams('');
-  const limitNum = 6;
-  let limit = query.get('limit');
-  let btn = query.get('categoryName');
-  console.log('쿼리값은?: ', btn);
 
-  const getCategory = () => {
+  const getCategory = categoryName => {
+    let limit = 6;
     axios
-      .get(`http://localhost:3004/books?categoryName=${btn}&limit=${limit}`)
+      .get(`http://localhost:8000/books`, {
+        params: {
+          categoryName: categoryName,
+          limit: limit,
+        },
+      })
       .then(res => {
         setRecommend(res.data);
       })
       .catch(() => '로딩실패');
-    query.set('limit', limitNum);
-    // setQuery(query);
   };
 
   useEffect(() => {
-    getCategory();
-  }, [limit, btn]);
+    getCategory(bookCategory[0]);
+  }, []);
 
-  const navigate = useNavigate();
-  const bookType = btn => {
-    navigate(`/Home?categoryName=${btn}`);
-  };
+  let [data1, setData1] = useState([]);
+  let [data2, setData2] = useState([]);
+  let [data3, setData3] = useState([]);
+  let [data4, setData4] = useState([]);
+
+  useEffect(() => {
+    axios
+      .all([
+        axios.get('http://localhost:8000/books', {
+          params: { limit: '10', order: '-rating' },
+        }),
+        axios.get('http://localhost:8000/books', {
+          params: { limit: '10', order: '-publishTime' },
+        }),
+        axios.get('http://localhost:8000/books', {
+          params: { limit: '10', order: '-publishTime' },
+        }),
+        axios.get('http://localhost:8000/books', {
+          params: { limit: '10', order: '-rating' },
+        }),
+      ])
+      .then(
+        axios.spread((res1, res2, res3, res4) => {
+          const data1 = res1.data;
+          const data2 = res2.data;
+          const data3 = res3.data;
+          const data4 = res4.data;
+          setData1(data1);
+          setData2(data2);
+          setData3(data3);
+          setData4(data4);
+        })
+      );
+  }, []);
 
   const bookCategory = [
     '예술/대중문화',
@@ -126,17 +155,18 @@ function Today() {
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
-      {/* <div>
-        <img src="img/book2.png" alt="book" className="book" />
-      </div> */}
 
-      <div className="today-area__id">똑똑한 생활인 _ {}님</div>
       <div>
-        <div>지금! 서점 베스트</div>
-        <div>서점 3사 100위 내, 71권을 밀리에서 만나보세요</div>
+        <div className="mainDeco">
+          <img src="/img/boo.png" alt="mianbookImg" width={200} />
+          <div>
+            <div>똑똑한 생활인 _{}님</div>
+            <div>서점 3사 100위 내, 71권을 밀리에서 만나보세요</div>
+          </div>
+        </div>
         <div className="dragCard">
-          <div className="dragCard-title">한 달이내 출간된 책</div>
-          <DragCarousel />
+          <div className="dragCard-title">평점 베스트!</div>
+          <DragCarousel data={data1} />
         </div>
 
         <Row>
@@ -163,15 +193,15 @@ function Today() {
         </Row>
         <div className="dragCard">
           <div className="dragCard-title">지금 새로 들어온 책</div>
-          <DragCarousel />
-          <DragCarousel />
+          <DragCarousel data={data2} />
+          <DragCarousel data={data3} />
         </div>
 
         <div className="dragCard">
           <div className="dragCard-title">이번주 취향별 추천책</div>
           <div>
             {bookCategory.map(btn => (
-              <button key={btn} onClick={() => bookType(btn)}>
+              <button key={btn} onClick={() => getCategory(btn)}>
                 {btn}
               </button>
             ))}
@@ -180,14 +210,14 @@ function Today() {
           <div>
             <Row>
               {recommend.map(books => {
-                const { id, coverImg, title, author } = books;
+                const { cover_img, title, author_name } = books;
                 return (
-                  <Col lg={4} sm={6} key={id} className="cardWrap">
+                  <Col lg={4} sm={6} key={title} className="cardWrap">
                     <div className="cardImg">
-                      <img src={coverImg} alt="coverImg" />
+                      <img src={cover_img} alt="coverImg" />
                     </div>
                     <div className="title">{title}</div>
-                    <div className="author">{author}</div>
+                    <div className="author">{author_name}</div>
                   </Col>
                 );
               })}
@@ -195,8 +225,8 @@ function Today() {
           </div>
         </div>
         <div className="dragCard">
-          <div className="dragCard-title">지금 새로 들어온 책</div>
-          <DragCarousel />
+          <div className="dragCard-title">김영사 출판사</div>
+          <DragCarousel data={data4} />
         </div>
       </div>
     </div>

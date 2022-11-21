@@ -9,7 +9,7 @@
 }
 
 .today-area {
-  height: 400vh;
+  height: 500vh;
   margin: 0 95px;
 
   padding-top: 100px;
@@ -58,10 +58,19 @@
       font-weight: 400;
     }
   }
-  .today-area__id {
-    margin: 59px 0;
-    font-weight: 500;
-    font-size: 20px;
+
+  .mainDeco {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 70px 0;
+
+    div {
+      @include bigText(700);
+      margin-top: 10px;
+      font-size: 20px;
+      color: #3465ca;
+    }
   }
 
   .book {
@@ -106,7 +115,7 @@
   }
 
   .dragCard {
-    margin-top: 63px;
+    margin: 63px 0;
 
     img {
       width: 148px;
@@ -124,7 +133,7 @@
       margin: 16px 5px;
       padding: 10px 15px;
       border: 1px solid black;
-      border-radius: 50%;
+      border-radius: 10px;
       :active {
         background-color: lightblue;
       }
@@ -143,9 +152,16 @@
       }
     }
     .cardWrap {
-      display: grid;
-
-      // justify-content: ;
+      margin-top: 30px;
+    }
+    .cardWrap:nth-of-type(2) {
+      //가운대 부분만 올리는 작업
+      bottom: 2rem;
+      position: relative;
+    }
+    .cardWrap:nth-of-type(5) {
+      bottom: 2rem;
+      position: relative;
     }
 
     .title {

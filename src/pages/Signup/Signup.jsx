@@ -13,7 +13,7 @@ function Signup() {
 
   const EMAIL_REGEX = /^[a-zA-Z0-9+-_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
   const PWD_REGEX =
-    /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
+    /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{10,}$/;
 
   const navigate = useNavigate();
 
@@ -53,7 +53,7 @@ function Signup() {
     }).then(res => res.json());
 
     if (validEmail && validPassword) {
-      navigate(`/login`);
+      navigate(`/`);
     }
   };
 
@@ -112,7 +112,7 @@ function Signup() {
           }
           className="isVaildAlertDiffPw"
         >
-          8~16자 영문 대 소문자, 숫자, 특수문자를 사용하세요.
+          10~16자 영문 대 소문자, 숫자, 특수문자를 사용하세요.
         </p>
 
         <label className="labelDateBox">

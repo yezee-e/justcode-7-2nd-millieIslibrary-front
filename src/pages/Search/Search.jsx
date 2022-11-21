@@ -1,31 +1,65 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Search.scss';
 import Header from '../../components/Header/Header';
 import SearchBar from '../../components/SearchTapComponets/SearchBar';
 import Collections from '../../components/SearchTapComponets/Collections';
 import Makers from '../../components/SearchTapComponets/Makers';
-import Audio from '../../components/SearchTapComponets/Audio';
+// import Audio from '../../components/SearchTapComponets/Audio';
 import Shotcutbox from '../../components/SearchTapComponets/Shotcutbox';
 import Category from '../../components/SearchTapComponets/Category';
-import Wordrecommend from '../../components/SearchTapComponets/Wordrecommend';
 import Rank from '../../components/SearchTapComponets/Rank';
 
 function Search() {
   const [rank, setRank] = useState([]);
+  const [category, setCategory] = useState([]);
+  const [wordReCommend, setWordReCommend] = useState([]);
+  const [refresh, setRefresh] = useState([]);
+  const navi = useNavigate();
 
+  // const goToDetails = () => {
+  //   navi(`/bookDetail/${id}`);
+  // };
   useEffect(() => {
     fetch('./data/ranking.json')
       .then(res => res.json())
       .then(data => setRank(data.rank));
-  }, []);
+  }, [setRank]);
 
-  console.log(rank[rank.length - 1]);
+  useEffect(() => {
+    fetch('http://localhost:8000/category/info')
+      .then(res => res.json())
+      .then(data => setCategory(data.data));
+  }, [setCategory]);
+
+  useEffect(() => {
+    fetch('http://localhost:8000/category/bookrandom')
+      .then(res => res.json())
+      .then(data => setWordReCommend(data.data));
+  }, [setWordReCommend]);
+
+  console.log(wordReCommend.id);
+  // const refreshBookList = () => {
+  //   useEffect(() => {
+  //     fetch('북리스트')
+  //       .then(res => res.json())
+  //       .then(data => setRefresh(data));
+  //   });
+  // };
+
+  //카테고리 목 데이터
+  // useEffect(() => {
+  //   fetch('./data/category.json')
+  //     .then(res => res.json())
+  //     .then(data => setCategory(data.cate));
+  // }, [setCategory]);
 
   return (
     <div>
       <Header />
       <div className="searchTapWrap">
         <SearchBar />
+
         <div>
           <section className="sectionArea">
             <div className="searchBodyWrap">
@@ -36,9 +70,29 @@ function Search() {
               </div>
 
               <div className="searchWordRecommendArea">
-                <h2 className="Title">밀리 추천 책</h2>
+                <div style={{ display: 'flex' }}>
+                  <h2 className="Title">밀리 추천 책</h2>
+                  <button className="refreshBtn" />
+                </div>
+
                 <div className="wordRecommendContentBox">
-                  <Wordrecommend />
+                  <div className="wordRecommendContentWrap">
+                    <ul className="wordRecommendContent">
+                      <li>
+                        {wordReCommend.map(list => {
+                          const { title, id } = list;
+                          return (
+                            <p
+                              key={id}
+                              onClick={() => navi(`/bookDetail/${id}`)}
+                            >
+                              {title}
+                            </p>
+                          );
+                        })}
+                      </li>
+                    </ul>
+                  </div>
                 </div>
               </div>
             </div>
@@ -50,26 +104,38 @@ function Search() {
             <div className="grayLine" />
 
             <div className="categoryListWrap">
-              <ul className="categoryTap">
+              {/* <ul className="categoryTap">
                 <li className="category">카테고리</li>
                 <li className="audio">오디오</li>
                 <li className="collection">컬렉션</li>
-              </ul>
+              </ul> */}
               <h2 className="Title">카테고리</h2>
-              <Category />
+              <ul className="caterogyList">
+                {category.map(list => {
+                  const { id, content, cover_img } = list;
+                  return (
+                    <Category
+                      key={id}
+                      content={content}
+                      idNum={id}
+                      cover_img={cover_img}
+                    />
+                  );
+                })}
+              </ul>
 
-              <h2 className="Title">오디오</h2>
+              {/* <h2 className="Title">오디오</h2>
 
-              <Audio />
+              <Audio /> */}
 
-              <h2 className="Title">만든 사람들</h2>
+              <h2 className="Title">추천 작가</h2>
               <Makers />
 
               <h2 style={{ marginTop: '40px' }} className="Title">
                 컬렉션
               </h2>
               <p style={{ fontSize: '14px', color: '#6f6f6f' }}>
-                밀리가 만드는 다양한 아티클을 확인해보세요!
+                다양한 아이콘을 확인하세요 !
               </p>
 
               <Collections />

@@ -10,10 +10,10 @@ function Collections() {
             <img
               className="collectionImg"
               alt="#"
-              src="/img/네이버.png"
+              src="https://cdn-icons-png.flaticon.com/128/2171/2171990.png"
               style={{ width: '25px', marginRight: '10px' }}
             />
-            <strong>예시입니다.</strong>
+            <strong>강아지 아이콘</strong>
           </Link>
         </li>
         <li className="collections">
@@ -21,10 +21,10 @@ function Collections() {
             <img
               className="collectionImg"
               alt="#"
-              src="/img/네이버.png"
+              src="https://cdn-icons-png.flaticon.com/128/2437/2437632.png"
               style={{ width: '25px', marginRight: '10px' }}
             />
-            <strong>예시입니다.</strong>
+            <strong>강아지와 고양이 아이콘</strong>
           </Link>
         </li>
         <li className="collections">
@@ -32,10 +32,10 @@ function Collections() {
             <img
               className="collectionImg"
               alt="#"
-              src="/img/네이버.png"
+              src="https://cdn-icons-png.flaticon.com/128/4195/4195620.png"
               style={{ width: '25px', marginRight: '10px' }}
             />
-            <strong>예시입니다.</strong>
+            <strong>사자 아이콘</strong>
           </Link>
         </li>
         <li className="collections">
@@ -43,54 +43,10 @@ function Collections() {
             <img
               className="collectionImg"
               alt="#"
-              src="/img/네이버.png"
+              src="https://cdn-icons-png.flaticon.com/128/1864/1864499.png"
               style={{ width: '25px', marginRight: '10px' }}
             />
-            <strong>예시입니다.</strong>
-          </Link>
-        </li>
-        <li className="collections">
-          <Link className="collectionContent" to="">
-            <img
-              className="collectionImg"
-              alt="#"
-              src="/img/네이버.png"
-              style={{ width: '25px', marginRight: '10px' }}
-            />
-            <strong>예시입니다.</strong>
-          </Link>
-        </li>
-        <li className="collections">
-          <Link className="collectionContent" to="">
-            <img
-              className="collectionImg"
-              alt="#"
-              src="/img/네이버.png"
-              style={{ width: '25px', marginRight: '10px' }}
-            />
-            <strong>예시입니다.</strong>
-          </Link>
-        </li>
-        <li className="collections">
-          <Link className="collectionContent" to="">
-            <img
-              className="collectionImg"
-              alt="#"
-              src="/img/네이버.png"
-              style={{ width: '25px', marginRight: '10px' }}
-            />
-            <strong>예시입니다.</strong>
-          </Link>
-        </li>
-        <li className="collections">
-          <Link className="collectionContent" to="">
-            <img
-              className="collectionImg"
-              alt="#"
-              src="/img/네이버.png"
-              style={{ width: '25px', marginRight: '10px' }}
-            />
-            <strong>예시입니다.</strong>
+            <strong>닭 아이콘</strong>
           </Link>
         </li>
       </ul>

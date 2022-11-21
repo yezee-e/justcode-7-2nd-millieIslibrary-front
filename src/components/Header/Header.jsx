@@ -72,7 +72,7 @@ function Header() {
           <FaRegBell className="head-right__icon" />
           <Link to="/">
             <Button
-              onClick={() => window.localStorage.setItem('authorization', '')}
+              onClick={() => window.localStorage.setItem('token', '')}
               variant="dark"
             >
               로그아웃

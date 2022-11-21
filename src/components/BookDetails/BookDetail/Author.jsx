@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import css from './Author.module.scss';
+import { ChevronDown, ChevronUp } from 'react-bootstrap-icons';
 
-function Accordion({ authorInfo }) {
+function Author(author) {
+  const { author_intro, author_name } = author;
   const [visible, setVisible] = useState(false);
+
   return (
     <div className={css.accordionWrap}>
       <div
@@ -14,17 +17,17 @@ function Accordion({ authorInfo }) {
         <h3>저자 소개</h3>
         {visible ? (
           <button>
-            <img src="/img/chevron-up.svg" alt="올리기 이미지" />
+            <ChevronUp />
           </button>
         ) : (
           <button>
-            <img src="/img/chevron-down.svg" alt="내리기 이미지" />
+            <ChevronDown />
           </button>
         )}
       </div>
-      {visible && <p className={css.textArea}>{authorInfo}</p>}
+      {visible && <p className={css.textArea}>{author_intro}</p>}
     </div>
   );
 }
 
-export default Accordion;
+export default Author;

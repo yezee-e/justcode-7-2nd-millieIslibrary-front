@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Search.scss';
 import Header from '../../components/Header/Header';
 import SearchBar from '../../components/SearchTapComponets/SearchBar';
@@ -7,14 +8,18 @@ import Makers from '../../components/SearchTapComponets/Makers';
 // import Audio from '../../components/SearchTapComponets/Audio';
 import Shotcutbox from '../../components/SearchTapComponets/Shotcutbox';
 import Category from '../../components/SearchTapComponets/Category';
-import Wordrecommend from '../../components/SearchTapComponets/Wordrecommend';
 import Rank from '../../components/SearchTapComponets/Rank';
 
 function Search() {
   const [rank, setRank] = useState([]);
   const [category, setCategory] = useState([]);
+  const [wordReCommend, setWordReCommend] = useState([]);
   const [refresh, setRefresh] = useState([]);
+  const navi = useNavigate();
 
+  // const goToDetails = () => {
+  //   navi(`/bookDetail/${id}`);
+  // };
   useEffect(() => {
     fetch('./data/ranking.json')
       .then(res => res.json())
@@ -27,6 +32,13 @@ function Search() {
       .then(data => setCategory(data.data));
   }, [setCategory]);
 
+  useEffect(() => {
+    fetch('http://localhost:8000/category/bookrandom')
+      .then(res => res.json())
+      .then(data => setWordReCommend(data.data));
+  }, [setWordReCommend]);
+
+  console.log(wordReCommend.id);
   // const refreshBookList = () => {
   //   useEffect(() => {
   //     fetch('북리스트')
@@ -64,7 +76,23 @@ function Search() {
                 </div>
 
                 <div className="wordRecommendContentBox">
-                  <Wordrecommend />
+                  <div className="wordRecommendContentWrap">
+                    <ul className="wordRecommendContent">
+                      <li>
+                        {wordReCommend.map(list => {
+                          const { title, id } = list;
+                          return (
+                            <p
+                              key={id}
+                              onClick={() => navi(`/bookDetail/${id}`)}
+                            >
+                              {title}
+                            </p>
+                          );
+                        })}
+                      </li>
+                    </ul>
+                  </div>
                 </div>
               </div>
             </div>
@@ -84,8 +112,15 @@ function Search() {
               <h2 className="Title">카테고리</h2>
               <ul className="caterogyList">
                 {category.map(list => {
-                  const { id, content } = list;
-                  return <Category key={id} content={content} idNum={id} />;
+                  const { id, content, cover_img } = list;
+                  return (
+                    <Category
+                      key={id}
+                      content={content}
+                      idNum={id}
+                      cover_img={cover_img}
+                    />
+                  );
                 })}
               </ul>
 

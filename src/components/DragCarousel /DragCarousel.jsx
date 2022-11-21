@@ -1,26 +1,10 @@
 import React, { useRef, useState } from 'react';
 import { useEffect } from 'react';
 import axios from 'axios';
-import { Col, Container, Row } from 'react-bootstrap';
 import Card from './Card.jsx';
 import './DragCarousel.scss';
 
-function DragCarousel() {
-  let [carousel, setCarousel] = useState([]);
-
-  const bookData = () => {
-    axios
-      .get('http://localhost:3004/data')
-      .then(res => {
-        setCarousel(res.data);
-      })
-      .catch(() => '로딩실패');
-  };
-
-  useEffect(() => {
-    bookData();
-  }, []);
-
+function DragCarousel({ data }) {
   const scrollRef = useRef(null);
   const [isDrag, setIsDrag] = useState(false);
   const [startX, setStartX] = useState();
@@ -64,7 +48,7 @@ function DragCarousel() {
 
   return (
     <div>
-      {carousel && (
+      {data && (
         <div
           className="card-wrap"
           onMouseDown={onDragStart}
@@ -73,14 +57,14 @@ function DragCarousel() {
           onMouseLeave={onDragEnd}
           ref={scrollRef}
         >
-          {carousel.map(item => {
-            const { id, coverImg, title, author } = item;
+          {data.map(item => {
+            const { id, cover_img, title, author_name } = item;
             return (
               <Card
-                key={id}
+                key={title}
                 title={title}
-                author={author}
-                coverImg={coverImg}
+                author={author_name}
+                coverImg={cover_img}
               />
             );
           })}

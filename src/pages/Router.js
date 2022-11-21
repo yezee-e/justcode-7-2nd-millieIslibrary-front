@@ -18,7 +18,7 @@ function Router() {
 
   return (
     <div id={theme}>
-      <ThemeContext.Provider value={{ toggleTheme }}>
+      <ThemeContext.Provider value={{ toggleTheme, theme }}>
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/Home" element={<Home />} />

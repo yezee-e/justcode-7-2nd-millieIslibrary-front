@@ -8,6 +8,7 @@ import Home from './Home/Home';
 import Findpw from './Findpw/Findpw';
 import Search from './Search/Search';
 import Categorydetails from '../components/Categorydetails/Categorydetails';
+import Gate from './GatePage/Gate';
 
 export const ThemeContext = createContext('light');
 
@@ -21,6 +22,7 @@ function Router() {
     <div id={theme}>
       <ThemeContext.Provider value={{ toggleTheme, theme }}>
         <Routes>
+          <Route path="/gate" element={<Gate />} />
           <Route path="/" element={<Login />} />
           <Route path="/Home" element={<Home />} />
           <Route path="/signup" element={<Signup />} />

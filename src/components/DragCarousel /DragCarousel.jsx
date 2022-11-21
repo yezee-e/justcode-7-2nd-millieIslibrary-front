@@ -1,4 +1,6 @@
 import React, { useRef, useState } from 'react';
+import { useEffect } from 'react';
+import axios from 'axios';
 import Card from './Card.jsx';
 import './DragCarousel.scss';
 
@@ -56,7 +58,7 @@ function DragCarousel({ data }) {
           ref={scrollRef}
         >
           {data.map(item => {
-            const { id, cover_img, title, author_name } = item;
+            const { cover_img, title, author_name } = item;
             return (
               <Card
                 key={title}

@@ -6,7 +6,6 @@ import Footer from '../../components/Footer/Footer';
 
 import TopButton from '../../components/TopButton/TopButton';
 import Today from './Today';
-import DragCarousel from '../../components/DragCarousel /DragCarousel';
 
 function Home() {
   return (

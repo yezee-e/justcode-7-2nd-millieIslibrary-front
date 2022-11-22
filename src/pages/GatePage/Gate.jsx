@@ -51,25 +51,25 @@ function Gate() {
         <p>상황에 맞게 원하는 요금제를 자유롭게 선택하세요</p>
         <Price>
           <div>
-            <a>전자책 정기구독</a>
-            <a>월 9,900원</a>
-            <a>연 9,0000원</a>
-            <a>밀리에서 제공하는 콘텐츠를 무제한으로</a>
+            <a href="##">전자책 정기구독</a>
+            <a href="##">월 9,900원</a>
+            <a href="##">연 9,0000원</a>
+            <a href="##">밀리에서 제공하는 콘텐츠를 무제한으로</a>
           </div>
           <div>
-            <a>종이책 정기구독</a>
-            <a>월 15,000원</a>
-            <a>연 183,0000원</a>
-            <a>
+            <a href="##">종이책 정기구독</a>
+            <a href="##">월 15,000원</a>
+            <a href="##">연 183,0000원</a>
+            <a href="##">
               밀리의 모든 콘텐츠를 무제한으로 보고 2달에 1번 종이책+전자책
               배송까지
             </a>
           </div>
-          <section></section>
+          <section> </section>
         </Price>
       </Sub>
       <Footer />
-      <Link to="/login" styled={{ textDecoration: 'none' }}>
+      <Link to="/login" style={{ textDecoration: 'none' }}>
         <Btn>
           <button>로그인해서 밀리 보러가기</button>
         </Btn>

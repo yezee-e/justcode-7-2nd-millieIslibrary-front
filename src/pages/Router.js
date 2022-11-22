@@ -5,7 +5,7 @@ import Signup from './Signup/Signup';
 import BookDetail from './BookDetail/BookDetail';
 import Myshelf from './Myshelf/Myshelf';
 import Home from './Home/Home';
-import Findpw from './Findpw/Findpw';
+import PasswordChange from './PasswordChange/PasswordChange';
 import Search from './Search/Search';
 import Categorydetails from '../components/Categorydetails/Categorydetails';
 import Gate from './GatePage/Gate';
@@ -26,7 +26,7 @@ function Router() {
           <Route path="/login" element={<Login />} />
           <Route path="/Home" element={<Home />} />
           <Route path="/signup" element={<Signup />} />
-          <Route path="/findpw" element={<Findpw />} />
+          <Route path="/pwchange" element={<PasswordChange />} />
           <Route path="/bookDetail/:id" element={<BookDetail />} />
           <Route path="/myshelf" element={<Myshelf />} />
           <Route path="/search" element={<Search />} />

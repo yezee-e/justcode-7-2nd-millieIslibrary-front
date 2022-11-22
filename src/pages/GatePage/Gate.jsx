@@ -69,7 +69,7 @@ function Gate() {
         </Price>
       </Sub>
       <Footer />
-      <Link to="/" styled={{ textDecoration: 'none' }}>
+      <Link to="/login" styled={{ textDecoration: 'none' }}>
         <Btn>
           <button>로그인해서 밀리 보러가기</button>
         </Btn>

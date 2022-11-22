@@ -22,8 +22,8 @@ function Router() {
     <div id={theme}>
       <ThemeContext.Provider value={{ toggleTheme, theme }}>
         <Routes>
-          <Route path="/gate" element={<Gate />} />
-          <Route path="/" element={<Login />} />
+          <Route path="/" element={<Gate />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/Home" element={<Home />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/findpw" element={<Findpw />} />

@@ -58,7 +58,7 @@ function DragCarousel({ data }) {
           ref={scrollRef}
         >
           {data.map(item => {
-            const { id, cover_img, title, author_name } = item;
+            const { cover_img, title, author_name } = item;
             return (
               <Card
                 key={title}

@@ -53,7 +53,7 @@ function Signup() {
     }).then(res => res.json());
 
     if (validEmail && validPassword) {
-      navigate(`/`);
+      navigate(`/login`);
     }
   };
 

@@ -1,8 +1,8 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Carousel, Col, Row } from 'react-bootstrap';
-
 import DragCarousel from '../../components/DragCarousel /DragCarousel';
+import DropCard from '../../components/DragCarousel /DropCard';
 import './Today.scss';
 
 function Today() {
@@ -27,10 +27,25 @@ function Today() {
     getCategory(bookCategory[0]);
   }, []);
 
-  let [data1, setData1] = useState([]);
-  let [data2, setData2] = useState([]);
-  let [data3, setData3] = useState([]);
-  let [data4, setData4] = useState([]);
+  let [user, setUser] = useState([]); //로그인별명가져온다
+  let [data1, setData1] = useState([]); //평점베스트
+  let [data2, setData2] = useState([]); //지금 새로들어온책
+  let [data4, setData4] = useState([]); //김영사 출판사
+
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    axios
+      .get('http://localhost:8000/user/info', {
+        headers: {
+          'Content-Type': 'application/json',
+          authorization: token,
+        },
+      })
+      .then(res => {
+        setUser(res.data.userInfo[0]);
+      })
+      .catch(() => '로딩실패');
+  }, []);
 
   useEffect(() => {
     axios
@@ -42,21 +57,17 @@ function Today() {
           params: { limit: '10', order: '-publishTime' },
         }),
         axios.get('http://localhost:8000/books', {
-          params: { limit: '10', order: '-publishTime' },
-        }),
-        axios.get('http://localhost:8000/books', {
           params: { limit: '10', order: '-rating' },
         }),
       ])
       .then(
-        axios.spread((res1, res2, res3, res4) => {
+        axios.spread((res1, res2, res4) => {
           const data1 = res1.data;
           const data2 = res2.data;
-          const data3 = res3.data;
           const data4 = res4.data;
+
           setData1(data1);
           setData2(data2);
-          setData3(data3);
           setData4(data4);
         })
       );
@@ -158,14 +169,15 @@ function Today() {
 
       <div>
         <div className="mainDeco">
-          <img src="/img/boo.png" alt="mianbookImg" width={200} />
           <div>
-            <div>똑똑한 생활인 _{}님</div>
+            <div>
+              똑똑한 생활인 <a>{user.nickname}</a>님
+            </div>
             <div>서점 3사 100위 내, 71권을 밀리에서 만나보세요</div>
           </div>
         </div>
         <div className="dragCard">
-          <div className="dragCard-title">평점 베스트!</div>
+          <div className="dragCard-title">밀리 선정 베스트!</div>
           <DragCarousel data={data1} />
         </div>
 
@@ -194,7 +206,6 @@ function Today() {
         <div className="dragCard">
           <div className="dragCard-title">지금 새로 들어온 책</div>
           <DragCarousel data={data2} />
-          <DragCarousel data={data3} />
         </div>
 
         <div className="dragCard">
@@ -225,7 +236,7 @@ function Today() {
           </div>
         </div>
         <div className="dragCard">
-          <div className="dragCard-title">김영사 출판사</div>
+          <div className="dragCard-title">밀리에서 만나는 창비 출판사 </div>
           <DragCarousel data={data4} />
         </div>
       </div>

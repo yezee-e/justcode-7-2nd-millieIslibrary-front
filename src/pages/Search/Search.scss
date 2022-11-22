@@ -179,7 +179,7 @@
         height: 170px;
         min-height: 170px;
 
-        cursor: pointer;
+        // cursor: pointer;
 
         .refreshBtn {
           width: 25px;
@@ -208,6 +208,11 @@
           margin: 0;
           flex-wrap: wrap;
           text-align: left;
+
+          .pHover:hover {
+            border: 1px solid rgba(255, 208, 0, 0.6);
+            background-color: rgba(255, 208, 0, 0.6);
+          }
 
           li {
             cursor: pointer;
@@ -288,7 +293,9 @@
       // flex-direction: column;
       // flex-wrap: wrap;
       width: 100%;
-
+      .categoryHover :hover {
+        border: 3px solid rgba(255, 208, 0, 0.3);
+      }
       .categorys {
         width: 600px;
         min-height: 128px;
@@ -308,12 +315,12 @@
           align-items: center;
           height: 100%;
           padding: 24px;
-
           cursor: pointer;
           background-color: transparent;
           text-decoration: none;
           color: inherit;
           letter-spacing: -0.6px;
+          border: none;
           p {
             font-size: 14px;
             margin-top: 20px;

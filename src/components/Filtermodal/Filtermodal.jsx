@@ -1,14 +1,25 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useRef } from 'react';
 import './Filtermodal.scss';
 function Filtermodal({ popup, setPopup }) {
+  const [modalCategory, setModalCategory] = useState([]);
   const ref = useRef(null);
+  const navi = useNavigate();
+
+  useEffect(() => {
+    fetch('http://localhost:8000/category/info')
+      .then(res => res.json())
+      .then(data => setModalCategory(data.data));
+  }, [setModalCategory]);
 
   useEffect(() => {
     if (popup === false) {
       ref.current.style.display = 'none';
     }
   });
+
+  console.log(modalCategory);
 
   return (
     <div>
@@ -18,20 +29,27 @@ function Filtermodal({ popup, setPopup }) {
             <span className="nameCategory">카테고리</span>
             <div className="categoryBox">
               <ul
-                style={{ padding: '0', lineHeight: '35px', color: '#959595' }}
+                style={{
+                  padding: '0',
+                  lineHeight: '35px',
+                  color: '#959595',
+                }}
               >
-                <li>
-                  <span>로맨스</span>
-                </li>
-                <li>
-                  <span>SF</span>
-                </li>
-                <li>
-                  <span>인문</span>
-                </li>
-                <li>
-                  <span>역사</span>
-                </li>
+                {modalCategory.map(list => {
+                  const goToDetails = () => {
+                    navi(`/category/${id}`);
+                  };
+                  const { id, content } = list;
+                  return (
+                    <li
+                      onClick={goToDetails}
+                      style={{ cursor: 'pointer' }}
+                      key={id}
+                    >
+                      <span>{content}</span>
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           </div>
@@ -39,7 +57,12 @@ function Filtermodal({ popup, setPopup }) {
             <button onClick={() => setPopup(false)} className="btnClose">
               취소
             </button>
-            <button className="btnEnter">확인</button>
+            <button
+              onClick={() => window.location.reload()}
+              className="btnEnter"
+            >
+              확인
+            </button>
           </div>
         </div>
       </div>

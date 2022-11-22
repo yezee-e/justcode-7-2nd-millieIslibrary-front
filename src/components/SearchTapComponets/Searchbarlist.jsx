@@ -1,6 +1,11 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
-function Searchbarlist({ title }) {
+function Searchbarlist({ title, id }) {
+  const navi = useNavigate();
+
+  const goToDetails = () => navi(`/bookDetail/${id}`);
+
   return (
     <div>
       <li style={{ marginTop: '5px' }}>
@@ -9,7 +14,12 @@ function Searchbarlist({ title }) {
           alt=""
           src="/img/magnifier.png"
         />
-        <span style={{ marginLeft: '5px' }}>{title}</span>
+        <span
+          onClick={goToDetails}
+          style={{ marginLeft: '5px', cursor: 'pointer' }}
+        >
+          {title}
+        </span>
       </li>
     </div>
   );

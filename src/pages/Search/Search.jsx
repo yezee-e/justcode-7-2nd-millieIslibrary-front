@@ -14,12 +14,9 @@ function Search() {
   const [rank, setRank] = useState([]);
   const [category, setCategory] = useState([]);
   const [wordReCommend, setWordReCommend] = useState([]);
-  const [refresh, setRefresh] = useState([]);
+  const [refresh, setRefresh] = useState(false);
   const navi = useNavigate();
 
-  // const goToDetails = () => {
-  //   navi(`/bookDetail/${id}`);
-  // };
   useEffect(() => {
     fetch('./data/ranking.json')
       .then(res => res.json())
@@ -36,16 +33,11 @@ function Search() {
     fetch('http://localhost:8000/category/bookrandom')
       .then(res => res.json())
       .then(data => setWordReCommend(data.data));
-  }, [setWordReCommend]);
+  }, [refresh]);
 
-  console.log(wordReCommend.id);
-  // const refreshBookList = () => {
-  //   useEffect(() => {
-  //     fetch('북리스트')
-  //       .then(res => res.json())
-  //       .then(data => setRefresh(data));
-  //   });
-  // };
+  const refreshBtn = () => {
+    setRefresh((check: boolean) => !check);
+  };
 
   //카테고리 목 데이터
   // useEffect(() => {
@@ -72,7 +64,7 @@ function Search() {
               <div className="searchWordRecommendArea">
                 <div style={{ display: 'flex' }}>
                   <h2 className="Title">밀리 추천 책</h2>
-                  <button className="refreshBtn" />
+                  <button onClick={refreshBtn} className="refreshBtn" />
                 </div>
 
                 <div className="wordRecommendContentBox">
@@ -83,6 +75,7 @@ function Search() {
                           const { title, id } = list;
                           return (
                             <p
+                              className="pHover"
                               key={id}
                               onClick={() => navi(`/bookDetail/${id}`)}
                             >

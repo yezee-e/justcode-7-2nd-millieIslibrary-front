@@ -1,11 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useParams } from 'react-router-dom';
 import './Categorydetails.scss';
 import CategoryList from './CategoryList';
+import Filtermodal from '../Filtermodal/Filtermodal';
 
 function Categorydetails() {
   const [bookList, setBookList] = useState([]);
   const { id } = useParams();
+  const [popup, setPopup] = useState(false);
+
+  useEffect(() => {
+    setPopup(false);
+  }, [setPopup]);
 
   useEffect(() => {
     fetch(`http://localhost:8000/category/${id}`)
@@ -13,8 +19,6 @@ function Categorydetails() {
       .then(data => setBookList(data.data[0].books));
   }, [setBookList]);
 
-  // let books = bookList[0].books;
-  // console.log(books);
   return (
     <div>
       <div className="categoryDetailWrap">
@@ -22,21 +26,27 @@ function Categorydetails() {
           <h2>밀리 오리지널</h2>
         </div>
         <article className="categoryName">
-          <strong>밀리 오리지널 전체보기</strong>
+          <strong onClick={() => setPopup(true)} style={{ cursor: 'pointer' }}>
+            밀리 오리지널 전체보기
+            <span style={{ marginLeft: '5px', fontSize: '16px' }}>▼</span>
+          </strong>
+          {popup === true ? (
+            <Filtermodal setPopup={setPopup} popup={popup} />
+          ) : null}
         </article>
         <div className="bookList">
           <div className="bookListName">밀리 오리지널 인기 도서</div>
           <div className="bookListWraper">
             <ul className="booksWraper">
-              {bookList.map((book, idx) => {
-                const { title, cover_img, author_name } = book;
+              {bookList.map(book => {
+                const { title, cover_img, author_name, id } = book;
                 return (
                   <CategoryList
                     key={id}
                     title={title}
                     cover_img={cover_img}
                     author_name={author_name}
-                    idx={idx}
+                    idx={id}
                   />
                 );
               })}

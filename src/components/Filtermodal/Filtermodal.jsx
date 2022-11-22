@@ -11,15 +11,13 @@ function Filtermodal({ popup, setPopup }) {
     fetch('http://localhost:8000/category/info')
       .then(res => res.json())
       .then(data => setModalCategory(data.data));
-  }, [setModalCategory]);
+  }, []);
 
   useEffect(() => {
     if (popup === false) {
       ref.current.style.display = 'none';
     }
   });
-
-  console.log(modalCategory);
 
   return (
     <div>

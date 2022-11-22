@@ -87,11 +87,16 @@ function Login() {
           </li>
           <div className="verticalBox" />
           <li>
-            <Link to="/findpw">비밀번호 찾기</Link>
+            <Link to="/pwchange">비밀번호 찾기</Link>
           </li>
           <div className="verticalBox" />
           <li>
-            <a href="null">기업회원 로그인</a>
+            <span
+              style={{ color: '#8b8b8b', fontSize: '16px', cursor: 'pointer' }}
+              onClick={() => alert('준비중입니다.')}
+            >
+              기업회원 로그인
+            </span>
           </li>
         </ul>
 

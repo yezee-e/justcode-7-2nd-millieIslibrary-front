@@ -9,7 +9,7 @@
 }
 
 .today-area {
-  height: 400vh;
+  height: 450vh;
   margin: 0 95px;
 
   padding-top: 100px;
@@ -17,6 +17,7 @@
 
   .carousel {
     margin: 0 -95px;
+
     button {
       display: none;
     }
@@ -27,13 +28,16 @@
       height: 387px;
     }
     .inner-img {
-      display: block;
-      position: relative;
+      // display: block;
+      // position: relative;
       width: 300px;
       height: 200px;
-      float: left;
+      // float: left;
       left: 600px;
       bottom: 30px;
+      position: absolute;
+      overflow-y: visible;
+      top: 10;
     }
     .inner-text {
       width: 100%;

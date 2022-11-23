@@ -1,12 +1,17 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Carousel, Col, Row } from 'react-bootstrap';
+import { useNavigate, useParams } from 'react-router-dom';
 import DragCarousel from '../../components/DragCarousel /DragCarousel';
 import DropCard from '../../components/DragCarousel /DropCard';
 import './Today.scss';
 
 function Today() {
   const [recommend, setRecommend] = useState([]);
+  const [rendom, setRendom] = useState(false);
+  const { id } = useParams();
+  const navigate = useNavigate();
+  console.log('id', id);
 
   const getCategory = categoryName => {
     let limit = 6;
@@ -19,6 +24,7 @@ function Today() {
       })
       .then(res => {
         setRecommend(res.data);
+        console.log('data', res.data);
       })
       .catch(() => '로딩실패');
   };
@@ -50,7 +56,7 @@ function Today() {
   useEffect(() => {
     axios
       .all([
-        axios.get('http://localhost:8000/books', {
+        axios.get(`http://localhost:8000/books`, {
           params: { limit: '10', order: '-rating' },
         }),
         axios.get('http://localhost:8000/books', {
@@ -72,6 +78,10 @@ function Today() {
         })
       );
   }, []);
+
+  const toDetail = id => {
+    navigate(`/bookDetail/${id}`);
+  };
 
   const bookCategory = [
     '예술/대중문화',
@@ -178,7 +188,7 @@ function Today() {
         </div>
         <div className="dragCard">
           <div className="dragCard-title">밀리 선정 베스트!</div>
-          <DragCarousel data={data1} />
+          <DragCarousel data={data1} toDetail={toDetail} />
         </div>
 
         <Row>
@@ -205,7 +215,7 @@ function Today() {
         </Row>
         <div className="dragCard">
           <div className="dragCard-title">지금 새로 들어온 책</div>
-          <DragCarousel data={data2} />
+          <DragCarousel data={data2} toDetail={toDetail} />
         </div>
 
         <div className="dragCard">
@@ -221,9 +231,15 @@ function Today() {
           <div>
             <Row>
               {recommend.map(books => {
-                const { cover_img, title, author_name } = books;
+                const { id, cover_img, title, author_name } = books;
                 return (
-                  <Col lg={4} sm={6} key={title} className="cardWrap">
+                  <Col
+                    lg={4}
+                    sm={6}
+                    key={title}
+                    className="cardWrap"
+                    onClick={() => toDetail(id)}
+                  >
                     <div className="cardImg">
                       <img src={cover_img} alt="coverImg" />
                     </div>
@@ -237,7 +253,7 @@ function Today() {
         </div>
         <div className="dragCard">
           <div className="dragCard-title">밀리에서 만나는 창비 출판사 </div>
-          <DragCarousel data={data4} />
+          <DragCarousel data={data4} toDetail={toDetail} />
         </div>
       </div>
     </div>

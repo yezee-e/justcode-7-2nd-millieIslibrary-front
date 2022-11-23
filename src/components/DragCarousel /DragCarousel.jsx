@@ -4,7 +4,7 @@ import axios from 'axios';
 import Card from './Card.jsx';
 import './DragCarousel.scss';
 
-function DragCarousel({ data }) {
+function DragCarousel({ data, toDetail }) {
   const scrollRef = useRef(null);
   const [isDrag, setIsDrag] = useState(false);
   const [startX, setStartX] = useState();
@@ -58,13 +58,15 @@ function DragCarousel({ data }) {
           ref={scrollRef}
         >
           {data.map(item => {
-            const { cover_img, title, author_name } = item;
+            const { id, cover_img, title, author_name } = item;
             return (
               <Card
                 key={title}
                 title={title}
                 author={author_name}
                 coverImg={cover_img}
+                id={id}
+                toDetail={toDetail}
               />
             );
           })}

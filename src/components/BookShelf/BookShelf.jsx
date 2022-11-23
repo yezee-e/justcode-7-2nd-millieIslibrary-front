@@ -1,4 +1,5 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 import css from './BookShelf.module.scss';
 import { useNavigate } from 'react-router-dom';
 import Shelf from './Shelf/Shelf';
@@ -6,10 +7,26 @@ import MyFavorite from './Shelf/MyFavorite';
 
 function BookShelf() {
   const navigate = useNavigate();
+  let [user, setUser] = useState([]);
 
   const goHome = () => {
     navigate('/');
   };
+
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    axios
+      .get('http://localhost:8000/user/info', {
+        headers: {
+          'Content-Type': 'application/json',
+          authorization: token,
+        },
+      })
+      .then(res => {
+        setUser(res.data.userInfo[0]);
+      })
+      .catch(() => '로딩실패');
+  }, []);
 
   return (
     <div className={css.BookShelfContainer}>
@@ -23,7 +40,7 @@ function BookShelf() {
             alt="내 서재 이미지"
           />
           <p>
-            <b>특별한 시인_____ </b>의 서재
+            <b>똑똑한 생활인</b> {user.nickname}의 서재
           </p>
         </div>
         <section>

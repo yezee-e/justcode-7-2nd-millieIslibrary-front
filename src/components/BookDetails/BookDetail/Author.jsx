@@ -25,7 +25,12 @@ function Author(author) {
           </button>
         )}
       </div>
-      {visible && <p className={css.textArea}>{author_intro}</p>}
+      {visible && (
+        <p
+          className={css.textArea}
+          dangerouslySetInnerHTML={{ __html: author_intro }}
+        ></p>
+      )}
     </div>
   );
 }

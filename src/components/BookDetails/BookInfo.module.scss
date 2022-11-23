@@ -16,24 +16,29 @@
 
   .BookInfo {
     width: 100%;
+    height: 100%;
     padding: 10px 0 0px 20px;
+    display: grid;
+    align-content: space-between;
 
-    .book {
-      background-color: white;
-      box-shadow: 0px 0px 2px 3.5px #c1c1c14d;
-      border-radius: 30px;
-      width: 50px;
-      font-size: 10.5px;
-      font-weight: 600;
-      text-align: center;
-      padding: 7px;
-      margin-bottom: 25px;
-    }
+    .BookInfoContent {
+      .book {
+        background-color: white;
+        box-shadow: 0px 0px 2px 3.5px #c1c1c14d;
+        border-radius: 30px;
+        width: 50px;
+        font-size: 10.5px;
+        font-weight: 600;
+        text-align: center;
+        padding: 7px;
+        margin-bottom: 25px;
+      }
 
-    .title {
-      font-weight: bold;
-      font-size: 17px;
-      margin-bottom: 15px;
+      .title {
+        font-weight: bold;
+        font-size: 17px;
+        margin-bottom: 15px;
+      }
     }
 
     .commentBox {
@@ -42,7 +47,6 @@
       align-items: center;
       background-color: #f8f8f3;
       width: 100px;
-      margin-top: 95px;
       height: auto;
       font-size: 10px;
       color: #8b8b8b;

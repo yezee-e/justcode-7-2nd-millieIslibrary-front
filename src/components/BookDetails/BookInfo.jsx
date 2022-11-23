@@ -49,11 +49,13 @@ function BookInfo() {
             <div className={css.BookContainer}>
               <img src={cover_img} alt="책 이미지" />
               <div className={css.BookInfo}>
-                <p className={css.book}>전자책</p>
-                <p className={css.title}>{title}</p>
-                {books_authors.map((prop, idx) => {
-                  return <AuthorName key={idx} {...prop} />;
-                })}
+                <div className={css.BookInfoContent}>
+                  <p className={css.book}>전자책</p>
+                  <p className={css.title}>{title}</p>
+                  {books_authors.map((prop, idx) => {
+                    return <AuthorName key={idx} {...prop} />;
+                  })}
+                </div>
                 <div className={css.commentBox}>
                   <img src="/img/comment.png" alt="" />
                   <p>한 줄 리뷰</p>

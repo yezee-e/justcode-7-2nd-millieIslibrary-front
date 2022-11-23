@@ -105,7 +105,7 @@ function AsideNav() {
   }, []);
 
   const onLike = e => {
-    if (likeCheck.check_favorite === 'TRUE') {
+    if (likeCheck.check_favorite === true) {
       window.confirm('찜을 취소했습니다.');
       delFavorite();
     } else {
@@ -144,7 +144,7 @@ function AsideNav() {
           내서재에 담기
         </button>
         <button onClick={onLike}>
-          {likeCheck.check_favorite === 'TRUE' ? (
+          {likeCheck.check_favorite === true ? (
             <a className={css.star}>
               <StarFill />
             </a>

@@ -8,7 +8,7 @@ import './Today.scss';
 
 function Today() {
   const [recommend, setRecommend] = useState([]);
-  const [rendom, setRendom] = useState(false);
+  const [btn, setBtn] = useState('');
   const { id } = useParams();
   const navigate = useNavigate();
   console.log('id', id);
@@ -34,6 +34,7 @@ function Today() {
   }, []);
 
   let [user, setUser] = useState([]); //로그인별명가져온다
+  let [random, setRandom] = useState([]);
   let [data1, setData1] = useState([]); //평점베스트
   let [data2, setData2] = useState([]); //지금 새로들어온책
   let [data4, setData4] = useState([]); //김영사 출판사
@@ -41,7 +42,7 @@ function Today() {
   useEffect(() => {
     const token = localStorage.getItem('token');
     axios
-      .get('http://localhost:8000/user/info', {
+      .get('http://localhost:3004/user/data', {
         headers: {
           'Content-Type': 'application/json',
           authorization: token,
@@ -49,6 +50,19 @@ function Today() {
       })
       .then(res => {
         setUser(res.data.userInfo[0]);
+      })
+      .catch(() => '로딩실패');
+  }, []);
+
+  useEffect(() => {
+    axios
+      .get('http://localhost:3004/books', {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
+      .then(res => {
+        setRandom(res.data);
       })
       .catch(() => '로딩실패');
   }, []);
@@ -186,6 +200,14 @@ function Today() {
             <div>서점 3사 100위 내, 71권을 밀리에서 만나보세요</div>
           </div>
         </div>
+
+        <div className="dragCard">
+          <div className="dragCard-title">
+            뭘 좋아할지 몰라서 다 준비했어 골라봐!
+          </div>
+          <DragCarousel data={random} toDetail={toDetail} />
+        </div>
+
         <div className="dragCard">
           <div className="dragCard-title">밀리 선정 베스트!</div>
           <DragCarousel data={data1} toDetail={toDetail} />
@@ -221,8 +243,15 @@ function Today() {
         <div className="dragCard">
           <div className="dragCard-title">이번주 취향별 추천책</div>
           <div>
-            {bookCategory.map(btn => (
-              <button key={btn} onClick={() => getCategory(btn)}>
+            {bookCategory.map((btn, idx) => (
+              <button
+                key={btn}
+                onClick={() => {
+                  getCategory(btn);
+                }}
+                value={idx}
+                className={idx == btn ? 'active' : ''}
+              >
                 {btn}
               </button>
             ))}
@@ -236,7 +265,7 @@ function Today() {
                   <Col
                     lg={4}
                     sm={6}
-                    key={title}
+                    key={id}
                     className="cardWrap"
                     onClick={() => toDetail(id)}
                   >

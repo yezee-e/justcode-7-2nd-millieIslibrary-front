@@ -4,15 +4,18 @@ import styled from 'styled-components';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-function DropCard({ drop }) {
+function DropCard({ drop, value }) {
   const settings = {
     infinite: true,
     speed: 3000,
     autoplay: true,
-    // autoplaySpeed: 3000,
-    slidesToShow: 10,
-    slidesToScroll: 1,
+    autoplaySpeed: 3000,
+    slidesToShow: 9,
+    // slidesToScroll: 1,
+    pauseOnHover: false,
+    pauseOnFocus: false,
     cssEase: 'linear',
+    rtl: drop === value ? true : false,
 
     //   responsive: [
     //     {

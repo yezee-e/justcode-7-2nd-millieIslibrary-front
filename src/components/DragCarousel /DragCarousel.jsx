@@ -61,7 +61,7 @@ function DragCarousel({ data, toDetail }) {
             const { id, cover_img, title, author_name } = item;
             return (
               <Card
-                key={title}
+                key={id}
                 title={title}
                 author={author_name}
                 coverImg={cover_img}

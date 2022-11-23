@@ -305,12 +305,3 @@
     }
   }
 }
-
-.mainLoginContainer::before {
-  width: 1500px;
-  height: 100%;
-  content: '';
-  background: url(../../img/main.jpg) no-repeat;
-  background-position: 50%;
-  background-size: cover;
-}

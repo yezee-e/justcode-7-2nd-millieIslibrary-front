@@ -247,6 +247,7 @@
 
     .shotCutBox {
       display: flex;
+      justify-content: space-around;
 
       .nonDeco {
         text-decoration: none;
@@ -255,7 +256,7 @@
 
       .shotCutContent {
         margin-top: 15px;
-        margin-right: 200px;
+        // margin-right: 100px;
       }
     }
   }
@@ -298,6 +299,7 @@
       }
       .categorys {
         width: 600px;
+
         min-height: 128px;
         border-radius: 8px;
         border: 1px solid rgba(176, 179, 188, 0.3);
@@ -338,6 +340,7 @@
       width: 100%;
       .producers {
         width: 13%;
+        min-width: 90px;
         border-radius: 8px;
         border: 1px solid rgba(176, 179, 188, 0.3);
         margin-top: 12px;

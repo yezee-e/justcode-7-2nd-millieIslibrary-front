@@ -4,6 +4,7 @@ import css from './BookShelf.module.scss';
 import { useNavigate } from 'react-router-dom';
 import Shelf from './Shelf/Shelf';
 import MyFavorite from './Shelf/MyFavorite';
+import { SERVER_URL } from '../../config';
 
 function BookShelf() {
   const navigate = useNavigate();
@@ -16,7 +17,7 @@ function BookShelf() {
   useEffect(() => {
     const token = localStorage.getItem('token');
     axios
-      .get('${SERVER_URL}/user/info', {
+      .get(`${SERVER_URL}/user/info`, {
         headers: {
           'Content-Type': 'application/json',
           authorization: token,

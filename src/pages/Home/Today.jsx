@@ -38,7 +38,7 @@ function Today() {
   useEffect(() => {
     const token = localStorage.getItem('token');
     axios
-      .get('${SERVER_URL}/user/info', {
+      .get(`${SERVER_URL}/user/info`, {
         headers: {
           'Content-Type': 'application/json',
           authorization: token,
@@ -56,10 +56,10 @@ function Today() {
         axios.get(`${SERVER_URL}/books`, {
           params: { limit: '10', order: '-rating' },
         }),
-        axios.get('${SERVER_URL}/books', {
+        axios.get(`${SERVER_URL}/books`, {
           params: { limit: '10', order: '-publishTime' },
         }),
-        axios.get('${SERVER_URL}/books', {
+        axios.get(`${SERVER_URL}/books`, {
           params: { limit: '10', order: '-rating', publisher: '창비' },
         }),
       ])

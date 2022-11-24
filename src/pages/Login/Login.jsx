@@ -106,7 +106,7 @@ function Login() {
           </li>
           <div className="verticalBox" />
           <li>
-            <Link to="/pwchange">비밀번호 찾기</Link>
+            <Link to="/pwchange">비밀번호 변경</Link>
           </li>
           <div className="verticalBox" />
           <li>

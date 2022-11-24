@@ -49,6 +49,12 @@ function Login() {
     );
   };
 
+  const onKeyPress = event => {
+    if (event.key === 'Enter') {
+      POSTloginInfo();
+    }
+  };
+
   return (
     <div className="mainLoginContainer">
       <div className="loginBoxMainPhoto" />
@@ -81,6 +87,7 @@ function Login() {
                 className="inputPw"
                 placeholder="비밀번호 입력"
                 onChange={passwordHandler}
+                onKeyPress={onKeyPress}
               />
             </div>
           </div>

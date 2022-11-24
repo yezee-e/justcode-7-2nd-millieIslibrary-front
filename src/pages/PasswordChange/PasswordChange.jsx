@@ -24,11 +24,11 @@ function PasswordChange() {
 
   useEffect(() => {
     setValidEmail(EMAIL_REGEX.test(email));
-  }, []);
+  }, [email]);
 
   useEffect(() => {
     setValidPassword(PWD_REGEX.test(passwordChange));
-  }, []);
+  }, [passwordChange]);
 
   useEffect(() => {
     if (certification === true) {

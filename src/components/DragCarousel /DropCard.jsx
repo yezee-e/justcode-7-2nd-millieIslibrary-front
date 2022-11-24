@@ -7,9 +7,9 @@ import 'slick-carousel/slick/slick-theme.css';
 function DropCard({ drop, value }) {
   const settings = {
     infinite: true,
-    speed: 3000,
+    speed: 5000,
     autoplay: true,
-    autoplaySpeed: 3000,
+    autoplaySpeed: 1000,
     slidesToShow: 9,
     // slidesToScroll: 1,
     pauseOnHover: false,

@@ -16,38 +16,18 @@ function Gate() {
   const sub = useRef();
   const category = useRef();
 
-  // useEffect(() => {
-  //   axios
-  //     .all([
-  //       axios.get(`http://localhost:8000/category/1`),
-  //       axios.get('http://localhost:8000/category/2'),
-  //       axios.get('http://localhost:8000/category/4'),
-  //     ])
-  //     .then(
-  //       axios.spread((res1, res2, res4) => {
-  //         const data11 = res1.data.data[0].books;
-  //         const data22 = res2.data.data[0].books;
-  //         const data44 = res4.data.data[0].books;
-
-  //         setBook1(data11);
-  //         setBook2(data22);
-  //         setBook3(data44);
-  //       })
-  //     );
-  // }, []);
-
   useEffect(() => {
     axios
       .all([
-        axios.get(`http://localhost:3004/data`),
-        axios.get('http://localhost:3004/data'),
-        axios.get('http://localhost:3004/data'),
+        axios.get(`http://localhost:8000/category/1`),
+        axios.get('http://localhost:8000/category/2'),
+        axios.get('http://localhost:8000/category/4'),
       ])
       .then(
         axios.spread((res1, res2, res4) => {
-          const data11 = res1.data;
-          const data22 = res2.data;
-          const data44 = res4.data;
+          const data11 = res1.data.data[0].books;
+          const data22 = res2.data.data[0].books;
+          const data44 = res4.data.data[0].books;
 
           setBook1(data11);
           setBook2(data22);
@@ -325,7 +305,9 @@ const Price = styled.div`
     justify-content: center;
     text-align: center;
     p {
+      font-size: 16px;
       width: 240px;
+      color: #555555;
     }
   }
 `;

@@ -3,15 +3,12 @@ import React, { useEffect, useState } from 'react';
 import { Carousel, Col, Row } from 'react-bootstrap';
 import { useNavigate, useParams } from 'react-router-dom';
 import DragCarousel from '../../components/DragCarousel /DragCarousel';
-import DropCard from '../../components/DragCarousel /DropCard';
 import './Today.scss';
 
 function Today() {
   const [recommend, setRecommend] = useState([]);
-  const [btn, setBtn] = useState('');
   const { id } = useParams();
   const navigate = useNavigate();
-  console.log('id', id);
 
   const getCategory = categoryName => {
     let limit = 6;
@@ -34,7 +31,6 @@ function Today() {
   }, []);
 
   let [user, setUser] = useState([]); //로그인별명가져온다
-  let [random, setRandom] = useState([]);
   let [data1, setData1] = useState([]); //평점베스트
   let [data2, setData2] = useState([]); //지금 새로들어온책
   let [data4, setData4] = useState([]); //김영사 출판사
@@ -50,19 +46,6 @@ function Today() {
       })
       .then(res => {
         setUser(res.data.userInfo[0]);
-      })
-      .catch(() => '로딩실패');
-  }, []);
-
-  useEffect(() => {
-    axios
-      .get('http://localhost:3004/books', {
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      })
-      .then(res => {
-        setRandom(res.data);
       })
       .catch(() => '로딩실패');
   }, []);
@@ -199,13 +182,6 @@ function Today() {
             </div>
             <div>서점 3사 100위 내, 71권을 밀리에서 만나보세요</div>
           </div>
-        </div>
-
-        <div className="dragCard">
-          <div className="dragCard-title">
-            뭘 좋아할지 몰라서 다 준비했어 골라봐!
-          </div>
-          <DragCarousel data={random} toDetail={toDetail} />
         </div>
 
         <div className="dragCard">

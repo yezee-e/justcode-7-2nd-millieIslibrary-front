@@ -3,15 +3,12 @@ import React, { useEffect, useState } from 'react';
 import { Carousel, Col, Row } from 'react-bootstrap';
 import { useNavigate, useParams } from 'react-router-dom';
 import DragCarousel from '../../components/DragCarousel /DragCarousel';
-import DropCard from '../../components/DragCarousel /DropCard';
 import './Today.scss';
 
 function Today() {
   const [recommend, setRecommend] = useState([]);
-  const [rendom, setRendom] = useState(false);
   const { id } = useParams();
   const navigate = useNavigate();
-  console.log('id', id);
 
   const getCategory = categoryName => {
     let limit = 6;
@@ -41,7 +38,7 @@ function Today() {
   useEffect(() => {
     const token = localStorage.getItem('token');
     axios
-      .get('http://localhost:8000/user/info', {
+      .get('http://localhost:3004/user/data', {
         headers: {
           'Content-Type': 'application/json',
           authorization: token,
@@ -186,6 +183,7 @@ function Today() {
             <div>서점 3사 100위 내, 71권을 밀리에서 만나보세요</div>
           </div>
         </div>
+
         <div className="dragCard">
           <div className="dragCard-title">밀리 선정 베스트!</div>
           <DragCarousel data={data1} toDetail={toDetail} />
@@ -221,8 +219,15 @@ function Today() {
         <div className="dragCard">
           <div className="dragCard-title">이번주 취향별 추천책</div>
           <div>
-            {bookCategory.map(btn => (
-              <button key={btn} onClick={() => getCategory(btn)}>
+            {bookCategory.map((btn, idx) => (
+              <button
+                key={btn}
+                onClick={() => {
+                  getCategory(btn);
+                }}
+                value={idx}
+                className={idx == btn ? 'active' : ''}
+              >
                 {btn}
               </button>
             ))}
@@ -236,7 +241,7 @@ function Today() {
                   <Col
                     lg={4}
                     sm={6}
-                    key={title}
+                    key={id}
                     className="cardWrap"
                     onClick={() => toDetail(id)}
                   >

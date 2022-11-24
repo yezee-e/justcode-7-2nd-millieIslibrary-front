@@ -9,9 +9,7 @@
 }
 
 .today-area {
-  height: 450vh;
   margin: 0 95px;
-
   padding-top: 100px;
   position: relative;
 
@@ -146,8 +144,9 @@
       padding: 10px 15px;
       border: 1px solid black;
       border-radius: 10px;
-      :active {
-        background-color: lightblue;
+      :hover {
+        background-color: black;
+        color: white;
       }
     }
     .cardImg {

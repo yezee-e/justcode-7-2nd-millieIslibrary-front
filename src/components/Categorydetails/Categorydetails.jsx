@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import './Categorydetails.scss';
 import CategoryList from './CategoryList';
 import Filtermodal from '../Filtermodal/Filtermodal';
+import { SERVER_URL } from '../../config';
 
 function Categorydetails() {
   const [bookList, setBookList] = useState([]);
@@ -14,10 +15,10 @@ function Categorydetails() {
   }, []);
 
   useEffect(() => {
-    fetch(`http://localhost:8000/category/${id}`)
+    fetch(`${SERVER_URL}/category/${id}`)
       .then(res => res.json())
       .then(data => setBookList(data.data[0]));
-  }, [bookList]);
+  }, []);
 
   const books = bookList.books;
 

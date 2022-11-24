@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-
+import { SERVER_URL } from '../../config';
 import './Signup.scss';
 
 function Signup() {
@@ -40,7 +40,7 @@ function Signup() {
   };
 
   const POSTUserInfo = () => {
-    fetch('http://localhost:8000/user/signup', {
+    fetch(`${SERVER_URL}/user/signup`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

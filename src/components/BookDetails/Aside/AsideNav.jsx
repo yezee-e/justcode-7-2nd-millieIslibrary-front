@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import css from './AsideNav.module.scss';
 import { StarFill, Star, Bookshelf, Share } from 'react-bootstrap-icons';
 import { useParams } from 'react-router-dom';
+import { SERVER_URL } from '../../../config';
 
 function AsideNav() {
   const params = useParams();
@@ -22,7 +23,7 @@ function AsideNav() {
 
   //현재 페이지 데이터
   useEffect(() => {
-    fetch(`http://localhost:8000/book-detail/${params.id}`, {
+    fetch(`${SERVER_URL}/book-detail/${params.id}`, {
       headers: {
         'Content-Type': 'application/json',
         authorization: localStorage.getItem('token'),
@@ -36,7 +37,7 @@ function AsideNav() {
 
   //찜 데이터 보내기
   const onFavorite = () => {
-    fetch(`http://localhost:8000/add-list/favorite`, {
+    fetch(`${SERVER_URL}/add-list/favorite`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -48,7 +49,7 @@ function AsideNav() {
     })
       .then(res => res.json())
       .then(res => {
-        fetch(`http://localhost:8000/book-detail/${params.id}/check-list`, {
+        fetch(`${SERVER_URL}/book-detail/${params.id}/check-list`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -64,7 +65,7 @@ function AsideNav() {
 
   //찜 데이터 삭제
   const delFavorite = () => {
-    fetch(`http://localhost:8000/add-list/favorite`, {
+    fetch(`${SERVER_URL}/add-list/favorite`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
@@ -76,7 +77,7 @@ function AsideNav() {
     })
       .then(res => res.json())
       .then(res => {
-        fetch(`http://localhost:8000/book-detail/${params.id}/check-list`, {
+        fetch(`${SERVER_URL}/book-detail/${params.id}/check-list`, {
           headers: {
             'Content-Type': 'application/json',
             authorization: localStorage.getItem('token'),
@@ -91,7 +92,7 @@ function AsideNav() {
 
   //찜 체크 데이터 가져오기
   useEffect(() => {
-    fetch(`http://localhost:8000/book-detail/${params.id}/check-list`, {
+    fetch(`${SERVER_URL}/book-detail/${params.id}/check-list`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -116,7 +117,7 @@ function AsideNav() {
 
   //내 서재에 데이터 보내기
   const onMyShelf = () => {
-    fetch(`http://localhost:8000/add-list/bookshelf`, {
+    fetch(`${SERVER_URL}/add-list/bookshelf`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

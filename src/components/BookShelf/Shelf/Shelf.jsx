@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import css from './Shelf.module.scss';
 import { BookmarkHeart } from 'react-bootstrap-icons';
+import { SERVER_URL } from '../../../config';
 
 function Shelf() {
   const [bookDataList, setBookDataList] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:8000/books?limit=10&myBookshelve=true`, {
+    fetch(`${SERVER_URL}/books?limit=10&myBookshelve=true`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',

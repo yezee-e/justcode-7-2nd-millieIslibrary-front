@@ -4,6 +4,7 @@ import { Carousel, Col, Row } from 'react-bootstrap';
 import { useNavigate, useParams } from 'react-router-dom';
 import DragCarousel from '../../components/DragCarousel /DragCarousel';
 import './Today.scss';
+import { SERVER_URL } from '../../config';
 
 function Today() {
   const [recommend, setRecommend] = useState([]);
@@ -13,7 +14,7 @@ function Today() {
   const getCategory = categoryName => {
     let limit = 6;
     axios
-      .get(`http://localhost:8000/books`, {
+      .get(`${SERVER_URL}/books`, {
         params: {
           categoryName: categoryName,
           limit: limit,
@@ -37,7 +38,7 @@ function Today() {
   useEffect(() => {
     const token = localStorage.getItem('token');
     axios
-      .get('http://localhost:8000/user/info', {
+      .get('${SERVER_URL}/user/info', {
         headers: {
           'Content-Type': 'application/json',
           authorization: token,
@@ -52,13 +53,13 @@ function Today() {
   useEffect(() => {
     axios
       .all([
-        axios.get(`http://localhost:8000/books`, {
+        axios.get(`${SERVER_URL}/books`, {
           params: { limit: '10', order: '-rating' },
         }),
-        axios.get('http://localhost:8000/books', {
+        axios.get('${SERVER_URL}/books', {
           params: { limit: '10', order: '-publishTime' },
         }),
-        axios.get('http://localhost:8000/books', {
+        axios.get('${SERVER_URL}/books', {
           params: { limit: '10', order: '-rating', publisher: '창비' },
         }),
       ])

@@ -38,7 +38,7 @@ function Today() {
   useEffect(() => {
     const token = localStorage.getItem('token');
     axios
-      .get('http://localhost:3004/user/data', {
+      .get('http://localhost:8000/user/data', {
         headers: {
           'Content-Type': 'application/json',
           authorization: token,
@@ -225,8 +225,6 @@ function Today() {
                 onClick={() => {
                   getCategory(btn);
                 }}
-                value={idx}
-                className={idx == btn ? 'active' : ''}
               >
                 {btn}
               </button>

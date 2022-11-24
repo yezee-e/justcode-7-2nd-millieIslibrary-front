@@ -20,8 +20,8 @@ function Gate() {
     axios
       .all([
         axios.get(`http://localhost:8000/category/1`),
-        axios.get('http://localhost:8000/category/2'),
         axios.get('http://localhost:8000/category/4'),
+        axios.get('http://localhost:8000/category/1'),
       ])
       .then(
         axios.spread((res1, res2, res4) => {
@@ -68,12 +68,9 @@ function Gate() {
 
       <div>
         <DropCard drop={book1} />
-      </div>
-      <div>
+
         <DropCard drop={book2} value={book2} />
-      </div>
-      <div>
-        {' '}
+
         <DropCard drop={book3} />
       </div>
 

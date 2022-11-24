@@ -21,7 +21,6 @@ function Today() {
       })
       .then(res => {
         setRecommend(res.data);
-        console.log('data', res.data);
       })
       .catch(() => '로딩실패');
   };
@@ -38,7 +37,7 @@ function Today() {
   useEffect(() => {
     const token = localStorage.getItem('token');
     axios
-      .get('http://localhost:3004/user/data', {
+      .get('http://localhost:8000/user/info', {
         headers: {
           'Content-Type': 'application/json',
           authorization: token,
@@ -60,7 +59,7 @@ function Today() {
           params: { limit: '10', order: '-publishTime' },
         }),
         axios.get('http://localhost:8000/books', {
-          params: { limit: '10', order: '-rating' },
+          params: { limit: '10', order: '-rating', publisher: '창비' },
         }),
       ])
       .then(
@@ -225,8 +224,6 @@ function Today() {
                 onClick={() => {
                   getCategory(btn);
                 }}
-                value={idx}
-                className={idx == btn ? 'active' : ''}
               >
                 {btn}
               </button>

@@ -1,0 +1,23 @@
+.accordionWrap {
+  border-bottom: 12px solid #f7f7f7;
+  padding: 24px;
+  cursor: default;
+  .accordion {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+
+    h3 {
+      font-size: 15px;
+      font-weight: 500;
+      margin: 0;
+    }
+  }
+  .textArea {
+    font-weight: 300;
+    font-size: 13.5px;
+    line-height: 2em;
+    margin-top: 20px;
+  }
+}

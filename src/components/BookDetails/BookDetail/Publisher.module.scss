@@ -1,0 +1,24 @@
+.PublisherWrap {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 12px solid #f7f7f7;
+  padding: 24px;
+  cursor: default;
+
+  h4 {
+    display: flex;
+    font-size: 13.5px;
+    margin: 0;
+    align-items: center;
+    a {
+      margin-right: 5px;
+    }
+  }
+
+  button {
+    color: #8b8b8b;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 300;
+  }
+}

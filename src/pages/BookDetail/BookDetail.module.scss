@@ -1,0 +1,22 @@
+.detailWrap {
+  display: flex;
+  width: 100vw;
+  justify-content: center;
+  position: relative;
+
+  .container {
+    display: grid;
+    justify-content: space-between;
+    width: 1300px;
+    margin-top: 63px;
+    grid-template-columns: auto 280px;
+    border-left: 1px solid #d5d5d5;
+
+    .test {
+      height: 300px;
+    }
+    .leftContainer {
+      width: 100%;
+    }
+  }
+}

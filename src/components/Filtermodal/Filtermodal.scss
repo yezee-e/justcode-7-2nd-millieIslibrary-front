@@ -1,0 +1,80 @@
+.modalWrap {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 1000;
+
+  .modalBox {
+    width: 350px;
+    height: 480px;
+    margin: 250px auto;
+    background-color: white;
+    border-radius: 10px;
+    position: relative;
+
+    .modalContent {
+      margin-top: 6px;
+      width: 100%;
+      text-align: center;
+      padding: 24px;
+      .nameCategory {
+        font-size: 20px;
+        font-weight: bold;
+      }
+
+      .categoryBox {
+        margin-top: 35px;
+        height: 300px;
+        overflow-y: scroll;
+        // border: 1px solid black;
+      }
+      .categoryBox::-webkit-scrollbar {
+        width: 8px; /* 스크롤바의 너비 */
+      }
+
+      .categoryBox::-webkit-scrollbar-thumb {
+        height: 30%; /* 스크롤바의 길이 */
+        background: rgba(0, 0, 0, 0.6); /* 스크롤바의 색상 */
+
+        border-radius: 10px;
+      }
+
+      .categoryBox::-webkit-scrollbar-track {
+        background: rgba(33, 122, 244, 0.1); /*스크롤바 뒷 배경 색상*/
+      }
+
+      .btnClose {
+        width: 50%;
+        border: 1px solid black;
+      }
+      .btnEnter {
+        width: 50%;
+        border: 1px solid black;
+      }
+    }
+    .btnBox {
+      padding: 0;
+      width: 350px;
+      position: absolute;
+      bottom: 0;
+      height: 55px;
+      // background-color: azure;
+
+      .btnClose {
+        width: 50%;
+        height: 100%;
+        text-align: center;
+        background-color: #c1c1c1;
+        border-bottom-left-radius: 10px;
+      }
+      .btnEnter {
+        width: 50%;
+        height: 100%;
+        text-align: center;
+        background-color: #ffeb60;
+        border-bottom-right-radius: 10px;
+      }
+    }
+  }
+}

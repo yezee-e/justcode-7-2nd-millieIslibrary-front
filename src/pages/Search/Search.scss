@@ -1,0 +1,398 @@
+.searchTapWrap {
+  width: 100vw;
+  height: 100vh;
+  // background-color: beige;
+  display: flex;
+  flex-direction: column;
+
+  .blankBox {
+    width: 100%;
+    height: 100px;
+  }
+
+  .Title {
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 28px;
+    color: #242424;
+  }
+
+  .searchBox {
+    position: fixed;
+    width: 100%;
+    height: 150px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 1px solid #ececec;
+    z-index: 50;
+
+    .searchArea {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      max-height: 85px;
+      min-height: 150px;
+
+      .categoryFilter {
+        width: 50px;
+        height: 30px;
+        position: absolute;
+        font-size: 12px;
+        color: #947f7d;
+        top: 30px;
+        left: 340px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        border: 1px solid #dfdfdf;
+        border-radius: 5px;
+        a {
+          margin-left: 6px;
+        }
+      }
+
+      .buttonClose {
+        width: 30px;
+        height: 10px;
+        position: absolute;
+        top: 30px;
+        right: 320px;
+        font-weight: bold;
+      }
+
+      .searchBoxClick {
+        width: 65%;
+        height: 90px;
+        position: absolute;
+        bottom: 0;
+        left: 330px;
+        display: flex;
+        align-items: center;
+      }
+
+      .inputSearch {
+        position: absolute;
+        width: 70%;
+        bottom: 30px;
+        left: 25px;
+        font-size: 20px;
+        font-weight: 700;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        word-wrap: break-word;
+        background-color: transparent;
+        border: none;
+        outline: none;
+        padding-left: 10px;
+        content: '';
+      }
+
+      .magnifierIcon {
+        position: absolute;
+        width: 25px;
+        height: 25px;
+        bottom: 30px;
+        background: url(../../img/magnifier.png);
+        background-size: cover;
+      }
+    }
+  }
+
+  .searchClick {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    z-index: 45;
+    // background-color: beige;
+
+    .inSearchwrap {
+      width: 100%;
+      height: 100%;
+      z-index: 46;
+      margin: 0 auto 0 auto;
+      background-color: white;
+      padding: 30px;
+
+      .notFoundWord {
+        width: 100%;
+        height: 100%;
+        margin: 400px auto;
+        // background-color: white;
+        text-align: center;
+        line-height: 3px;
+        color: #826f6f;
+        font-size: 14px;
+        display: block;
+        z-index: 15;
+      }
+      .booksUL {
+        width: 71%;
+        height: 100%;
+        // background-color: beige;
+        margin: 120px auto;
+        z-index: 20;
+
+        .booksList {
+          width: 100%;
+          height: 20px;
+          margin-top: 150px;
+        }
+      }
+    }
+  }
+
+  .sectionArea {
+    position: absolute;
+    top: 150px;
+    width: 100vw;
+    height: 100vh;
+    // background-color: beige;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    .searchBodyWrap {
+      width: 65%;
+
+      .rankingBox {
+        position: relative;
+        width: 100%;
+        height: 40px;
+        padding: 16px 0 16px 0;
+        overflow: hidden;
+        align-items: center;
+        margin: 15px 0 15px 0;
+
+        .rankingArea {
+          width: 100%;
+          height: 100%;
+          top: 40px;
+          left: 0;
+          padding: 0;
+          margin: 0;
+        }
+      }
+      .searchWordRecommendArea {
+        width: 100%;
+        height: 170px;
+        min-height: 170px;
+
+        // cursor: pointer;
+
+        .refreshBtn {
+          width: 25px;
+          height: 25px;
+          margin-top: 2px;
+          margin-left: 10px;
+          background: url('../../img/refresh.png');
+          background-size: cover;
+        }
+
+        .wordRecommendContentBox {
+          width: 100%;
+          height: 110px;
+          // cursor: grab;
+          // background-color: burlywood;
+          overflow: hidden;
+        }
+
+        .wordRecommendContent {
+          display: flex;
+          flex-direction: row;
+          min-width: 1280px;
+          height: 100%;
+          // padding: 0;
+          padding: 12px 14px 24px;
+          margin: 0;
+          flex-wrap: wrap;
+          text-align: left;
+
+          .pHover:hover {
+            border: 1px solid rgba(255, 208, 0, 0.6);
+            background-color: rgba(255, 208, 0, 0.6);
+          }
+
+          li {
+            cursor: pointer;
+            margin: 5px 16px 5px 0;
+            height: 42px;
+            display: flex;
+            flex-wrap: wrap;
+
+            p {
+              height: 35px;
+              border-radius: 36px;
+              display: block;
+              padding: 8px 12px;
+              font-weight: 400;
+              font-size: 16px;
+              // line-height: 24px;
+              background-color: var(--ui-up);
+              border: 1px solid #ececec;
+              color: #6f6f6f;
+              margin-right: 10px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .shotCut {
+    width: 65%;
+    height: 100px;
+    letter-spacing: -1px;
+
+    .shotCutBox {
+      display: flex;
+      justify-content: space-around;
+
+      .nonDeco {
+        text-decoration: none;
+        color: #4e514e;
+      }
+
+      .shotCutContent {
+        margin-top: 15px;
+        // margin-right: 100px;
+      }
+    }
+  }
+
+  .grayLine {
+    width: 67%;
+    height: 15px;
+    background-color: #f7f7f7;
+    padding: 6px;
+    border-radius: 10px;
+    margin: 10px 0 15px;
+  }
+  .categoryListWrap {
+    width: 65%;
+    height: 100%;
+    padding: 6px 12px 0;
+    // background-color: beige;
+
+    .categoryTap {
+      display: flex;
+      padding: 0;
+      margin-bottom: 35px;
+
+      li {
+        margin: 15px 20px 0 0;
+      }
+    }
+
+    .caterogyList {
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 10px;
+      grid-auto-rows: minmax(100px, auto);
+      // flex-direction: column;
+      // flex-wrap: wrap;
+      width: 100%;
+      .categoryHover :hover {
+        border: 3px solid rgba(255, 208, 0, 0.3);
+      }
+      .categorys {
+        width: 600px;
+
+        min-height: 128px;
+        border-radius: 8px;
+        border: 1px solid rgba(176, 179, 188, 0.3);
+        margin-top: 12px;
+        margin-right: 8px;
+        position: relative;
+        overflow: hidden;
+        max-height: 74px;
+        height: 74px;
+        background-color: #fff;
+
+        .categoryContent {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          height: 100%;
+          padding: 24px;
+          cursor: pointer;
+          background-color: transparent;
+          text-decoration: none;
+          color: inherit;
+          letter-spacing: -0.6px;
+          border: none;
+          p {
+            font-size: 14px;
+            margin-top: 20px;
+            color: #8b8b8b;
+          }
+        }
+      }
+    }
+    .makeBy {
+      padding: 0;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      width: 100%;
+      .producers {
+        width: 13%;
+        min-width: 90px;
+        border-radius: 8px;
+        border: 1px solid rgba(176, 179, 188, 0.3);
+        margin-top: 12px;
+        // margin-right: 70px;
+        padding: 14px;
+        position: relative;
+        overflow: hidden;
+        height: 160px;
+        background-color: #fff;
+
+        .producersBox {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          strong {
+            margin-top: 15px;
+          }
+        }
+      }
+    }
+
+    .collectionList {
+      padding: 0;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      width: 100%;
+
+      .collections {
+        width: calc(50% - 8px);
+        border-radius: 8px;
+        border: 1px solid rgba(176, 179, 188, 0.3);
+        margin-top: 12px;
+        // margin-right: 70px;
+        padding: 14px;
+        position: relative;
+        overflow: hidden;
+        height: 60px;
+        background-color: #fff;
+        .collectionContent {
+          display: block;
+          height: 100%;
+          cursor: pointer;
+
+          line-height: 30px;
+          background-color: transparent;
+          text-decoration: none;
+          color: inherit;
+          letter-spacing: -0.6px;
+        }
+      }
+    }
+  }
+}

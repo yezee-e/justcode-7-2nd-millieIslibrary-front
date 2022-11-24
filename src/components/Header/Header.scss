@@ -1,0 +1,73 @@
+.head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 64px;
+  border-bottom: 1px solid #dfdfdf;
+  position: fixed;
+  background-color: white;
+  width: 100%;
+  z-index: 99;
+
+  .head-left {
+    gap: 15px;
+    display: flex;
+    align-items: center;
+  }
+
+  .head-tab {
+    font-size: 21px;
+    font-weight: 400;
+    margin-right: 20px;
+    .head-tab__link {
+      color: #000000;
+      text-decoration: none;
+    }
+
+    :hover {
+      color: black;
+    }
+    :active {
+      color: #000000;
+      font-weight: 500;
+    }
+  }
+  img {
+    margin-left: 91px;
+  }
+
+  div {
+    display: flex;
+    justify-content: space-between;
+  }
+  .head-right {
+    display: flex;
+    margin-right: 89px;
+    gap: 20px;
+    align-items: center;
+
+    .head-right__icon {
+      font-size: 23px;
+    }
+
+    Button {
+      background-color: #333333;
+      width: 55px;
+      height: 20px;
+      font-size: 12.6px;
+      font-weight: 500;
+    }
+  }
+}
+#dark .head {
+  background-color: black;
+  color: white;
+}
+#dark div {
+  color: white;
+}
+
+#dark Button {
+  background-color: white;
+  color: black;
+}

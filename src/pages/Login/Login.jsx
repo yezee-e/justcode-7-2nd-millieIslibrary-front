@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import './Login.scss';
+import { SERVER_URL } from '../../config';
 
 function Login() {
   const [email, setEmail] = useState();
@@ -18,7 +19,7 @@ function Login() {
   };
 
   const POSTloginInfo = () => {
-    fetch('http://localhost:8000/user/login', {
+    fetch(`${SERVER_URL}/user/login`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

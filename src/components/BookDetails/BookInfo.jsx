@@ -7,6 +7,7 @@ import Index from './BookDetail/Index';
 import Publisher from './BookDetail/Publisher';
 import { useParams } from 'react-router-dom';
 import Comments from './Comments/Comments';
+import { SERVER_URL } from '../../config';
 
 function BookInfo() {
   const [item, setItem] = useState([]);
@@ -14,7 +15,7 @@ function BookInfo() {
   const params = useParams();
 
   useEffect(() => {
-    fetch(`http://localhost:8000/book-detail/${params.id}`)
+    fetch(`${SERVER_URL}/book-detail/${params.id}`)
       .then(res => res.json())
       .then(data => {
         setItem(data.bookResult);
@@ -22,7 +23,7 @@ function BookInfo() {
   }, []);
 
   useEffect(() => {
-    fetch(`http://localhost:8000/book-detail/${params.id}`)
+    fetch(`${SERVER_URL}/book-detail/${params.id}`)
       .then(res => res.json())
       .then(data => {
         setCommentArray(data.reviewInfo.reviewArray);

@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import styled, { keyframes } from 'styled-components';
 import DropCard from '../../components/DragCarousel /DropCard';
 import Footer from '../../components/Footer/Footer';
+import { SERVER_URL } from '../../config';
 
 function Gate() {
   let [book1, setBook1] = useState([]);
@@ -19,9 +20,9 @@ function Gate() {
   useEffect(() => {
     axios
       .all([
-        axios.get(`http://localhost:8000/category/1`),
-        axios.get('http://localhost:8000/category/4'),
-        axios.get('http://localhost:8000/category/1'),
+        axios.get(`${SERVER_URL}/category/1`),
+        axios.get(`${SERVER_URL}/category/4`),
+        axios.get(`${SERVER_URL}/category/1`),
       ])
       .then(
         axios.spread((res1, res2, res4) => {

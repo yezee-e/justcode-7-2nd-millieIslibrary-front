@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import Searchbarlist from './Searchbarlist';
+import { SERVER_URL } from '../../config';
 
 function SearchBar() {
   const [searchClick, setSearchClick] = useState(false);

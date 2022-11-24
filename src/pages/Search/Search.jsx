@@ -9,6 +9,7 @@ import Makers from '../../components/SearchTapComponets/Makers';
 import Shotcutbox from '../../components/SearchTapComponets/Shotcutbox';
 import Category from '../../components/SearchTapComponets/Category';
 import Rank from '../../components/SearchTapComponets/Rank';
+import { SERVER_URL } from '../../config';
 
 function Search() {
   const [rank, setRank] = useState([]);

@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './PasswordChange.scss';
+import { SERVER_URL } from '../../config';
+
 function PasswordChange() {
   const [certification, setCertification] = useState(false);
   const [certificationNumber, setCertificationNumber] = useState([]);
@@ -32,7 +34,7 @@ function PasswordChange() {
 
   useEffect(() => {
     if (certification === true) {
-      fetch('${SERVER_URL}/mail', {
+      fetch(`${SERVER_URL}/mail`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -81,7 +83,7 @@ function PasswordChange() {
 
   const changePassword = () => {
     if (passwordChange == passwordChangeCheck) {
-      fetch('${SERVER_URL}/user/changepw', {
+      fetch(`${SERVER_URL}/user/changepw`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

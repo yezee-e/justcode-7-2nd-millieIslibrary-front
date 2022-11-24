@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useRef } from 'react';
+import { SERVER_URL } from '../../config';
+
 import './Filtermodal.scss';
 function Filtermodal({ popup, setPopup }) {
   const [modalCategory, setModalCategory] = useState([]);
@@ -8,7 +10,7 @@ function Filtermodal({ popup, setPopup }) {
   const navi = useNavigate();
 
   useEffect(() => {
-    fetch('${SERVER_URL}/category/info')
+    fetch(`${SERVER_URL}/category/info`)
       .then(res => res.json())
       .then(data => setModalCategory(data.data));
   }, []);

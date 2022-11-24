@@ -21,7 +21,7 @@ function Gate() {
     axios
       .all([
         axios.get(`${SERVER_URL}/category/1`),
-        axios.get(`${SERVER_URL}/category/4`),
+        axios.get(`${SERVER_URL}/category/11`),
         axios.get(`${SERVER_URL}/category/1`),
       ])
       .then(

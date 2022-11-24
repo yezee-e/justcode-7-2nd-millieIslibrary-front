@@ -9,6 +9,7 @@ import Makers from '../../components/SearchTapComponets/Makers';
 import Shotcutbox from '../../components/SearchTapComponets/Shotcutbox';
 import Category from '../../components/SearchTapComponets/Category';
 import Rank from '../../components/SearchTapComponets/Rank';
+import { SERVER_URL } from '../../config';
 
 function Search() {
   const [rank, setRank] = useState([]);
@@ -24,13 +25,13 @@ function Search() {
   }, [setRank]);
 
   useEffect(() => {
-    fetch('${SERVER_URL}/category/info')
+    fetch(`${SERVER_URL}/category/info`)
       .then(res => res.json())
       .then(data => setCategory(data.data));
   }, [setCategory]);
 
   useEffect(() => {
-    fetch('${SERVER_URL}/category/bookrandom')
+    fetch(`${SERVER_URL}/category/bookrandom`)
       .then(res => res.json())
       .then(data => setWordReCommend(data.data));
   }, [refresh]);

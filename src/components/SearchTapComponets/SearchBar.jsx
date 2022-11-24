@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import Searchbarlist from './Searchbarlist';
+import { SERVER_URL } from '../../config';
 
 function SearchBar() {
   const [searchClick, setSearchClick] = useState(false);
@@ -18,7 +19,7 @@ function SearchBar() {
 
   useEffect(() => {
     if (searchBarContent !== '')
-      fetch('${SERVER_URL}/category/search', {
+      fetch(`${SERVER_URL}/category/search`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

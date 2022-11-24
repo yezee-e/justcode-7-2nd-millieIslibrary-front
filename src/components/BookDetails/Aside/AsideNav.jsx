@@ -57,7 +57,7 @@ function AsideNav() {
         })
           .then(res => res.json())
           .then(data => {
-            setLikeCheck(data[0]);
+            setLikeCheck(data);
           });
       });
   };
@@ -84,7 +84,7 @@ function AsideNav() {
         })
           .then(res => res.json())
           .then(data => {
-            setLikeCheck(data[0]);
+            setLikeCheck(data);
           });
       });
   };
@@ -100,7 +100,7 @@ function AsideNav() {
     })
       .then(res => res.json())
       .then(data => {
-        setLikeCheck(data[0]);
+        setLikeCheck(data);
       });
   }, []);
 

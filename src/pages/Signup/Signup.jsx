@@ -52,8 +52,15 @@ function Signup() {
       }),
     }).then(res => res.json());
 
-    if (validEmail && validPassword) {
+    if (password && validPassword) {
       navigate(`/login`);
+      alert('회원가입 완료!');
+    }
+  };
+
+  const onKeyPress = event => {
+    if (event.key === 'Enter') {
+      POSTUserInfo();
     }
   };
 
@@ -151,6 +158,7 @@ function Signup() {
                 className="inputCd"
                 placeholder="별명 입력"
                 onChange={onNameHandler}
+                onKeyPress={onKeyPress}
               />
             </div>
           </div>

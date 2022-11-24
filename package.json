@@ -7,7 +7,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "distribute": "npm i && npm run build && pm2 serve build 3000 --name millie --spa"
+    "distribute": "npm i && npm run build && pm2 serve build 3000 --name millie --spa",
+    "distribute-stop": "pm2 stop millie"
   },
   "dependencies": {
     "@popperjs/core": "^2.11.6",

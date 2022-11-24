@@ -83,7 +83,7 @@ function PasswordChange() {
 
   const changePassword = () => {
     if (passwordChange == passwordChangeCheck) {
-      fetch('${SERVER_URL}/user/changepw', {
+      fetch(`${SERVER_URL}/user/changepw`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -24,13 +24,13 @@ function Search() {
   }, [setRank]);
 
   useEffect(() => {
-    fetch('${SERVER_URL}/category/info')
+    fetch(`${SERVER_URL}/category/info`)
       .then(res => res.json())
       .then(data => setCategory(data.data));
   }, [setCategory]);
 
   useEffect(() => {
-    fetch('${SERVER_URL}/category/bookrandom')
+    fetch(`${SERVER_URL}/category/bookrandom`)
       .then(res => res.json())
       .then(data => setWordReCommend(data.data));
   }, [refresh]);

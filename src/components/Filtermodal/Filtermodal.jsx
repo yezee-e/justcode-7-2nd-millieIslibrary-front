@@ -8,7 +8,7 @@ function Filtermodal({ popup, setPopup }) {
   const navi = useNavigate();
 
   useEffect(() => {
-    fetch('${SERVER_URL}/category/info')
+    fetch(`${SERVER_URL}/category/info`)
       .then(res => res.json())
       .then(data => setModalCategory(data.data));
   }, []);

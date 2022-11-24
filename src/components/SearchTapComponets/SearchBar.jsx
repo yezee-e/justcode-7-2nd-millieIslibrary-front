@@ -18,7 +18,7 @@ function SearchBar() {
 
   useEffect(() => {
     if (searchBarContent !== '')
-      fetch('${SERVER_URL}/category/search', {
+      fetch(`${SERVER_URL}/category/search`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

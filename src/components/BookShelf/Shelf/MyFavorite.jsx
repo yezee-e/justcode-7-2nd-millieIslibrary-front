@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import css from './MyFavorite.module.scss';
 import { StarFill } from 'react-bootstrap-icons';
+import { SERVER_URL } from '../../../config';
 
 function MyFavorite() {
   const [bookDataList, setBookDataList] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:8000/books?limit=10&myFavorite=true`, {
+    fetch(`${SERVER_URL}/books?limit=10&myFavorite=true`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',

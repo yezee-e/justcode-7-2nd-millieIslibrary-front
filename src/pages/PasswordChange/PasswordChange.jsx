@@ -32,7 +32,7 @@ function PasswordChange() {
 
   useEffect(() => {
     if (certification === true) {
-      fetch('http://localhost:8000/mail', {
+      fetch('${SERVER_URL}/mail', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -81,7 +81,7 @@ function PasswordChange() {
 
   const changePassword = () => {
     if (passwordChange == passwordChangeCheck) {
-      fetch('http://localhost:8000/user/changepw', {
+      fetch('${SERVER_URL}/user/changepw', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

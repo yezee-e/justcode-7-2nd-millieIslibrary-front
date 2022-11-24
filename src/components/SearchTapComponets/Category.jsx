@@ -8,7 +8,7 @@ function Category({ content, idNum, cover_img }) {
     navigate(`/category/${idNum}`);
   };
   // const POSTCategoryInfo = () => {
-  //   fetch(`http://localhost:8000/category/${idNum}`, {
+  //   fetch(`${SERVER_URL}/category/${idNum}`, {
   //     method: 'POST',
   //     headers: { 'content-Type': 'application/json' },
   //   })

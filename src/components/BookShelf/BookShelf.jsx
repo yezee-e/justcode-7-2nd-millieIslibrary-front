@@ -16,7 +16,7 @@ function BookShelf() {
   useEffect(() => {
     const token = localStorage.getItem('token');
     axios
-      .get('http://localhost:8000/user/info', {
+      .get('${SERVER_URL}/user/info', {
         headers: {
           'Content-Type': 'application/json',
           authorization: token,

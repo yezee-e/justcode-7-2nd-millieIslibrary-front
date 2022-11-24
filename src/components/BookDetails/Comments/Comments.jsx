@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import css from './Comments.module.scss';
 import Comment from './Comment';
 import { useParams } from 'react-router-dom';
+import { SERVER_URL } from '../../../config';
 
 function Comments({ setBookInfoComments }) {
   const [text, setText] = useState('');
@@ -10,7 +11,7 @@ function Comments({ setBookInfoComments }) {
   const params = useParams();
 
   const addComment = event => {
-    fetch(`http://localhost:8000/review`, {
+    fetch(`${SERVER_URL}/review`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -23,7 +24,7 @@ function Comments({ setBookInfoComments }) {
     })
       .then(res => res.json())
       .then(res => {
-        fetch(`http://localhost:8000/book-detail/${params.id}`)
+        fetch(`${SERVER_URL}/book-detail/${params.id}`)
           .then(res => res.json())
           .then(data => {
             setComments(data.reviewInfo.reviewArray);
@@ -33,7 +34,7 @@ function Comments({ setBookInfoComments }) {
   };
 
   useEffect(() => {
-    fetch(`http://localhost:8000/book-detail/${params.id}`)
+    fetch(`${SERVER_URL}/book-detail/${params.id}`)
       .then(res => res.json())
       .then(data => {
         setComments(data.reviewInfo.reviewArray);
@@ -43,7 +44,7 @@ function Comments({ setBookInfoComments }) {
 
   const onRemove = review_id => {
     if (window.confirm('삭제 하시겠습니까?')) {
-      fetch(`http://localhost:8000/review`, {
+      fetch(`${SERVER_URL}/review`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',

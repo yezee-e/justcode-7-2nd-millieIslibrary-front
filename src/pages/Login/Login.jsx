@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-
 import './Login.scss';
 
 function Login() {
@@ -36,6 +35,18 @@ function Login() {
           navigate(`/home`);
         }
       });
+  };
+
+  const REST_API_KEY = 'f11be27c8aba124b3dde6e48ce2c061e';
+  const REDIRECT_URI = 'http://localhost:3000/oauth/callback/kakao';
+  const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`;
+
+  const openKakao = () => {
+    window.open(
+      `${KAKAO_AUTH_URL}`,
+      '카카오 로그인',
+      'toolbar=no,scrollbars=no,resizable=yes,status=no,menubar=no,width=800, height=800, top=60,left=350'
+    );
   };
 
   return (
@@ -105,7 +116,11 @@ function Login() {
         </div>
 
         <div className="snsList">
-          <button className="kakaoTalkLogo" />
+          {/* <button
+            onClick={window.open('https://naver.com')}
+            className="kakaoTalkLogo"
+          /> */}
+          <a onClick={openKakao} className="kakaoTalkLogo" />
           <button className="naverLogo" />
           <button className="facebookLogo" />
           <button className="appleLogo" />

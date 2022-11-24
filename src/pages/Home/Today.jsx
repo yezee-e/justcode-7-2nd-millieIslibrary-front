@@ -59,7 +59,7 @@ function Today() {
           params: { limit: '10', order: '-publishTime' },
         }),
         axios.get('http://localhost:8000/books', {
-          params: { limit: '10', order: '-rating' },
+          params: { limit: '10', order: '-rating', publisher: '창비' },
         }),
       ])
       .then(

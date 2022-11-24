@@ -17,7 +17,7 @@ function Categorydetails() {
     fetch(`http://localhost:8000/category/${id}`)
       .then(res => res.json())
       .then(data => setBookList(data.data[0]));
-  }, [bookList]);
+  }, []);
 
   const books = bookList.books;
 

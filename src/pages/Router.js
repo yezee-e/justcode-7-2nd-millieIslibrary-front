@@ -31,6 +31,7 @@ function Router() {
           <Route path="/myshelf" element={<Myshelf />} />
           <Route path="/search" element={<Search />} />
           <Route path="/category/:id" element={<Categorydetails />} />
+
           {/* <Route path="/categorys/:id" element={<Categorydetails />} /> */}
         </Routes>
       </ThemeContext.Provider>

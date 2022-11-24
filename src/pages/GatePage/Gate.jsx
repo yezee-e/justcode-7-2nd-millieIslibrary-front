@@ -21,7 +21,7 @@ function Gate() {
       .all([
         axios.get(`http://localhost:8000/category/1`),
         axios.get('http://localhost:8000/category/4'),
-        axios.get('http://localhost:8000/category/1'),
+        axios.get('http://localhost:8000/category/11'),
       ])
       .then(
         axios.spread((res1, res2, res4) => {

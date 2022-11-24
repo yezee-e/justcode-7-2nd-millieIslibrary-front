@@ -21,7 +21,6 @@ function Today() {
       })
       .then(res => {
         setRecommend(res.data);
-        console.log('data', res.data);
       })
       .catch(() => '로딩실패');
   };
@@ -38,7 +37,7 @@ function Today() {
   useEffect(() => {
     const token = localStorage.getItem('token');
     axios
-      .get('http://localhost:8000/user/data', {
+      .get('http://localhost:8000/user/info', {
         headers: {
           'Content-Type': 'application/json',
           authorization: token,

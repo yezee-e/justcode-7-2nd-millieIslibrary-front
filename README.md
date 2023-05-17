@@ -52,7 +52,7 @@ Github, Trello, Slack, 디스코드
 도서 상세페이지 구현   
 도서 찜, 서재 담기,댓글기능, 링크복사 구현   
 
-## 핵심트러블슈팅
+
 
 ## 회고 및 느낀점
 https://velog.io/@yezee/2%EC%B0%A8-%ED%8C%80%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%EB%B0%80%EB%A6%AC%EB%8A%94%EC%84%9C%EC%9E%AC

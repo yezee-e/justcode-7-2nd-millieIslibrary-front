@@ -11,11 +11,11 @@
 Front(3명) Backend(3명)
     
 ## 사용기술
-**Front-end >**          
-HTML5   
+**Front-end >**            
 JavaScript(ES6+)    
 React   
-SCSS    
+SCSS  
+HTML5       
 Axios     
 
 **Back-end >**            

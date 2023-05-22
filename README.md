@@ -11,14 +11,14 @@
 Front(3명) Backend(3명)
     
 ## 사용기술
-Front-end>    
+**Front-end >**          
 HTML5   
 JavaScript(ES6+)    
 React   
 SCSS    
 Axios     
 
-Back-end>      
+**Back-end >**            
 Node.js     
 Express     
 typeORM     

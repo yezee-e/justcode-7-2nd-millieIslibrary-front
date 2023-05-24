@@ -53,7 +53,7 @@ Github, Trello, Slack, discode
 도서 찜, 서재 담기,댓글기능, 링크복사 구현   
 
 ## 트러블슈팅
-**마우스 드레그로 좌우 스크롤 구현**          
+### 마우스 드레그로 좌우 스크롤 구현       
 마우스를 움직였을 때 더 이상 스크롤을 할 수 없는 상태에서, 반대쪽으로 스크롤을 움직이고 싶을 때, 처음 마우스를 클릭한 지점을 지나쳐야 스크롤이 움직입니다. ( startX(현재 클릭한 pageX와 움직인 스크롤의 길이 scrollLeft를 합친 값의 scrollLeft 값이 변하지 않기 때문에 )
 
 =>[해결방법] DOM의 속성을 이용해서 해결해주었습니다.            
@@ -71,7 +71,66 @@ if (isDrag) {
         setStartX(e.pageX + scrollLeft);
       }
     }
-```      
+```     
+### 성능저하
+**1. 드레그 슬라이드**      
+구현 과정에서 너무 많은 마우스 이벤트로 스크롤 이벤트가 발생하고 성능저하를 야기하였다.       
+
+=>[해결방법]
+ throttling을 사용해서 delay를 시켜주는 방식으로 성능을 개선하고자 하였습니다.         
+
+```js
+  const throttle = (func, ms) => {
+    let throttled = false;
+    return (...args) => {
+      if (!throttled) {
+        throttled = true;
+        setTimeout(() => {
+          func(...args);
+          throttled = false;
+        }, ms);
+      }
+    };
+  };
+
+  const delay = 50; //속도 50ms만큼 느려짐
+  const onThrottleDragMove = throttle(onDragMove, delay);
+```
+
+**2. 다크모드**         
+전역에서 다크모드를 사용할 수 있도록 라우터 페이지에서 useContext를 이용해서 ThmeContext를 만들었습니다         
+createContext는 내부에 공유하길 원하는 데이터의 초기값을 넣어두고 value 변수로 묶어줬습니다         
+이 때 value는 객체이므로 리렌더링의 주범이 되어 이 데이터를 쓰는 모든 컴포넌트가 매번 리렌더링되었습니다         
+
+=>[해결방법]   
+`useMemo,useCallback를 사용한다`           
+`객체(함수)자체를 Memoization해준다(값과 콜백을 메모리 어딘가에 저장해두고 필요할 때 가져다 쓴다)`  
+toggleTheme 함수로 인해 계속 렌더링되지 않도록 useCallback()을 넣어주었습니다      
+useCallback의 디펜던시로 setTheme을 넣어 theme에 변화가 생겼을 때만 랜더링이 되도록 해주었습니다
+
+```js
+export const ThemeContext = createContext('light');
+
+function Router() {
+  const [theme, setTheme] = useState('light');
+  const toggleTheme = useCallback(() => {
+    setTheme(cur => (cur === 'light' ? 'dark' : 'light'));
+  }, [setTheme]);
+
+  return (
+    <ThemeContext.Provider value={{ toggleTheme,theme }}>
+      <div id={theme}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          		{/*생략*/}
+          <Route path="/bookDetail" element={<BookDetail />} />
+        </Routes>
+      </div>
+    </ThemeContext.Provider>
+  );
+}
+```
+
 
 
 ## 회고 및 느낀점
